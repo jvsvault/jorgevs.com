@@ -1,57 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact – Jorge Viñals</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <link rel="stylesheet" href="../assets/css/styles.css" />
-  <link rel="icon" href="../assets/images/2024/04/cropped-110-32x32.jpg" sizes="32x32">
-  <link rel="icon" href="../assets/images/2024/04/cropped-110-192x192.jpg" sizes="192x192">
-  <link rel="apple-touch-icon" href="../assets/images/2024/04/cropped-110-180x180.jpg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Jorge Viñals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="icon" href="/assets/images/2024/04/cropped-110-32x32.jpg" sizes="32x32">
+  <link rel="icon" href="/assets/images/2024/04/cropped-110-192x192.jpg" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/images/2024/04/cropped-110-180x180.jpg">
 </head>
-<body class="page contact">
-
-  <header>
-    <p class="site-title"><a href="../index.html">Jorge Viñals</a></p>
-    <nav>
-      <a href="../about/index.html">About</a>
-      <a href="../manifest/index.html">Manifest</a>
-      <a href="../links/index.html">Links</a>
-      <a href="../listen/index.html">Listen</a>
-      <a href="../contact/index.html" class="active">Contact</a>
-    </nav>
-  </header>
-
-  <main>
-    <h1>Contact</h1>
-
-    <figure>
-      <img src="../assets/images/2024/07/051.jpg" alt="Featured image" />
-    </figure>
-
-    <p>
-      If you want to share some thoughts, or you have a project you think I may fit in, you can drop me a line <a href="mailto:jorgevs.com@gmail.com">here</a>.
-    </p>
-  </main>
-
-  <footer>
-    <a href="https://instagram.com/jorgevmusica" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-    <a href="https://tiktok.com/@jorgevmusica" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
-    <a href="https://youtube.com/@jorgevsmusic" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-    <a href="https://twitch.tv/jorgevmusica" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitch"></i></a>
-    <a href="../mailinglist/index.html"><i class="fas fa-envelope"></i> Mailing List</a>
-    <a href="https://buymeacoffee.com/jorgevmusica" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-mug-hot"></i> Support</a>
-  </footer>
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XT4CPT3N9D"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XT4CPT3N9D');
-  </script>
+<body>
+  <div class="container">
+    <div class="content contact-content">
+      <div class="param-nav"><!-- Navigation injected here --></div>
+      
+      <h2>GET IN TOUCH</h2>
+      
+      <div class="contact-form">
+        <form id="mailing-list-form" action="https://formspree.io/f/mail@jorgevs.com" method="POST">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+      
+      <div class="social-links">
+        <a href="https://soundcloud.com/visesounds" target="_blank"><i class="fab fa-soundcloud"></i></a>
+        <a href="https://www.youtube.com/channel/UC6g6dLIBBQ4w" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://github.com/jorgevs" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/jorgevs" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </div>
   
+  <script src="/assets/js/script.js"></script>
+  <script src="/assets/js/navigation.js"></script>
 </body>
 </html>

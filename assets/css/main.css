@@ -1,0 +1,34 @@
+@import './base.css';
+@import './components/header.css';
+@import './components/nav.css';
+@import './components/footer.css';
+@import './components/piano-roll.css';
+@import './components/decorations.css';
+
+.main-content {
+    flex: 1;
+    padding: var(--space-md) 0;
+}
+
+h2 {
+    position: relative;
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-weight: normal;
+    font-size: 1.2rem;
+    margin: var(--space-lg) 0 var(--space-md);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    z-index: 1;
+}
+
+h2::before {
+    content: "";
+    position: absolute;
+    height: 20px;
+    background-color: var(--color-accent);
+    top: var(--line-top);
+    left: var(--line-start);
+    width: var(--line-width);
+    z-index: -1;
+}

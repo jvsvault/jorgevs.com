@@ -1,0 +1,119 @@
+/* assets/css/components/header.css */
+.header {
+    padding: var(--space-lg) 0;
+}
+
+.title-container {
+    position: relative;
+    margin-bottom: var(--space-lg);
+    padding: var(--space-sm) 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+.title-container::before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 40%;
+    height: 60%;
+    background-color: var(--color-accent);
+    z-index: -2;
+}
+
+.title-container::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    background: var(--color-accent);
+    width: var(--title-glyph-width);
+    height: var(--title-glyph-height);
+    top: var(--title-glyph-top);
+    left: var(--title-glyph-left);
+    transform: translate(-50%, -50%);
+}
+
+.title {
+    font-weight: normal;
+    font-size: 2.2rem;
+    letter-spacing: -1px;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    padding: 0 1rem;
+    font-family: var(--font-sans);
+}
+
+.header-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-lg);
+}
+
+.metadata {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    line-height: 1.6;
+    overflow: hidden;
+}
+
+.metadata dt {
+    font-weight: bold;
+    margin-top: var(--space-sm);
+}
+
+.metadata dd {
+    position: relative;
+    z-index: 1;
+    margin-bottom: var(--space-xs);
+}
+
+.medium-item::before,
+.notation-item::before,
+.duration-item::before,
+.commissioned-item::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    background-color: var(--color-accent);
+    width: var(--line-width, 100%);
+    max-width: 100%;
+    z-index: -1;
+    left: var(--line-start, 0%);
+    top: var(--line-top, 0%);
+}
+
+.profile-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    overflow: visible;
+}
+
+.profile-image {
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 1/1;
+    filter: grayscale(100%) contrast(120%);
+    border: 1px solid var(--color-ink);
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+}
+
+.profile-decoration {
+    position: absolute;
+    background-color: var(--color-accent);
+    z-index: 0;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .header-grid {
+        grid-template-columns: 1fr;
+    }
+}

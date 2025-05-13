@@ -2,48 +2,17 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mailing List – Jorge Viñals</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <link rel="stylesheet" href="../assets/css/styles.css" />
-  <link rel="icon" href="../assets/images/2024/04/cropped-110-32x32.jpg" sizes="32x32">
-  <link rel="icon" href="../assets/images/2024/04/cropped-110-192x192.jpg" sizes="192x192">
-  <link rel="apple-touch-icon" href="../assets/images/2024/04/cropped-110-180x180.jpg">
-</head>
-<body class="page mailinglist">
-
-  <header>
-    <p class="site-title"><a href="../index.html">Jorge Viñals</a></p>
-    <nav>
-      <a href="../about/index.html">About</a>
-      <a href="../manifest/index.html">Manifest</a>
-      <a href="../links/index.html">Links</a>
-      <a href="../listen/index.html">Listen</a>
-      <a href="../contact/index.html">Contact</a>
-    </nav>
-  </header>
-
-  <main>
-    <h1>Mailing List</h1>
-
-    <p class="has-small-font-size mailing-intro">
-      Social media changes constantly. Email lists are forever. I promise you will get very few news from me. The geographic data is just for my own curiosity, and to know you better.
-    </p>
-
-    <div class="signup-form">
-      <script async src="https://balboai.eocampaign1.com/form/d35c687c-016c-11ef-9bcd-0d7dce3ac009.js" data-form="d35c687c-016c-11ef-9bcd-0d7dce3ac009"></script>
-    </div>
-  </main>
-
-  <footer>
-    <a href="https://instagram.com/jorgevmusica" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-    <a href="https://tiktok.com/@jorgevmusica" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
-    <a href="https://youtube.com/@jorgevsmusic" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-    <a href="https://twitch.tv/jorgevmusica" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitch"></i></a>
-    <a href="../mailinglist/index.html"><i class="fas fa-envelope"></i> Mailing List</a>
-    <a href="https://buymeacoffee.com/jorgevmusica" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-mug-hot"></i> Support</a>
-  </footer>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mailing List | Jorge Viñals</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/images/cropped-110-32x32.jpg" sizes="32x32">
+  <link rel="icon" href="/assets/images/cropped-110-192x192.jpg" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/images/cropped-110-180x180.jpg">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XT4CPT3N9D"></script>
   <script>
@@ -53,5 +22,92 @@
     gtag('config', 'G-XT4CPT3N9D');
   </script>
   
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  
+  <style>
+    /* Additional styles for mailing list page */
+    .mailing-intro {
+      margin: 2rem 0;
+      padding: 1rem;
+      border-left: 4px solid var(--color-accent);
+      background-color: rgba(0, 0, 0, 0.03);
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    
+    .form-container {
+      margin: 2rem 0;
+      padding: 2rem;
+      border: 1px solid var(--color-ink);
+      position: relative;
+    }
+    
+    .form-container::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: 30px;
+      width: 20px;
+      height: 20px;
+      background-color: var(--color-paper);
+      border-top: 1px solid var(--color-ink);
+      border-left: 1px solid var(--color-ink);
+      transform: rotate(45deg);
+    }
+    
+    /* Style for the Email Octopus form */
+    .emailoctopus-form-wrapper {
+      width: 100% !important;
+      max-width: none !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="title-container">
+      <h1>Jorge Viñals</h1>
+    </div>
+
+    <div class="content mailinglist-content">
+      <div class="param-nav">
+        <a href="/about">About</a>
+        <a href="/manifest">Manifest</a>
+        <a href="/links">Links</a>
+        <a href="/listen">Listen</a>
+        <a href="/contact">Contact</a>
+      </div>
+
+      <h2>JOIN THE MAILING LIST</h2>
+      
+      <div class="mailing-intro">
+        <p>Social media changes constantly. Email lists are forever. I promise you will get very few news from me. The geographic data is just for my own curiosity, and to know you better.</p>
+      </div>
+      
+      <div class="form-container">
+        <!-- Email Octopus Form -->
+        <script async src="https://balboai.eocampaign1.com/form/d35c687c-016c-11ef-9bcd-0d7dce3ac009.js" data-form="d35c687c-016c-11ef-9bcd-0d7dce3ac009"></script>
+      </div>
+
+      <div class="piano-roll">
+        <div class="roll-container">
+          <a href="#" class="midi-note instagram">Instagram</a>
+          <a href="#" class="midi-note tiktok">TikTok</a>
+          <a href="#" class="midi-note youtube">YouTube</a>
+          <a href="#" class="midi-note twitch">Twitch</a>
+          <a href="#" class="midi-note mail">Mail</a>
+          <a href="#" class="midi-note support">Support</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-footer">
+      &copy; <script>document.write(new Date().getFullYear())</script> Jorge Viñals
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/assets/js/scripts.js"></script>
 </body>
 </html>
