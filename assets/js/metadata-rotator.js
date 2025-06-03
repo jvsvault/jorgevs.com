@@ -1,51 +1,111 @@
 /**
- * Metadata Rotator - Minimal Implementation
- * This script handles text rotation without affecting animations
+ * Metadata Rotator - Clean Architecture
+ * Simple rotation without fade effects
  */
 
-// Content to rotate through
-const content = [
-  { title: 'Medium', text: 'Acoustic / Electronic' },
-  { title: 'Medium', text: 'Piano / Ensembles' },
-  { title: 'Medium', text: 'Sound Design / Tape' },
-  { title: 'Inspiration', text: 'Electronic / Experimental' },
-  { title: 'Inspiration', text: 'Boards of Canada / Aphex Twin' },
-  { title: 'Inspiration', text: 'William Basinski / Merzbow' }
-];
+import rotationConfig from './config/rotations.js';
 
-// Global index for debug panel - start with index 1 as requested
-let currentIndex = 1;
+// Current indices for each position
+const currentIndices = {
+  position1: 0,
+  position2: 0,
+  position3: 0,
+  position4: 0
+};
 
-// Simple function to update text only
-function updateText() {
-  const titleEl = document.querySelector('#rotating-dl-target dt');
-  const textEl = document.querySelector('#rotating-dl-target dd');
+// Rotation interval in milliseconds
+const interval = rotationConfig.interval || 5000;
+
+/**
+ * Initialize the rotation for a specific position
+ */
+function initializeRotation(position, items, initialDelay = 0) {
+  // Get the DOM elements
+  const getElements = () => {
+    let titleElement, contentElement;
+    
+    // Try with position-specific classes first
+    titleElement = document.querySelector(`.${position}-title`);
+    contentElement = document.querySelector(`.${position}-item`);
+    
+    // Fall back to legacy class names if needed
+    if (!titleElement || !contentElement) {
+      if (position === 'position1') {
+        titleElement = document.querySelector('.medium-title');
+        contentElement = document.querySelector('.medium-item');
+      } else if (position === 'position2') {
+        titleElement = document.querySelector('.notation-title');
+        contentElement = document.querySelector('.notation-item');
+      } else if (position === 'position3') {
+        titleElement = document.querySelector('.duration-title');
+        contentElement = document.querySelector('.duration-item');
+      } else if (position === 'position4') {
+        titleElement = document.querySelector('.commissioned-title');
+        contentElement = document.querySelector('.commissioned-item');
+      }
+    }
+    
+    return { titleElement, contentElement };
+  };
+
+  // Function to update the content
+  const updateContent = () => {
+    const { titleElement, contentElement } = getElements();
+    
+    if (!titleElement || !contentElement) {
+      console.warn(`ROTATOR: Elements for ${position} not found`);
+      return;
+    }
+    
+    // Store current height to prevent layout shift
+    const currentHeight = contentElement.offsetHeight;
+    contentElement.style.minHeight = `${currentHeight}px`;
+    
+    // Get the current item
+    const itemIndex = currentIndices[position];
+    const item = items[itemIndex];
+    
+    // Direct update - no fade
+    titleElement.textContent = item.title;
+    contentElement.innerHTML = item.content;
+    
+    // NO ANIMATION UPDATES - decorations are set once at load
+    
+    // Log the update (for debugging)
+    console.log(`ROTATOR: Updated ${position} to:`, item.title);
+    
+    // Increment the index for next rotation
+    currentIndices[position] = (itemIndex + 1) % items.length;
+  };
   
-  if (!titleEl || !textEl) return;
+  // Initial update (apply first item immediately)
+  setTimeout(updateContent, initialDelay);
   
-  // Update text only
-  titleEl.textContent = content[currentIndex].title;
-  textEl.textContent = content[currentIndex].text;
-  
-  // Update debug info
-  const debug = document.getElementById('debug-info');
-  if (debug) {
-    debug.innerHTML = `Rotation: ${content[currentIndex].title} - ${content[currentIndex].text}<br>Index: ${currentIndex}`;
-  }
-  
-  // Move to next item
-  currentIndex = (currentIndex + 1) % content.length;
+  // Set up the interval for continuous rotation
+  setTimeout(() => {
+    setInterval(updateContent, interval);
+  }, initialDelay + interval);
 }
 
-// Initialize on page load with more reliable timing
-window.addEventListener('load', () => {
-  // Wait for browser to complete any animations
-  requestAnimationFrame(() => {
-    // First rotation happens after 5 seconds (same as all subsequent rotations)
-    setTimeout(() => {
-      updateText();
-      // All rotations happen at exactly 5-second intervals
-      setInterval(updateText, 5000);
-    }, 5000);
-  });
-});
+/**
+ * Initialize all rotations with a staggered start
+ */
+export function initializeRotations() {
+  console.log('ROTATOR: Initializing metadata rotations');
+  
+  // Check if rotation configuration is valid
+  if (!rotationConfig || !rotationConfig.rotationSets) {
+    console.error('ROTATOR: Invalid rotation configuration');
+    return;
+  }
+  
+  const { rotationSets } = rotationConfig;
+  
+  // Set up staggered delays for each position
+  initializeRotation('position1', rotationSets.position1, 0);
+  initializeRotation('position2', rotationSets.position2, interval * 0.25);
+  initializeRotation('position3', rotationSets.position3, interval * 0.5);
+  initializeRotation('position4', rotationSets.position4, interval * 0.75);
+  
+  console.log('ROTATOR: All rotations initialized successfully');
+}
