@@ -1,148 +1,144 @@
-// assets/js/main.js
-document.addEventListener('DOMContentLoaded', () => {
-  // Preload components before showing anything
-  preloadResources().then(() => {
-      // Only initialize and show content when everything is loaded
-      initializeComponents().then(() => {
-          // After everything is initialized, show the body
-          document.body.style.opacity = '1';
-      });
-  });
-});
+/**
+ * Jorge Viñals Website - Main Controller (SPA Version)
+ * Much simpler now that we have a single page
+ */
 
-async function preloadResources() {
-  // Create hidden preload elements for critical resources
-  const preloads = [
-      '/components/header.html',
-      '/components/nav.html',
-      '/components/footer.html',
-  ];
-  
-  // Create an array of promises for each resource
-  const preloadPromises = preloads.map(url => {
-      return fetch(url).then(response => {
-          if (!response.ok) throw new Error(`Failed to preload ${url}`);
-          return response.text();
-      });
-  });
-  
-  // Wait for all resources to be preloaded
-  return Promise.all(preloadPromises).catch(err => {
-      console.error('Error preloading resources:', err);
-  });
-}
+import randomizer from './randomizer.js';
+import { initializeRotations } from './metadata-rotator.js';
+import contentManager from './content-manager.js';
 
-async function initializeComponents() {
-  // Run these in parallel for better performance
-  await Promise.all([
-      initHeader(),
-      initNavigation(),
-      initFooter()
-  ]);
-  
-  // Initialize animations last to ensure the DOM is ready
-  setTimeout(() => {
-      import('./components/animations.js').then(module => {
-          module.initAnimations();
-      });
-  }, 50);
-}
-
-async function initHeader() {
-  const headerContainer = document.getElementById('header-container');
-  if (!headerContainer) return;
-  
-  try {
-      const response = await fetch('/components/header.html');
-      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-      
-      const html = await response.text();
-      headerContainer.innerHTML = html;
-  } catch (error) {
-      console.error('Error loading header:', error);
-      headerContainer.innerHTML = `
-          <div class="title-container">
-              <h1 class="title">Jorge Viñals</h1>
-          </div>
-          <div class="header-grid">
-              <div class="metadata">
-                  <dl>
-                      <dt>Medium</dt>
-                      <dd class="medium-item">Acoustic / Electronic / Tape </dd>
-                      <dt>Notation</dt>
-                      <dd class="notation-item">Traditional / MIDI </dd>
-                      <dt>Duration</dt>
-                      <dd class="duration-item">Variable</dd>
-                      <dt>Commissioned By</dt>
-                      <dd class="commissioned-item">Coca-Cola, New Balance,<br>Mccann Erickson, Ogilvy,<br>El Deseo</dd>
-                  </dl>
-              </div>
-              <div class="profile-image-container">
-                  <img src="/assets/images/2024/04/110.jpg" alt="Jorge Viñals" class="profile-image" />
-              </div>
-          </div>
-      `;
+class JorgeVSMain {
+  constructor() {
+    this.isInitialized = false;
   }
-}
 
-async function initNavigation() {
-  const navContainer = document.getElementById('nav-container');
-  if (!navContainer) return;
-  
-  try {
-      const response = await fetch('/components/nav.html');
-      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+  /**
+   * Initialize the entire website
+   */
+  async init() {
+    console.log('MAIN: Starting SPA initialization');
+
+    try {
+      // Step 1: Initialize randomization FIRST (before anything shows)
+      await randomizer.initialize();
       
-      const html = await response.text();
-      navContainer.innerHTML = html;
+      // Step 2: Initialize content management system
+      contentManager.init();
       
-      // Set active link
-      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-      const links = navContainer.querySelectorAll('.nav-link');
-      links.forEach(link => {
-          const href = link.getAttribute('href');
-          if (href === currentPage || (currentPage === 'index.html' && href === '/' || href === '')) {
-              link.classList.add('active');
-          }
-      });
-  } catch (error) {
-      console.error('Error loading navigation:', error);
-      navContainer.innerHTML = `
-          <nav class="navigation">
-              <ul class="nav-list">
-                  <li><a href="/about" class="nav-link">About</a></li>
-                  <li><a href="/manifest" class="nav-link">Manifest</a></li>
-                  <li><a href="/links" class="nav-link">Links</a></li>
-                  <li><a href="/listen" class="nav-link">Listen</a></li>
-                  <li><a href="/contact" class="nav-link">Contact</a></li>
-              </ul>
-          </nav>
-      `;
+      // Step 3: Initialize metadata rotations
+      await this.initializeRotations();
+      
+      // Step 4: Set up page-specific features
+      this.initializePageFeatures();
+      
+      // Step 5: Show the page
+      document.body.classList.add('loaded');
+      
+      this.isInitialized = true;
+      console.log('MAIN: SPA initialization complete');
+      
+    } catch (error) {
+      console.error('MAIN: Initialization failed:', error);
+      // Still show the page even if something failed
+      document.body.classList.add('loaded');
+    }
   }
-}
 
-async function initFooter() {
-  const footerContainer = document.getElementById('footer-container');
-  if (!footerContainer) return;
-  
-  try {
-      const response = await fetch('/components/footer.html');
-      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-      
-      const html = await response.text();
-      footerContainer.innerHTML = html;
-      
-      // Set current year
-      const yearElement = footerContainer.querySelector('#current-year');
-      if (yearElement) {
-          yearElement.textContent = new Date().getFullYear();
+  /**
+   * Initialize metadata rotations
+   */
+  async initializeRotations() {
+    try {
+      console.log('MAIN: Initializing metadata rotations');
+      await initializeRotations();
+      console.log('MAIN: Metadata rotations initialized');
+    } catch (error) {
+      console.error('MAIN: Error initializing rotations:', error);
+    }
+  }
+
+  /**
+   * Initialize page-specific features
+   */
+  initializePageFeatures() {
+    console.log('MAIN: Initializing page-specific features');
+    
+    // Listen page player tabs (will be available when listen section loads)
+    this.initializePlayerTabs();
+    
+    // Contact page mailing list form (will be available when contact section loads)
+    this.initializeMailingForm();
+  }
+
+  /**
+   * Initialize player tabs for listen page
+   */
+  initializePlayerTabs() {
+    // Use event delegation since player tabs might be loaded dynamically
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('player-tab')) {
+        const tab = e.target;
+        
+        // Remove active class from all tabs and containers
+        document.querySelectorAll('.player-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.player-container').forEach(c => c.classList.remove('active'));
+        
+        // Add active class to clicked tab
+        tab.classList.add('active');
+        
+        // Show corresponding player
+        const playerId = tab.getAttribute('data-player');
+        const playerContainer = document.getElementById(playerId);
+        if (playerContainer) {
+          playerContainer.classList.add('active');
+        }
       }
-  } catch (error) {
-      console.error('Error loading footer:', error);
-      footerContainer.innerHTML = `
-          <div class="site-footer">
-              &copy; ${new Date().getFullYear()} Jorge Viñals
-          </div>
-      `;
+    });
+  }
+
+  /**
+   * Initialize mailing list form for contact page
+   */
+  initializeMailingForm() {
+    // Use event delegation since form might be loaded dynamically
+    document.addEventListener('click', (e) => {
+      if (e.target.id === 'show-mailing-form') {
+        const formContainer = document.getElementById('mailing-form-container');
+        if (formContainer) {
+          formContainer.style.display = 'flex';
+          setTimeout(() => formContainer.classList.add('visible'), 10);
+        }
+      }
+      
+      if (e.target.id === 'close-mailing-form') {
+        const formContainer = document.getElementById('mailing-form-container');
+        if (formContainer) {
+          formContainer.classList.remove('visible');
+          setTimeout(() => formContainer.style.display = 'none', 300);
+        }
+      }
+    });
+    
+    // Close form when clicking outside
+    document.addEventListener('click', (e) => {
+      if (e.target.id === 'mailing-form-container') {
+        const closeButton = document.getElementById('close-mailing-form');
+        if (closeButton) closeButton.click();
+      }
+    });
   }
 }
+
+// Initialize when DOM is ready
+const main = new JorgeVSMain();
+
+// Handle different loading states
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => main.init());
+} else {
+  // DOM already loaded
+  main.init();
+}
+
+// Export for potential external use
+export default main;
