@@ -166,10 +166,12 @@ class ContentManager {
         // Update navigation active state
         this.updateNavigation(sectionName);
         
-        // Apply random animations to new h2 elements
+        // Trigger full randomization on section change
         if (window.jorgevsRandomizer) {
           setTimeout(() => {
-            window.jorgevsRandomizer.randomizeH2Elements();
+            // Re-randomize everything: background, shapes, colors
+            window.jorgevsRandomizer.applyRandomization();
+            console.log('CONTENT MANAGER: Triggered new randomization for section change');
           }, 100);
         }
         

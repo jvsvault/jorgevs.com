@@ -1,0 +1,29 @@
+# Cache Control Headers
+<IfModule mod_headers.c>
+  # Disable caching for HTML files
+  <FilesMatch "\.(html)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires 0
+  </FilesMatch>
+  
+  # Short cache for CSS and JS (1 hour)
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "max-age=3600, must-revalidate"
+  </FilesMatch>
+  
+  # Longer cache for images (1 week)
+  <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico)$">
+    Header set Cache-Control "max-age=604800, public"
+  </FilesMatch>
+  
+  # Longer cache for fonts (1 month)
+  <FilesMatch "\.(woff|woff2|eot|ttf|otf)$">
+    Header set Cache-Control "max-age=2592000, public"
+  </FilesMatch>
+</IfModule>
+
+# Enable Gzip compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
