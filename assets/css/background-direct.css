@@ -1,0 +1,25 @@
+/* Direct background styling - no JavaScript required */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/images/background/2e9ea32e-9a95-4c1e-bb05-e730465e0f19.png');
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+}
+
+/* Apply the accent color to all geometric elements */
+.title-container::after, 
+h2::before, 
+.medium-item::before, 
+.notation-item::before,
+.duration-item::before, 
+.commissioned-item::before, 
+.inspiration-item::before,
+.profile-decoration {
+  background-color: var(--color-accent);
+}

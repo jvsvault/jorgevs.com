@@ -68,6 +68,7 @@ body::before {
     background-image: var(--bg-image);
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     z-index: 0;
 }
 
@@ -79,7 +80,7 @@ body.loaded {
 .container {
     width: 100%;
     margin: 0 auto;
-    background-color: var(--container-bg);
+    background-color: rgba(0, 0, 0, 0.5); /* 50% opacity black */
     border-top: var(--border-width) solid var(--border-color);
     border-bottom: var(--border-width) solid var(--border-color);
     padding: var(--container-padding);
@@ -387,22 +388,21 @@ p {
 }
 
 /* MIDI note positions */
-.instagram { top: 10px; left: 5%; width: 45px; animation-delay: 0.1s; }
-.tiktok { top: 25px; left: 30%; width: 35px; animation-delay: 0.2s; }
-.youtube { top: 40px; left: 60%; width: 45px; animation-delay: 0.3s; }
-.twitch { top: 20px; left: 75%; width: 40px; animation-delay: 0.4s; }
-.mail { top: 45px; left: 15%; width: 30px; animation-delay: 0.5s; }
-.support { top: 30px; left: 45%; width: 50px; animation-delay: 0.6s; }
+.instagram { top: 10px; left: 10%; width: 55px; animation-delay: 0.1s; }
+.tiktok { top: 35px; left: 35%; width: 45px; animation-delay: 0.2s; }
+.youtube { top: 20px; left: 60%; width: 55px; animation-delay: 0.3s; }
+.support { top: 45px; left: 75%; width: 50px; animation-delay: 0.4s; }
 
 /* Site footer */
 .site-footer {
     margin-top: 1.5rem;
     padding: 1rem 0 0.75rem;
     text-align: center;
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
     color: var(--text-color);
     border-top: var(--border-width) solid var(--border-color);
+    letter-spacing: 0.02em;
 }
 
 /* Contact page specific */
@@ -542,7 +542,7 @@ p {
     
     /* Text sizes */
     .site-footer {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
     }
     
     .midi-note {

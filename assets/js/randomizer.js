@@ -5,6 +5,7 @@
 
 import { ColorUtils } from './utils/color-utils.js';
 import { ShapeUtils } from './utils/shape-utils.js';
+import { detectAllImages } from './auto-image-detector.js';
 
 class JorgeVSRandomizer {
     constructor() {
@@ -35,40 +36,40 @@ class JorgeVSRandomizer {
      * Load available images
      */
     async loadAvailableImages() {
+      // Try API endpoints first
       try {
-        // Try to fetch from API first
         const response = await fetch('/api/images');
         if (response.ok) {
           const data = await response.json();
           this.backgroundImages = data.background;
           this.geometryImages = data.geometry;
-          console.log(`RANDOMIZER: Dynamically loaded ${this.backgroundImages.length} backgrounds, ${this.geometryImages.length} geometry images`);
+          console.log(`RANDOMIZER: API loaded ${this.backgroundImages.length} backgrounds, ${this.geometryImages.length} geometry images`);
           return;
         }
       } catch (error) {
-        console.log('RANDOMIZER: API not available, using fallback');
+        console.log('RANDOMIZER: API not available');
       }
       
-      // Fallback to known images - include both JPG and PNG
+      // Fallback list based on your actual files
       this.backgroundImages = [
-        '01.jpg', '01 2.jpg', '06.jpg', '07.jpg', '09.jpg',
-        '2e9ea32e-9a95-4c1e-bb05-e730465e0f19.png',
-        '352b7503-9023-456e-90f2-69875a0d3820.png',
-        '92a9cf41-11b4-436d-8e2e-dc1f83c08c39.png',
-        'd004a045-43b1-4c5c-abb5-7032dd10d395.png',
-        'e4d523a1-2a0e-4189-a7c3-341144c7a491.png'
+        '00420020.JPG',
+        'R1-02565-022A.JPG',
+        'r001-004.jpg',
+        'r001-005.jpg',
+        'r001-012.jpg',
+        'r001-013.jpg',
+        'r001-018.jpg',
+        'r001-020.jpg',
+        'r001-021 2.jpg',
+        'r001-021.jpg',
+        'r001-025.jpg'
       ];
-  
+      
       this.geometryImages = [
         '01.jpg', '02.jpg', '03.jpg', '03 copia.jpg', '05.jpg', '07.jpg',
-        '08.jpg', '09.jpg', '10.jpg', '11.jpg', '12.jpg',
-        '0f6255a0-b8cf-4c9d-b12a-0708b288f847.png',
-        '1aacc4eb-7ef1-453f-a88f-a98b089364c2.png',
-        '7319fe29-2b49-43db-9c96-7ea78e2a82fb (1).png',
-        'b52b84d6-d2e6-4537-8672-462d3d7c8fbc.png',
-        'f0cd9415-0daa-465f-9ae9-08dd2011a9ed.png'
+        '08.jpg', '09.jpg', '10.jpg', '11.jpg', '12.jpg'
       ];
-  
+      
       console.log(`RANDOMIZER: Using fallback - ${this.backgroundImages.length} backgrounds, ${this.geometryImages.length} geometry images`);
     }
   
@@ -91,6 +92,17 @@ class JorgeVSRandomizer {
       
       console.log(`RANDOMIZER: Setting background: ${bgPath}`);
       console.log(`RANDOMIZER: Setting geometry: ${geoPath}`);
+      
+      // Verify background image loads
+      const testImg = new Image();
+      testImg.onerror = () => {
+        console.error(`RANDOMIZER: Failed to load background: ${bgPath}`);
+        // Set a solid fallback color instead of trying another image
+        root.style.setProperty('--bg-image', 'none');
+        root.style.setProperty('background-color', '#1a1a1a');
+        console.log(`RANDOMIZER: Using solid color fallback`);
+      };
+      testImg.src = bgPath;
       
       // Generate random values for shapes
       this.randomizeShapes();
@@ -191,12 +203,17 @@ class JorgeVSRandomizer {
      * Extract and set accent color
      */
     async setAccentColor(imagePath) {
+      console.log(`RANDOMIZER: Starting color extraction from ${imagePath}`);
       try {
         const baseColor = await this.extractDominantColor(imagePath);
+        console.log(`RANDOMIZER: Extracted base color: ${baseColor}`);
+        
         const colorVariations = this.generateColorVariations(baseColor);
+        console.log('RANDOMIZER: Generated color variations:', colorVariations);
         
         // Set base accent color
         document.documentElement.style.setProperty('--accent-color', baseColor);
+        console.log(`RANDOMIZER: Set accent color to ${baseColor}`);
         
         // Apply color variations to different elements
         this.applyColorVariations(colorVariations);
@@ -215,25 +232,29 @@ class JorgeVSRandomizer {
       // Store color variations for later use
       this.colorVariations = colorVariations;
       const colorArray = Object.values(colorVariations);
+      console.log('RANDOMIZER: Applying color variations to elements:', colorArray);
       
       // Apply random colors to decorations after a delay to ensure elements exist
       setTimeout(() => {
         // H2 decorations
-        document.querySelectorAll('h2').forEach((h2) => {
+        document.querySelectorAll('h2').forEach((h2, index) => {
           const color = colorArray[Math.floor(Math.random() * colorArray.length)];
           h2.style.setProperty('--decoration-color', color);
+          console.log(`RANDOMIZER: Applied color ${color} to H2 #${index}: "${h2.textContent}"`);
         });
         
         // Metadata decorations
-        document.querySelectorAll('.metadata dd').forEach((dd) => {
+        document.querySelectorAll('.metadata dd').forEach((dd, index) => {
           const color = colorArray[Math.floor(Math.random() * colorArray.length)];
           dd.style.setProperty('--decoration-color', color);
+          console.log(`RANDOMIZER: Applied color ${color} to metadata dd #${index}`);
         });
       }, 200);
       
       // Profile decoration gets a random color too
       const profileColor = colorArray[Math.floor(Math.random() * colorArray.length)];
       document.documentElement.style.setProperty('--profile-decoration-color', profileColor);
+      console.log(`RANDOMIZER: Applied profile decoration color: ${profileColor}`);
     }
   
     /**

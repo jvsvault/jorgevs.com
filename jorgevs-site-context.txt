@@ -1,0 +1,3057 @@
+# JORGEVS.COM WEBSITE CONTEXT
+# Generated on Mon May 26 18:54:48 CEST 2025
+
+## SITE STRUCTURE
+```
+./about/index.html
+./assets/css/background-direct.css
+./assets/css/style.css
+./assets/fonts/cardo/cardo_italic_400.woff2
+./assets/fonts/cardo/cardo_normal_400.woff2
+./assets/fonts/cardo/cardo_normal_700.woff2
+./assets/fonts/inter/Inter-VariableFont_slnt,wght.woff2
+./assets/images/2024/04/036_BW-1024x576.jpg
+./assets/images/2024/04/036_BW-1536x864.jpg
+./assets/images/2024/04/036_BW-2048x1152.jpg
+./assets/images/2024/04/036_BW-300x169.jpg
+./assets/images/2024/04/036_BW-768x432.jpg
+./assets/images/2024/04/060-1024x577.jpg
+./assets/images/2024/04/060-1536x865.jpg
+./assets/images/2024/04/060-2048x1154.jpg
+./assets/images/2024/04/060-300x169.jpg
+./assets/images/2024/04/060-768x433.jpg
+./assets/images/2024/04/060.jpg
+./assets/images/2024/04/064-1024x577.jpg
+./assets/images/2024/04/064-1536x865.jpg
+./assets/images/2024/04/064-2048x1154.jpg
+./assets/images/2024/04/064-300x169.jpg
+./assets/images/2024/04/064-768x433.jpg
+./assets/images/2024/04/110-1024x577.jpg
+./assets/images/2024/04/110-1536x865.jpg
+./assets/images/2024/04/110-2048x1153.jpg
+./assets/images/2024/04/110-300x169.jpg
+./assets/images/2024/04/110-768x432.jpg
+./assets/images/2024/04/110.jpg
+./assets/images/2024/04/117-1024x576.jpg
+./assets/images/2024/04/117-1536x865.jpg
+./assets/images/2024/04/117-2048x1153.jpg
+./assets/images/2024/04/117-300x169.jpg
+./assets/images/2024/04/117-768x432.jpg
+./assets/images/2024/04/117.jpg
+./assets/images/2024/04/Snapseed-1024x575.jpg
+./assets/images/2024/04/Snapseed-300x169.jpg
+./assets/images/2024/04/Snapseed-768x432.jpg
+./assets/images/2024/04/Snapseed.jpg
+./assets/images/2024/04/cropped-110-180x180.jpg
+./assets/images/2024/04/cropped-110-192x192.jpg
+./assets/images/2024/04/cropped-110-270x270.jpg
+./assets/images/2024/04/cropped-110-32x32.jpg
+./assets/images/2024/07/051-1024x577.jpg
+./assets/images/2024/07/051-1536x865.jpg
+./assets/images/2024/07/051-2048x1154.jpg
+./assets/images/2024/07/051-300x169.jpg
+./assets/images/2024/07/051-768x433.jpg
+./assets/images/2024/07/051.jpg
+./assets/images/2024/07/VLCScreenSnapz102-1024x576.jpg
+./assets/images/2024/07/VLCScreenSnapz102-1536x864.jpg
+./assets/images/2024/07/VLCScreenSnapz102-2048x1152.jpg
+./assets/images/2024/07/VLCScreenSnapz102-300x169.jpg
+./assets/images/2024/07/VLCScreenSnapz102-768x432.jpg
+./assets/images/2024/07/VLCScreenSnapz102.jpg
+./assets/images/background/2e9ea32e-9a95-4c1e-bb05-e730465e0f19.png
+./assets/images/background/352b7503-9023-456e-90f2-69875a0d3820.png
+./assets/images/background/92a9cf41-11b4-436d-8e2e-dc1f83c08c39.png
+./assets/images/background/d004a045-43b1-4c5c-abb5-7032dd10d395.png
+./assets/images/background/e4d523a1-2a0e-4189-a7c3-341144c7a491.png
+./assets/images/bg/02b48b19-4edc-44c2-a6bb-9cdc8fe40399.png.crdownload
+./assets/images/bg/0f6255a0-b8cf-4c9d-b12a-0708b288f847.png
+./assets/images/bg/1f18b3bf-bf82-4f9a-bd50-fd9d2ca379b6.png.crdownload
+./assets/images/bg/236a097e-d4da-4534-9e41-6b285b37b00c.png.crdownload
+./assets/images/bg/2c2c3eb7-2683-4448-ad38-6ec945d69171.png
+./assets/images/bg/352b7503-9023-456e-90f2-69875a0d3820.png
+./assets/images/bg/3d0050e7-2ba8-4ff1-9cc6-81b556112b50.png.crdownload
+./assets/images/bg/4ce352bf-75eb-421f-b27b-b7f28fcee5d7.png
+./assets/images/bg/4e1fb467-dab3-4eef-9548-1bbd35a5b75e.png
+./assets/images/bg/520d84b5-4ae7-4d61-b950-01b1ad4e635c.png
+./assets/images/bg/7319fe29-2b49-43db-9c96-7ea78e2a82fb.png
+./assets/images/bg/7b369c53-62ea-46c2-aecc-7b1258e87118.png
+./assets/images/bg/88e95e7e-e0b4-4514-9a26-7fa8ec44e357.png
+./assets/images/bg/9257d248-bd60-4d25-8528-44543792f0b5.png
+./assets/images/bg/95657789-d537-4a07-88f8-ea77d12d84a7.png
+./assets/images/bg/9d0dedfa-e709-4ee4-8489-b6f266226143.png.crdownload
+./assets/images/bg/9e140fdf-002f-49f4-9a9d-9e3a91a11c8a.png.crdownload
+./assets/images/bg/9fe05c93-1d19-4b8c-87f0-8bf116aa3bc6.png
+./assets/images/bg/a682b235-8578-478a-bb60-fe6cbb62d6b5.png
+./assets/images/bg/b52b84d6-d2e6-4537-8672-462d3d7c8fbc.png
+./assets/images/bg/background/001.jpg
+./assets/images/bg/background/2e9ea32e-9a95-4c1e-bb05-e730465e0f19.png
+./assets/images/bg/background/352b7503-9023-456e-90f2-69875a0d3820.png
+./assets/images/bg/background/92a9cf41-11b4-436d-8e2e-dc1f83c08c39.png
+./assets/images/bg/background/Abstract-Texture-2.jpg
+./assets/images/bg/background/Modern-Abstract-Acrylic-Textures-13.jpg
+./assets/images/bg/background/Modern-Abstract-Acrylic-Textures-2.jpg
+./assets/images/bg/background/Modern-Abstract-Acrylic-Textures-6.jpg
+./assets/images/bg/background/Paper-Texture-2.jpg
+./assets/images/bg/background/Paper-Texture-4.jpg
+./assets/images/bg/background/Paper-Texture-7.jpg
+./assets/images/bg/background/Paper-Texture-8.jpg
+./assets/images/bg/background/Z794-17-z-suede-brunello_02.jpg
+./assets/images/bg/background/Z794-20-z-suede-cognac_02.jpg
+./assets/images/bg/background/Z794-25-z-suede-indigo_02.jpg
+./assets/images/bg/background/Z794-28-z-suede-cerulean_02.jpg
+./assets/images/bg/background/Z794-29-z-suede-hunting_02.jpg
+./assets/images/bg/background/d004a045-43b1-4c5c-abb5-7032dd10d395.png
+./assets/images/bg/background/e4d523a1-2a0e-4189-a7c3-341144c7a491.png
+./assets/images/bg/background/white-paper-texture.jpg
+./assets/images/bg/d004a045-43b1-4c5c-abb5-7032dd10d395.png
+./assets/images/bg/f0cd9415-0daa-465f-9ae9-08dd2011a9ed.png
+./assets/images/bg/fdf6e99a-108a-4ac1-ab76-30d438a39016.png.crdownload
+./assets/images/bg/geometric/0f6255a0-b8cf-4c9d-b12a-0708b288f847.png
+./assets/images/bg/geometric/1aacc4eb-7ef1-453f-a88f-a98b089364c2.png
+./assets/images/bg/geometric/7319fe29-2b49-43db-9c96-7ea78e2a82fb (1).png
+./assets/images/bg/geometric/b52b84d6-d2e6-4537-8672-462d3d7c8fbc.png
+./assets/images/bg/geometric/f0cd9415-0daa-465f-9ae9-08dd2011a9ed.png
+./assets/images/geometry/0f6255a0-b8cf-4c9d-b12a-0708b288f847.png
+./assets/images/geometry/1aacc4eb-7ef1-453f-a88f-a98b089364c2.png
+./assets/images/geometry/7319fe29-2b49-43db-9c96-7ea78e2a82fb (1).png
+./assets/images/geometry/b52b84d6-d2e6-4537-8672-462d3d7c8fbc.png
+./assets/images/geometry/f0cd9415-0daa-465f-9ae9-08dd2011a9ed.png
+./assets/js/background.js
+./assets/js/components/animations.js
+./assets/js/components/decorations.js
+./assets/js/components/footer.js
+./assets/js/components/header.js
+./assets/js/components/nav.js
+./assets/js/config/rotations.js
+./assets/js/main.js
+./assets/js/metadata-rotator.js
+./assets/js/navigation.js
+./assets/js/script.js
+./components/footer.html
+./components/header.html
+./components/nav.html
+./contact/index.html
+./etc/index.html
+./generate-context.sh
+./index.html
+./jorgevs-site-context.txt
+./listen/index.html
+./mailinglist/index.html
+./test.html
+```
+
+## DIRECTORY TREE
+```
+.
+|--etc
+|--about
+|--assets
+|--listen
+|--contact
+|--|--js
+|--|--css
+|--components
+|--mailinglist
+|--|--fonts
+|--|--images
+|--|--|--bg
+|--|--|--config
+|--|--|--cardo
+|--|--|--inter
+|--|--|--2024
+|--|--|--components
+|--|--|--|--04
+|--|--|--|--07
+|--|--|--geometry
+|--|--|--background
+|--|--|--|--geometric
+|--|--|--|--background
+```
+
+## HTML FILES
+## FILE: index.html
+```
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Jorge Viñals</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/background-direct.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="icon" href="/assets/images/2024/04/cropped-110-32x32.jpg" sizes="32x32">
+  <link rel="icon" href="/assets/images/2024/04/cropped-110-192x192.jpg" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/images/2024/04/cropped-110-180x180.jpg">
+</head>
+<body>
+  <div class="container">
+    <div class="title-container">
+      <h1>Jorge Viñals</h1>
+    </div>
+
+    <div class="header-grid">
+      <div class="metadata">
+        <dl>
+          <dt>Medium</dt>
+          <dd class="medium-item">Acoustic / Electronic / Tape </dd>
+          <dt>Notation</dt>
+          <dd class="notation-item">Traditional / MIDI </dd>
+          <dt>Duration</dt>
+          <dd class="duration-item">Variable</dd>
+          <dt>Commissioned By</dt>
+          <dd class="commissioned-item">Coca-Cola, New Balance,<br>Mccann Erickson, Ogilvy,<br>El Deseo</dd>
+        </dl>
+      </div>
+      <div class="profile-image-container">
+        <img src="/assets/images/2024/04/110.jpg" alt="Jorge Viñals" class="profile-image" />
+        <div class="profile-decoration"></div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="param-nav"><!-- Navigation injected here --></div>
+
+      <h2>COMPOSITION NOTES</h2>
+      <p>
+        I was a Conservatory kid that started making music from an early age, and later in life became a composer for others by chance.
+      </p>
+      <p>
+        Over the years, working across so many projects turned me into a Swiss Army knife of sorts, but in the process my own identity was left behind. After taking time to perfect my craft and realign with who I am and who I want to become, I'm ready to take on commissioned work again. But only on projects where I can stay true to myself.
+      </p>
+      <p>
+        I'm mostly drawn to film, particularly drama and thriller, and videogames. And while I've stepped away from advertising, I'm open to opportunities where I can fully be me.
+      </p>
+
+      <div class="piano-roll">
+        <div class="roll-container">
+          <a href="https://instagram.com/jorgevmusica" target="_blank" rel="noopener noreferrer" class="midi-note instagram">Instagram</a>
+          <a href="https://tiktok.com/@jorgevmusica" target="_blank" rel="noopener noreferrer" class="midi-note tiktok">TikTok</a>
+          <a href="https://youtube.com/@jorgevsmusic" target="_blank" rel="noopener noreferrer" class="midi-note youtube">YouTube</a>
+          <a href="https://twitch.tv/jorgevmusica" target="_blank" rel="noopener noreferrer" class="midi-note twitch">Twitch</a>
+          <a href="/mailinglist" class="midi-note mail">Mail</a>
+          <a href="https://buymeacoffee.com/jorgevmusica" target="_blank" rel="noopener noreferrer" class="midi-note support">Support</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer will be injected here -->
+    <div id="footer-container"></div>
+  </div>
+
+  <script src="/assets/js/script.js"></script>
+  <script src="/assets/js/navigation.js"></script>
+  <script src="/assets/js/background.js"></script>
+  <script src="/assets/js/main.js" type="module"></script>
+</body>
+</html>```
+
+## FILE: about/index.html
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Jorge Viñals</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/background-direct.css">
+  <style>
+    /* Only fix heading weight */
+    h1, h2, h3, h4, h5, h6 { font-weight: normal !important; }
+  </style>
+  
+  <!-- Rotation metadata configuration -->
+  <script>
+    // Force the same width for all background bars
+    document.addEventListener('DOMContentLoaded', function() {
+      const style = document.createElement('style');
+      style.textContent = `
+        .medium-item::before, .notation-item::before, 
+        .duration-item::before, .commissioned-item::before,
+        .position1-item::before, .position2-item::before, 
+        .position3-item::before, .position4-item::before {
+          width: 185px !important;
+        }
+      `;
+      document.head.appendChild(style);
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="title-container">
+      <h1>Jorge Viñals</h1>
+    </div>
+
+    <div class="header-grid">
+      <div class="metadata">
+        <dl id="rotating-dl-target">
+          <dt class="position1-title medium-title">Medium</dt>
+          <dd class="position1-item medium-item">Acoustic / Electronic / Tape</dd>
+        </dl>
+        <dl class="static-metadata">
+          <dt class="position2-title notation-title">Notation</dt>
+          <dd class="position2-item notation-item">Traditional / MIDI</dd>
+          <dt class="position3-title duration-title">Duration</dt>
+          <dd class="position3-item duration-item">Variable / Custom / Eternal</dd>
+          <dt class="position4-title commissioned-title">Commissioned By</dt>
+          <dd class="position4-item commissioned-item">El Deseo, Coca-Cola,<br>Mccann Erickson, Ogilvy,<br>Festival BAM</dd>
+        </dl>
+      </div>
+      <div class="profile-image-container">
+        <img src="/assets/images/2024/04/110.jpg" alt="Jorge Viñals" class="profile-image" />
+        <div class="profile-decoration"></div>
+      </div>
+    </div>
+
+    <div class="content about-content">
+      <div class="param-nav"><!-- Navigation injected here --></div>
+      
+      <h2>COMPOSITION NOTES</h2>
+      <p>
+        I was a Conservatory kid that started making music from an early age, and later in life became a composer for others by chance.
+      </p>
+      <p>
+        Over the years, working across so many projects turned me into a Swiss Army knife of sorts, but in the process my own identity was left behind. After taking time to perfect my craft and realign with who I am and who I want to become, I'm ready to take on commissioned work again. But only on projects where I can stay true to myself.
+      </p>
+      <p>
+        My current sound is fluid, bridging the space between acoustic and electronic, blending raw sounds and physical timbres with pure signal processing. Sometimes it's harmonic and soft, others it's dissonant or noisy. It's always expressive and emotional, and it usually has a signature melancholic sound that many describe as a core element of my style.
+      </p>
+    </div>
+  </div>
+
+  <!-- Load regular scripts -->  
+  <script src="/assets/js/script.js"></script>
+  <script src="/assets/js/navigation.js"></script>
+  <script src="/assets/js/background.js"></script>
+  
+  <!-- Load rotation system using standard modules -->  
+  <script type="module">
+    import { initializeRotations } from '/assets/js/metadata-rotator.js';
+    
+    // Initialize the rotations when DOM is loaded
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initializeRotations);
+    } else {
+      // DOM already loaded, initialize immediately
+      initializeRotations();
+    }
+  </script>
+</body>
+</html>```
+
+## FILE: listen/index.html
+```
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listen | Jorge Viñals</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/background-direct.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="icon" href="/assets/images/2024/04/cropped-110-32x32.jpg" sizes="32x32">
+  <link rel="icon" href="/assets/images/2024/04/cropped-110-192x192.jpg" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/images/2024/04/cropped-110-180x180.jpg">
+</head>
+<body>
+  <div class="container">
+    <div class="title-container">
+      <h1>Jorge Viñals</h1>
+    </div>
+
+    <div class="header-grid">
+      <div class="metadata">
+        <dl id="rotating-dl-target">
+          <dt class="position1-title medium-title">Medium</dt>
+          <dd class="position1-item medium-item">Acoustic / Electronic / Tape</dd>
+          <dt class="position2-title notation-title">Notation</dt>
+          <dd class="position2-item notation-item">Traditional / MIDI</dd>
+          <dt class="position3-title duration-title">Duration</dt>
+          <dd class="position3-item duration-item">Variable</dd>
+          <dt class="position4-title commissioned-title">Commissioned By</dt>
+          <dd class="position4-item commissioned-item">Coca-Cola, New Balance,<br>Mccann Erickson, Ogilvy,<br>El Deseo</dd>
+        </dl>
+      </div>
+      <div class="profile-image-container">
+        <img src="/assets/images/2024/04/110.jpg" alt="Jorge Viñals" class="profile-image" />
+        <div class="profile-decoration"></div>
+      </div>
+    </div>
+
+    <div class="content listen-content">
+      <div class="param-nav"><!-- Navigation injected here --></div>
+
+      <h2>LISTEN</h2>
+      
+      <p>Here you can listen to a selection of my works through the years. Some have been used in soundtracks, others are from my own projects. The soundtrack pieces are not available for use, for obvious reasons. nor are the rest, as they're part of an ongoing process of shaping my catalogue through proper studio work. I wouldn't feel comfortable having them used in library form. Nevertheless, this feels like a good representation of who I am and some of my skills.</p>
+      
+      <div class="disco-player-container">
+        <iframe id="disco-playlist-23502159" name="disco-playlist-23502159" allowfullscreen frameborder="0" class="disco-embed" src="https://jorgevs.disco.ac/e/p/23502159?download=false&s=z8RayvDcN70nqZnY6Bx9vUxzNKc%3A5A7Jsc4B&artwork=true&color=%23808080&theme=dark" width="100%" height="500"></iframe>
+      </div>
+      
+      <style>
+        .disco-player-container {
+          margin-bottom: 2rem;
+          border: 1px solid var(--color-ink);
+        }
+        
+        .disco-embed {
+          display: block;
+          width: 100%;
+        }
+        
+        @media (max-width: 768px) {
+          .disco-embed {
+            height: 450px;
+          }
+        }
+      </style>
+      
+      <p style="margin-top: 2rem;">Another facet of my work is my current solo project, VISE, which aims to be a crossroad between classical and electronic music. It's brighter than my composer side, but it also represents another part of me. I think it's also interesting to see some studio footage and how I built a small orchestra from scratch.</p>
+      
+      <div class="video-container" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/6g6dLIBBQ4w?si=X88ZFmaHAiSz_ekJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      
+      <div class="video-container" style="margin-bottom: 1.5rem;">
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/i8guhuDX9_I?si=AyVzkhnMmeWIanwB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      
+
+
+      <div class="piano-roll">
+        <div class="roll-container">
+          <a href="https://instagram.com/jorgevmusica" target="_blank" rel="noopener noreferrer" class="midi-note instagram">Instagram</a>
+          <a href="https://tiktok.com/@jorgevmusica" target="_blank" rel="noopener noreferrer" class="midi-note tiktok">TikTok</a>
+          <a href="https://youtube.com/@jorgevsmusic" target="_blank" rel="noopener noreferrer" class="midi-note youtube">YouTube</a>
+          <a href="https://twitch.tv/jorgevmusica" target="_blank" rel="noopener noreferrer" class="midi-note twitch">Twitch</a>
+          <a href="/mailinglist" class="midi-note mail">Mail</a>
+          <a href="https://buymeacoffee.com/jorgevmusica" target="_blank" rel="noopener noreferrer" class="midi-note support">Support</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer will be injected here -->
+    <div id="footer-container"></div>
+  </div>
+
+  <script src="/assets/js/script.js"></script>
+  <script src="/assets/js/navigation.js"></script>
+  <script src="/assets/js/background.js"></script>
+  <script src="/assets/js/main.js" type="module"></script>
+  <script>
+    // Player tabs functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabs = document.querySelectorAll('.player-tab');
+      
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          // Remove active class from all tabs and containers
+          document.querySelectorAll('.player-tab').forEach(t => t.classList.remove('active'));
+          document.querySelectorAll('.player-container').forEach(c => c.classList.remove('active'));
+          
+          // Add active class to clicked tab
+          this.classList.add('active');
+          
+          // Show corresponding player
+          const playerId = this.getAttribute('data-player');
+          document.getElementById(playerId).classList.add('active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+```
+
+## FILE: contact/index.html
+```
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Jorge Viñals</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/background-direct.css">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="icon" href="/assets/images/2024/04/cropped-110-32x32.jpg" sizes="32x32">
+  <link rel="icon" href="/assets/images/2024/04/cropped-110-192x192.jpg" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/images/2024/04/cropped-110-180x180.jpg">
+</head>
+<body>
+  <div class="container">
+    <div class="title-container">
+      <h1>Jorge Viñals</h1>
+    </div>
+
+    <div class="header-grid">
+      <div class="metadata">
+        <dl id="rotating-dl-target">
+          <dt class="position1-title medium-title">Medium</dt>
+          <dd class="position1-item medium-item">Acoustic / Electronic / Tape</dd>
+          <dt class="position2-title notation-title">Notation</dt>
+          <dd class="position2-item notation-item">Traditional / MIDI</dd>
+          <dt class="position3-title duration-title">Duration</dt>
+          <dd class="position3-item duration-item">Variable</dd>
+          <dt class="position4-title commissioned-title">Commissioned By</dt>
+          <dd class="position4-item commissioned-item">Coca-Cola, New Balance,<br>Mccann Erickson, Ogilvy,<br>El Deseo</dd>
+        </dl>
+      </div>
+      <div class="profile-image-container">
+        <img src="/assets/images/2024/04/110.jpg" alt="Jorge Viñals" class="profile-image" />
+        <div class="profile-decoration"></div>
+      </div>
+    </div>
+
+    <div class="content contact-content">
+      <div class="param-nav"><!-- Navigation injected here --></div>
+      
+      <h2>CONTACT</h2>
+      
+      <p>If you want to share some thoughts, or you have a project you think I may fit in, you can drop me a line <a href="mailto:jorgevs.com@gmail.com" class="email-link">here</a>.</p>
+      
+      <div class="piano-roll">
+        <div class="roll-container">
+          <a href="https://instagram.com/jorgevmusica" target="_blank" rel="noopener noreferrer" class="midi-note instagram">Instagram</a>
+          <a href="https://tiktok.com/@jorgevmusica" target="_blank" rel="noopener noreferrer" class="midi-note tiktok">TikTok</a>
+          <a href="https://youtube.com/@jorgevsmusic" target="_blank" rel="noopener noreferrer" class="midi-note youtube">YouTube</a>
+          <a href="https://twitch.tv/jorgevmusica" target="_blank" rel="noopener noreferrer" class="midi-note twitch">Twitch</a>
+          <a href="/mailinglist" class="midi-note mail">Mail</a>
+          <a href="https://buymeacoffee.com/jorgevmusica" target="_blank" rel="noopener noreferrer" class="midi-note support">Support</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer will be injected here -->
+    <div id="footer-container" style="display: block; margin-top: 2rem; clear: both;"></div>
+  </div>
+  
+  <script src="/assets/js/script.js"></script>
+  <script src="/assets/js/navigation.js"></script>
+  <script src="/assets/js/background.js"></script>
+  <script src="/assets/js/main.js" type="module"></script>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      fetch(e.target.action, {
+        method: 'POST',
+        body: new FormData(e.target),
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        alert('Message sent successfully!');
+        e.target.reset();
+      }).catch(error => {
+        alert('Error sending message. Please try again later.');
+      });
+    });
+  </script>
+</body>
+</html>```
+
+## FILE: etc/index.html
+```
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>/etc | Jorge Viñals</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/background-direct.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="icon" href="/assets/images/2024/04/cropped-110-32x32.jpg" sizes="32x32">
+  <link rel="icon" href="/assets/images/2024/04/cropped-110-192x192.jpg" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/images/2024/04/cropped-110-180x180.jpg">
+</head>
+<body>
+  <div class="container">
+    <div class="title-container">
+      <h1>Jorge Viñals</h1>
+    </div>
+
+    <div class="header-grid">
+      <div class="metadata">
+        <dl id="rotating-dl-target">
+          <dt class="position1-title medium-title">Medium</dt>
+          <dd class="position1-item medium-item">Acoustic / Electronic / Tape</dd>
+          <dt class="position2-title notation-title">Notation</dt>
+          <dd class="position2-item notation-item">Traditional / MIDI</dd>
+          <dt class="position3-title duration-title">Duration</dt>
+          <dd class="position3-item duration-item">Variable</dd>
+          <dt class="position4-title commissioned-title">Commissioned By</dt>
+          <dd class="position4-item commissioned-item">Coca-Cola, New Balance,<br>Mccann Erickson, Ogilvy,<br>El Deseo</dd>
+        </dl>
+      </div>
+      <div class="profile-image-container">
+        <img src="/assets/images/2024/04/110.jpg" alt="Jorge Viñals" class="profile-image" />
+        <div class="profile-decoration"></div>
+      </div>
+    </div>
+
+    <div class="content etc-content">
+      <div class="param-nav">
+        <a href="/about">About</a>
+        <a href="/etc" class="active">Etc</a>
+        <a href="/links">Links</a>
+        <a href="/listen">Listen</a>
+        <a href="/contact">Contact</a>
+      </div>
+      
+      <h2>ETC</h2>
+      <p>
+        I had an interest in computers since childhood because they became my first tool for making music. So besides studying music and sound, I also got my degree in Telecommunications Engineering. An old boss used to say I'm a hybrid of creative and engineer. I always say I'm a bad engineer, but because I'm creative and resourceful I always find a way. Music is Math, as a wise duo used to say.
+      </p>
+      
+      <p>
+        At the moment I'm lucky enough to work at BMAT, where flexibility is a core identity, so I can give my all there while working on my music. And maybe yours. I don't see myself leaving this company, but maybe if I win a couple of Goyas and an Oscar I'll consider it.
+      </p>
+      
+      <p>
+        In the meantime, you can check my engineering profile below. Bonus points: I've develop a couple of tools you can use for free, one to tame your data, one to tame your online life.
+      </p>
+
+      <div class="piano-roll">
+        <div class="roll-container">
+          <a href="https://instagram.com/jorgevmusica" target="_blank" rel="noopener noreferrer" class="midi-note instagram">Instagram</a>
+          <a href="https://tiktok.com/@jorgevmusica" target="_blank" rel="noopener noreferrer" class="midi-note tiktok">TikTok</a>
+          <a href="https://youtube.com/@jorgevsmusic" target="_blank" rel="noopener noreferrer" class="midi-note youtube">YouTube</a>
+          <a href="https://twitch.tv/jorgevmusica" target="_blank" rel="noopener noreferrer" class="midi-note twitch">Twitch</a>
+          <a href="/mailinglist" class="midi-note mail">Mail</a>
+          <a href="https://buymeacoffee.com/jorgevmusica" target="_blank" rel="noopener noreferrer" class="midi-note support">Support</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer will be injected here -->
+    <div id="footer-container"></div>
+  </div>
+
+  <script src="/assets/js/script.js"></script>
+  <script src="/assets/js/navigation.js"></script>
+  <script src="/assets/js/background.js"></script>
+  <script src="/assets/js/main.js" type="module"></script>
+</body>
+</html>
+```
+
+## JAVASCRIPT FILES
+## FILE: assets/js/main.js
+```
+// assets/js/main.js - CENTRALIZED CONTROL
+
+// Control flags to prevent duplicate execution
+let backgroundSystemInitialized = false;
+let rotationSystemInitialized = false;
+
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('MAIN SYSTEM: Initializing site with unified styling & behavior');
+  
+  // Clear any previous localStorage to ensure fresh randomization on page reload
+  if (window.performance && window.performance.navigation.type === window.performance.navigation.TYPE_RELOAD) {
+    console.log('MAIN SYSTEM: Page was refreshed - clearing previous session data');
+    localStorage.removeItem('backgroundPath');
+    localStorage.removeItem('geometryPath');
+    localStorage.removeItem('accentColor');
+    localStorage.removeItem('jorgevsSessionId');
+  }
+  
+  // Preload components before showing anything
+  preloadResources().then(() => {
+      // Only initialize and show content when everything is loaded
+      initializeComponents().then(() => {
+          // After everything is initialized, show the body
+          document.body.style.opacity = '1';
+      });
+  });
+});
+
+async function preloadResources() {
+  // Create hidden preload elements for critical resources
+  const preloads = [
+      '/components/header.html',
+      '/components/nav.html',
+      '/components/footer.html',
+  ];
+  
+  // Add cache-busting parameter to prevent caching
+  const timestamp = new Date().getTime();
+  
+  // Create an array of promises for each resource
+  const preloadPromises = preloads.map(url => {
+      return fetch(`${url}?nocache=${timestamp}`).then(response => {
+          if (!response.ok) throw new Error(`Failed to preload ${url}`);
+          return response.text();
+      });
+  });
+  
+  // Wait for all resources to be preloaded
+  return Promise.all(preloadPromises).catch(err => {
+      console.error('Error preloading resources:', err);
+  });
+}
+
+async function initializeComponents() {
+  console.log('MAIN SYSTEM: Loading all page components');
+  
+  // Step 1: Load core components first (header, nav, footer)
+  try {
+    await Promise.all([
+      initHeader(),
+      initNavigation(),
+      initFooter()
+    ]);
+    console.log('MAIN SYSTEM: Core components loaded successfully');
+  } catch (error) {
+    console.error('MAIN SYSTEM: Error loading core components:', error);
+  }
+  
+  // Step 2: Initialize the background system first (has to happen before rotations)
+  if (!backgroundSystemInitialized) {
+    try {
+      console.log('MAIN SYSTEM: Loading background system...');
+      const bgModule = await import('./background.js');
+      
+      if (typeof bgModule.loadBackgroundSystem === 'function') {
+        console.log('MAIN SYSTEM: Initializing background system...');
+        await bgModule.loadBackgroundSystem();
+        backgroundSystemInitialized = true;
+        console.log('MAIN SYSTEM: Background system successfully initialized');
+      } else {
+        console.error('MAIN SYSTEM: Background system missing loadBackgroundSystem function');
+      }
+    } catch (error) {
+      console.error('MAIN SYSTEM: Error initializing background system:', error);
+    }
+  }
+  
+  // Step 3: ONLY AFTER the background is set, initialize the rotation system
+  if (!rotationSystemInitialized) {
+    try {
+      console.log('MAIN SYSTEM: Loading rotation system...');
+      const rotModule = await import('./metadata-rotator.js');
+      
+      if (typeof rotModule.initializeRotations === 'function') {
+        // Force a small delay to ensure background and DOM are fully ready
+        await new Promise(resolve => setTimeout(resolve, 100));
+        
+        console.log('MAIN SYSTEM: Initializing rotation system on ALL pages...');
+        await rotModule.initializeRotations();
+        rotationSystemInitialized = true;
+        console.log('MAIN SYSTEM: Rotation system successfully initialized');
+      } else {
+        console.error('MAIN SYSTEM: Rotation system missing initializeRotations function');
+      }
+    } catch (error) {
+      console.error('MAIN SYSTEM: Error initializing rotation system:', error);
+    }
+  }
+  
+  // Step 4: Load script.js module to handle visual effects (replacing the old script.js DOMContentLoaded handler)
+  try {
+    console.log('MAIN SYSTEM: Loading script functions module...');
+    // Ensure a delay to let other systems stabilize
+    await new Promise(resolve => setTimeout(resolve, 200));
+    
+    const scriptModule = await import('./script.js');
+    if (typeof scriptModule.initScriptFunctions === 'function') {
+      await scriptModule.initScriptFunctions();
+      console.log('MAIN SYSTEM: Script functions initialized successfully');
+    } else {
+      console.error('MAIN SYSTEM: Script module missing initScriptFunctions');
+    }
+  } catch (error) {
+    console.error('MAIN SYSTEM: Error initializing script functions:', error);
+  }
+  
+  // Step 5: Initialize animations last (after everything else is ready)
+  try {
+    console.log('MAIN SYSTEM: Loading animations...');
+    // Ensure a delay to let other systems stabilize
+    await new Promise(resolve => setTimeout(resolve, 300));
+    
+    const animModule = await import('./components/animations.js');
+    if (typeof animModule.initAnimations === 'function') {
+      animModule.initAnimations();
+      console.log('MAIN SYSTEM: Animations initialized');
+    }
+  } catch (error) {
+    console.error('MAIN SYSTEM: Error initializing animations:', error);
+  }
+  
+  console.log('MAIN SYSTEM: All components initialized successfully!');
+}
+
+async function initHeader() {
+  const headerContainer = document.getElementById('header-container');
+  if (!headerContainer) return;
+  
+  try {
+      const response = await fetch('/components/header.html');
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      
+      const html = await response.text();
+      headerContainer.innerHTML = html;
+  } catch (error) {
+      console.error('Error loading header:', error);
+      headerContainer.innerHTML = `
+          <div class="title-container">
+              <h1 class="title">Jorge Viñals</h1>
+          </div>
+          <div class="header-grid">
+              <div class="metadata">
+                  <dl>
+                      <dt>Medium</dt>
+                      <dd class="medium-item">Acoustic / Electronic / Tape </dd>
+                      <dt>Notation</dt>
+                      <dd class="notation-item">Traditional / MIDI </dd>
+                      <dt>Duration</dt>
+                      <dd class="duration-item">Variable</dd>
+                      <dt>Commissioned By</dt>
+                      <dd class="commissioned-item">Coca-Cola, New Balance,<br>Mccann Erickson, Ogilvy,<br>El Deseo</dd>
+                  </dl>
+              </div>
+              <div class="profile-image-container">
+                  <img src="/assets/images/2024/04/110.jpg" alt="Jorge Viñals" class="profile-image" />
+              </div>
+          </div>
+      `;
+  }
+}
+
+async function initNavigation() {
+  const navContainer = document.getElementById('nav-container');
+  if (!navContainer) return;
+  
+  try {
+      // Add cache-busting parameter to prevent caching
+      const timestamp = new Date().getTime();
+      const response = await fetch(`/components/nav.html?t=${timestamp}`);
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      
+      const html = await response.text();
+      navContainer.innerHTML = html;
+      
+      // Set active link
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      const links = navContainer.querySelectorAll('.nav-link');
+      links.forEach(link => {
+          const href = link.getAttribute('href');
+          if (href === currentPage || (currentPage === 'index.html' && href === '/' || href === '')) {
+              link.classList.add('active');
+          }
+      });
+  } catch (error) {
+      console.error('Error loading navigation:', error);
+      navContainer.innerHTML = `
+          <nav class="navigation">
+              <ul class="nav-list">
+                  <li><a href="/about" class="nav-link">About</a></li>
+                  <li><a href="/links" class="nav-link">Links</a></li>
+                  <li><a href="/listen" class="nav-link">Listen</a></li>
+                  <li><a href="/contact" class="nav-link">Contact</a></li>
+              </ul>
+          </nav>
+      `;
+  }
+}
+
+async function initFooter() {
+  const footerContainer = document.getElementById('footer-container');
+  if (!footerContainer) return;
+  
+  try {
+      const response = await fetch('/components/footer.html');
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      
+      const html = await response.text();
+      footerContainer.innerHTML = html;
+      
+      // Set current year
+      const yearElement = footerContainer.querySelector('#current-year');
+      if (yearElement) {
+          yearElement.textContent = new Date().getFullYear();
+      }
+  } catch (error) {
+      console.error('Error loading footer:', error);
+      footerContainer.innerHTML = `
+          <div class="site-footer">
+              &copy; ${new Date().getFullYear()} Jorge Viñals
+          </div>
+      `;
+  }
+}```
+
+## FILE: assets/js/background.js
+```
+/**
+ * Unified Background & Styling System
+ * 
+ * This system handles the following for ALL pages:
+ * 1. Randomly selects backgrounds from /assets/images/background/
+ * 2. Randomly selects geometry images from /assets/images/geometry/
+ * 3. Extracts colors from geometry images and applies them to all geometric elements
+ * 4. Ensures consistent styling across the entire website
+ * 
+ * ES Module format so it can be properly imported and initialized from main.js
+ */
+
+/**
+ * Loads images from a directory using fetch and returns an array of filenames
+ * @param {string} directory - Directory path relative to the site root
+ * @returns {Promise<string[]>} - Array of filenames
+ */
+async function getFilesFromDirectory(directory) {
+  try {
+    console.log(`Loading files from ${directory}`);
+    
+    // This implementation will dynamically scan the directory for files
+    // We'll use an AJAX request to fetch the directory listing
+    const response = await fetch(`${directory}?nocache=${new Date().getTime()}`);
+    const text = await response.text();
+    
+    // Parse the HTML to extract filenames
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(text, 'text/html');
+    const links = doc.querySelectorAll('a');
+    
+    // Extract filenames from links
+    const files = [];
+    links.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href && !href.startsWith('?') && !href.startsWith('/') && !href.startsWith('../')) {
+        // Only include image files
+        if (href.match(/\.(jpg|jpeg|png|gif|webp)$/i)) {
+          files.push(href);
+        }
+      }
+    });
+    
+    console.log(`Found ${files.length} files in ${directory}`);
+    
+    if (files.length === 0) {
+      console.warn(`No files found in ${directory}, using fallback method`);
+      
+      // Fallback: scan for known patterns based on directory
+      if (directory === '/assets/images/background/') {
+        // Try looking for bg-*.jpg pattern
+        for (let i = 1; i <= 10; i++) {
+          files.push(`bg-${i.toString().padStart(2, '0')}.jpg`);
+        }
+      } else if (directory === '/assets/images/geometry/') {
+        // Try looking for geometry-*.png pattern
+        for (let i = 1; i <= 10; i++) {
+          files.push(`geometry-${i.toString().padStart(2, '0')}.png`);
+        }
+      }
+    }
+    
+    return files;
+  } catch (error) {
+    console.error('Error loading files:', error);
+    return [];
+  }
+}
+
+/**
+ * Creates a canvas to extract the dominant color from an image
+ * @param {string} imagePath - Path to the image
+ * @returns {Promise<string>} - Dominant color in hex format
+ */
+async function extractColorFromImage(imagePath) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.crossOrigin = 'Anonymous'; // Enable CORS for the image
+    
+    img.onload = function() {
+      try {
+        // Create canvas and context
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        const size = 100; // Small sample size for performance
+        
+        canvas.width = size;
+        canvas.height = size;
+        
+        // Draw image to canvas
+        ctx.drawImage(img, 0, 0, size, size);
+        
+        // Get image data
+        const imageData = ctx.getImageData(0, 0, size, size).data;
+        
+        // Sample the center of the image (most likely to contain the main color)
+        const centerIndex = Math.floor((size * size / 2) + (size / 2)) * 4;
+        const r = imageData[centerIndex];
+        const g = imageData[centerIndex + 1];
+        const b = imageData[centerIndex + 2];
+        
+        // Convert RGB to HEX
+        const hex = '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+        console.log(`Extracted color ${hex} from ${imagePath}`);
+        resolve(hex);
+      } catch (error) {
+        console.error('Error extracting color:', error);
+        resolve('#d12e2e'); // Fallback to default red
+      }
+    };
+    
+    img.onerror = function() {
+      console.error('Failed to load image:', imagePath);
+      resolve('#d12e2e'); // Fallback to default red
+    };
+    
+    img.src = imagePath;
+  });
+}
+
+/**
+ * Main function that loads the randomized styling system for the entire website.
+ * This function ALWAYS randomizes on page load AND navigation
+ */
+async function loadBackgroundSystem() {
+  console.log('UNIFIED BACKGROUND SYSTEM: Initializing with AUTOMATIC RANDOMIZATION');
+  
+  try {
+    // ALWAYS load new files - this ensures we have fresh data for randomization
+    console.log('BACKGROUND SYSTEM: Loading available image files');
+    const backgroundFiles = await getFilesFromDirectory('/assets/images/background/');
+    const geometryFiles = await getFilesFromDirectory('/assets/images/geometry/');
+    
+    if (backgroundFiles.length === 0 || geometryFiles.length === 0) {
+      console.error('BACKGROUND SYSTEM: No background or geometry files found!');
+      return;
+    }
+    
+    console.log(`BACKGROUND SYSTEM: Found ${backgroundFiles.length} backgrounds and ${geometryFiles.length} geometry files`);
+    
+    // ALWAYS generate new random selections on EVERY page load
+    // This is what the user explicitly requested
+    console.log('BACKGROUND SYSTEM: Generating new random selection');
+    
+    // Select random background
+    const randomBgIndex = Math.floor(Math.random() * backgroundFiles.length);
+    const backgroundPath = `/assets/images/background/${backgroundFiles[randomBgIndex]}`;
+    
+    // Select random geometry texture
+    const randomGeomIndex = Math.floor(Math.random() * geometryFiles.length);
+    const geometryPath = `/assets/images/geometry/${geometryFiles[randomGeomIndex]}`;
+    
+    // Extract accent color from the geometry image
+    const accentColor = await extractColorFromImage(geometryPath);
+    
+    console.log(`BACKGROUND SYSTEM: New random selection generated:`);
+    console.log(`- Background: ${backgroundPath}`);
+    console.log(`- Geometry: ${geometryPath}`);
+    console.log(`- Accent color: ${accentColor}`);
+    
+    // Apply the new random styles immediately
+    applyStyles(backgroundPath, geometryPath, accentColor);
+    
+    // Add a reset button for testing (development only)
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      addResetButton();
+    }
+    
+  } catch (error) {
+    console.error('BACKGROUND SYSTEM: Fatal error:', error);
+  }
+}
+
+/**
+ * Adds a small button to reset the background system (only in development)
+ */
+function addResetButton() {
+  const button = document.createElement('button');
+  button.textContent = 'Reset Background';
+  button.style.position = 'fixed';
+  button.style.bottom = '10px';
+  button.style.right = '10px';
+  button.style.zIndex = '9999';
+  button.style.padding = '5px';
+  button.style.fontSize = '12px';
+  button.style.opacity = '0.7';
+  
+  button.addEventListener('click', () => {
+    localStorage.removeItem('backgroundPath');
+    localStorage.removeItem('geometryPath');
+    localStorage.removeItem('accentColor');
+    localStorage.removeItem('jorgevsSessionId');
+    window.location.reload();
+  });
+  
+  document.body.appendChild(button);
+}
+
+/**
+ * Applies a unified styling to the entire website based on the selected background and geometry texture
+ * 
+ * @param {string} backgroundPath - Path to the background image
+ * @param {string} geometryPath - Path to the geometry image to use as texture
+ * @param {string} accentColor - Accent color in hex format extracted from the geometry image
+ */
+function applyStyles(backgroundPath, geometryPath, accentColor) {
+  console.log('UNIFIED STYLING: Applying consistent styling across the website');
+  
+  // Remove any existing unified styling to prevent duplicates
+  const existingStyles = document.getElementById('unified-jorgevs-styling');
+  if (existingStyles) {
+    existingStyles.remove();
+  }
+  
+  // Create new style element with ID so we can reference it later
+  const style = document.createElement('style');
+  style.id = 'unified-jorgevs-styling';
+  
+  // Set CSS variables that will be used throughout the site
+  style.innerHTML = `
+  :root {
+    /* Colors extracted from the geometry image */
+    --color-accent: ${accentColor} !important;
+    --outline-color: #ffffff !important;
+    --text-color: #ffffff !important;
+    
+    /* Container and background colors - SAME BACKGROUND FOR ALL SECTIONS */
+    --color-paper: transparent !important;
+    --color-bg: #000000 !important;
+    
+    /* Background images and textures */
+    --accent-texture: url('${geometryPath}') !important;
+    --bg-texture: url('${backgroundPath}') !important;
+    --container-texture: none !important;
+    
+    /* Font families - consistent across the site */
+    --font-family: 'Andale Mono', monospace !important;
+    --heading-font: 'Andale Mono', monospace !important;
+    --nav-font: 'Andale Mono', monospace !important;
+    --font-mono: 'Andale Mono', monospace !important;
+    
+    /* Other styling variables */
+    --border-width: 1px !important;
+  }
+  
+  /* Force ALL elements to have transparent backgrounds except the body */
+  * {
+    background-color: transparent !important;
+  }
+  
+  /* Main background styling - applied to every page */
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: var(--color-bg) !important;
+    background-image: var(--bg-texture) !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    min-height: 100vh !important;
+    width: 100% !important;
+    font-family: var(--font-family) !important;
+    color: var(--text-color) !important;
+  }
+  
+  /* Transparent container with only a border */
+  .container {
+    background-color: transparent !important;
+    border: var(--border-width) solid var(--outline-color) !important;
+    box-shadow: none !important;
+  }
+  
+  /* Navigation styling - consistent across all pages */
+  .navigation, .nav-list, .nav-item {
+    border-color: var(--outline-color) !important;
+  }
+  
+  /* Navigation links */
+  .nav-link, .navigation a {
+    color: var(--text-color) !important;
+    background-color: transparent !important;
+    border: 1px solid var(--outline-color) !important;
+    padding: 5px 10px !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    font-family: var(--nav-font) !important;
+    font-size: 0.85rem !important;
+  }
+  
+  /* Navigation hover effect with geometry texture */
+  .nav-link:hover, .navigation a:hover {
+    background-image: var(--accent-texture) !important;
+    background-size: cover !important;
+    background-position: center !important;
+    color: var(--text-color) !important;
+  }
+  
+  /* Consistent heading styling */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font) !important;
+    color: var(--text-color) !important;
+    letter-spacing: 0.02em !important;
+    font-weight: normal !important; /* Non-bold headings as per user preference */
+  }
+  
+  /* Title sizing */
+  h1 { font-size: 1.8rem !important; }
+  h2 { font-size: 1.4rem !important; }
+  h3 { font-size: 1.2rem !important; }
+  
+  /* General text styling */
+  p, div, li, span {
+    font-family: var(--font-family) !important;
+    color: var(--text-color) !important;
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+  }
+  
+  /* Form elements styling */
+  a, button, input, textarea, select, option {
+    font-family: var(--font-family) !important;
+    color: var(--text-color) !important;
+    font-size: 0.85rem !important;
+  }
+  
+  /* CRITICAL: Consistent styling for ALL geometric elements with maximum specificity */
+  html body .title-container::after, 
+  html body h2::before, 
+  html body .medium-item::before, 
+  html body .notation-item::before,
+  html body .duration-item::before, 
+  html body .commissioned-item::before, 
+  html body .inspiration-item::before,
+  html body .position1-item::before,
+  html body .position2-item::before,
+  html body .position3-item::before,
+  html body .position4-item::before,
+  html body .profile-decoration,
+  html body [class*="-item"]::before {
+    /* Force the same geometry texture on all decorative elements */
+    background-color: var(--color-accent) !important;
+    background-image: var(--accent-texture) !important;
+    background-size: cover !important;
+    background-position: center !important;
+    opacity: 1 !important;
+    z-index: 0 !important;
+  }
+  
+  /* Metadata styling for About page */
+  .metadata dt, 
+  .medium-title, .notation-title, .duration-title, .commissioned-title,
+  .position1-title, .position2-title, .position3-title, .position4-title {
+    font-family: var(--font-mono) !important;
+    font-weight: bold !important;
+    font-size: 0.85rem !important;
+    color: var(--text-color) !important;
+  }
+  
+  .metadata dd,
+  .medium-item, .notation-item, .duration-item, .commissioned-item,
+  .position1-item, .position2-item, .position3-item, .position4-item {
+    font-family: var(--font-mono) !important;
+    font-weight: normal !important;
+    font-size: 0.85rem !important;
+    color: var(--text-color) !important;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Consistent width for all colored background bars */
+  .medium-item::before, 
+  .notation-item::before,
+  .duration-item::before, 
+  .commissioned-item::before,
+  .position1-item::before,
+  .position2-item::before,
+  .position3-item::before,
+  .position4-item::before {
+    width: 185px !important;
+    left: -5px !important;
+  }
+`;
+  
+  // Apply the CSS variables globally
+  document.documentElement.style.setProperty('--color-accent', accentColor);
+  document.documentElement.style.setProperty('--accent-texture', `url('${geometryPath}')`);
+  document.documentElement.style.setProperty('--bg-texture', `url('${backgroundPath}')`);
+  
+  // Add the style to the document head
+  document.head.appendChild(style);
+  
+  console.log(`UNIFIED STYLING: Applied consistently across the site:`);
+  console.log(`- Background: ${backgroundPath}`);
+  console.log(`- Geometry: ${geometryPath}`);
+  console.log(`- Accent color: ${accentColor}`);
+}
+
+// Export the loadBackgroundSystem function so it can be called from main.js
+export { loadBackgroundSystem, getFilesFromDirectory, extractColorFromImage, applyStyles };
+```
+
+## FILE: assets/js/script.js
+```
+// /assets/js/script.js - CONVERTED TO MODULE FORMAT
+// This file now exports functions for use by main.js
+// No DOMContentLoaded event here to prevent conflicts
+
+/**
+ * Initialize all script functionality without any DOMContentLoaded event
+ * This is called directly by main.js to ensure proper loading order
+ */
+export function initScriptFunctions() {
+  console.log('SCRIPT SYSTEM: Initializing visual effects and animations');
+  
+  // Generate a color palette for this session (deferred to background.js)
+  generateColorPalette();
+  
+  // First handle all the non-profile decoration animations and styling
+  applyGeneralAnimations();
+  
+  // Then, separately handle the profile decoration with a slight delay
+  setTimeout(() => {
+    setupProfileDecoration();
+  }, 150);
+  
+  // Setup mailing list form toggle if on contact page
+  setupMailingListForm();
+  
+  console.log('SCRIPT SYSTEM: Visual effects initialized');
+}
+  
+  // Use the site's default accent color
+// This file defers to background.js for background/texture randomization
+// These empty functions remain for compatibility with other scripts
+function generateColorPalette() {
+  console.log('Script.js: Deferring color palette generation to background.js');
+  // This function is kept for compatibility but doesn't do anything
+  // background.js will handle this functionality
+}
+
+function generateTextureStyle() {
+  console.log('Script.js: Deferring texture style to background.js');
+  // This function is kept for compatibility but returns nothing
+  return null;
+}
+
+function generateBackgroundTextureStyle() {
+  console.log('Script.js: Deferring background texture to background.js');
+  // This function is kept for compatibility but returns nothing
+  return null;
+}
+
+function applyGeneralAnimations() {
+    const animations = ['fadeMoveVertical', 'fadeMoveHorizontal', 'fadeMoveDiagonal'];
+    const selectors = [
+      '.title-container::after',
+      'h2::before',
+      '.medium-item::before',
+      '.notation-item::before',
+      '.duration-item::before',
+      '.commissioned-item::before'
+    ];
+    
+    // Apply random animations
+    const style = document.createElement('style');
+    selectors.forEach((selector) => {
+      const animation = animations[Math.floor(Math.random() * animations.length)];
+      style.innerHTML += `${selector} { animation: ${animation} 0.8s ease-out both; }`;
+    });
+    document.head.appendChild(style);
+    
+    // Helper function to set CSS variables
+    const set = (prop, min, max, unit = '%') => {
+      const value = Math.floor(Math.random() * (max - min + 1)) + min;
+      document.documentElement.style.setProperty(prop, `${value}${unit}`);
+    };
+    
+    // Set random line positions
+    set('--line-start', 0, 60);
+    set('--line-width', 80, 180);
+    set('--line-top', 10, 90);
+    
+    ['medium', 'notation', 'duration', 'commissioned'].forEach(key => {
+      set(`--${key}-line-start`, 0, 20);
+      set(`--${key}-line-width`, 40, 100);
+      set(`--${key}-line-top`, 0, 80);
+    });
+    
+    // Title styling
+    set('--title-glyph-width', 180, 300, 'px');
+    set('--title-glyph-height', 40, 70, 'px');
+    set('--title-glyph-left', 40, 60);
+    set('--title-glyph-top', 30, 50);
+  }
+  
+  function setupProfileDecoration() {
+    const existingDecoration = document.querySelector('.profile-decoration');
+    if (existingDecoration) existingDecoration.remove();
+    
+    const profileContainer = document.querySelector('.profile-image-container');
+    const profileImage = document.querySelector('.profile-image');
+    if (!profileContainer || !profileImage) return;
+
+    // Get image dimensions and position relative to container
+    const imgRect = profileImage.getBoundingClientRect();
+    const containerRect = profileContainer.getBoundingClientRect();
+    
+    // Calculate image position within container
+    const imgLeft = imgRect.left - containerRect.left;
+    const imgTop = imgRect.top - containerRect.top;
+
+    const decoration = document.createElement('div');
+    decoration.className = 'profile-decoration';
+    profileContainer.appendChild(decoration);
+
+    // Fixed size based on image
+    const baseSize = Math.min(imgRect.width, imgRect.height);
+    const size = baseSize * 0.8; // 80% of image size, consistent
+    
+    // Fixed position at top-right of image
+    const position = {
+        left: imgLeft + imgRect.width - size/3,
+        top: imgTop - size/3
+    };
+
+    // Apply styles
+    decoration.style.width = `${size}px`;
+    decoration.style.height = `${size}px`;
+    decoration.style.backgroundImage = 'var(--accent-texture)'; // Use the texture from background.js
+    decoration.style.opacity = '1'; // Ensure 100% opacity
+    decoration.style.zIndex = '0';
+    decoration.style.position = 'absolute';
+    decoration.style.left = `${position.left}px`;
+    decoration.style.top = `${position.top}px`;
+
+    // Fixed shape - use circle for consistency
+    decoration.style.borderRadius = '50%';
+    
+    // Fixed animation
+    requestAnimationFrame(() => {
+        decoration.style.animation = 'fadeMoveVertical 0.8s ease-out both';
+    });
+}
+
+function setupMailingListForm() {
+    // Check if we're on the contact page
+    const showFormButton = document.getElementById('show-mailing-form');
+    const closeFormButton = document.getElementById('close-mailing-form');
+    const formContainer = document.getElementById('mailing-form-container');
+    
+    if (!showFormButton || !closeFormButton || !formContainer) return;
+    
+    // Show the form when the Subscribe button is clicked
+    showFormButton.addEventListener('click', () => {
+        formContainer.style.display = 'flex';
+        // Use setTimeout to trigger the transition
+        setTimeout(() => {
+            formContainer.classList.add('visible');
+        }, 10);
+    });
+    
+    // Hide the form when the close button is clicked
+    closeFormButton.addEventListener('click', () => {
+        formContainer.classList.remove('visible');
+        // Wait for the transition to complete before hiding
+        setTimeout(() => {
+            formContainer.style.display = 'none';
+        }, 300);
+    });
+    
+    // Also close the form when clicking outside of it
+    formContainer.addEventListener('click', (e) => {
+        if (e.target === formContainer) {
+            closeFormButton.click();
+        }
+    });
+}
+```
+
+## FILE: assets/js/navigation.js
+```
+// Navigation System v3 - Enhanced Implementation
+// Now triggers background randomization on section changes
+
+/**
+ * Navigation configuration and link handling with randomization on navigation
+ */
+(() => {
+  const NAV_CONFIG = Object.freeze([
+    { path: '/about', label: 'About' },
+    { path: '/listen', label: 'Listen' },
+    { path: '/contact', label: 'Contact' },
+    { path: '/etc', label: '/etc' }
+  ]);
+
+  const initNavigation = () => {
+    console.log('NAVIGATION: Initializing navigation with section change detection');
+    const currentPath = window.location.pathname;
+    
+    document.querySelectorAll('.param-nav').forEach(navEl => {
+      // Completely wipe existing navigation
+      navEl.textContent = '';
+      
+      // Build new navigation with click handlers for randomization
+      NAV_CONFIG.forEach(({path, label}) => {
+        const link = document.createElement('a');
+        link.href = path;
+        link.textContent = label;
+        
+        // Mark current section as active
+        if (path === currentPath) link.classList.add('active');
+        
+        // Add click handler to force randomization on navigation
+        link.addEventListener('click', (e) => {
+          // Only if clicking a different section
+          if (path !== currentPath) {
+            console.log(`NAVIGATION: Changing section from ${currentPath} to ${path}`);
+            
+            // Allow the background to re-randomize on the next page
+            console.log('NAVIGATION: Clearing any stored background state for fresh randomization');
+            localStorage.removeItem('backgroundPath');
+            localStorage.removeItem('geometryPath');
+            localStorage.removeItem('accentColor');
+            localStorage.removeItem('jorgevsSessionId');
+          }
+        });
+        
+        navEl.appendChild(link);
+        
+        // Add space between items except last
+        if (path !== NAV_CONFIG[NAV_CONFIG.length-1].path) {
+          navEl.appendChild(document.createTextNode(' '));
+        }
+      });
+    });
+    
+    console.log('NAVIGATION: Navigation initialized with randomization triggers');
+  };
+
+  // Initialize on load and navigation
+  document.addEventListener('DOMContentLoaded', initNavigation);
+  window.addEventListener('popstate', initNavigation);
+})();
+```
+
+## FILE: assets/js/metadata-rotator.js
+```
+/**
+ * Metadata Rotator
+ * 
+ * This script handles the rotation of metadata text sections.
+ * It works with the configuration defined in config/rotations.js.
+ */
+
+import rotationConfig from './config/rotations.js';
+
+// Current indices for each position
+const currentIndices = {
+  position1: 0,
+  position2: 0,
+  position3: 0,
+  position4: 0
+};
+
+// Rotation interval in milliseconds
+const interval = rotationConfig.interval || 5000;
+
+/**
+ * Initialize the rotation for a specific position
+ * @param {string} position - The position identifier (e.g., 'position1')
+ * @param {Object[]} items - Array of rotation items with title and content
+ * @param {number} initialDelay - Initial delay before starting rotation (for staggered effect)
+ */
+function initializeRotation(position, items, initialDelay = 0) {
+  // Get the DOM elements
+  const getElements = () => {
+    let titleElement, contentElement;
+    
+    // Try with position-specific classes first
+    titleElement = document.querySelector(`.${position}-title`);
+    contentElement = document.querySelector(`.${position}-item`);
+    
+    // Fall back to legacy class names if needed
+    if (!titleElement || !contentElement) {
+      if (position === 'position1') {
+        titleElement = document.querySelector('.medium-title');
+        contentElement = document.querySelector('.medium-item');
+      } else if (position === 'position2') {
+        titleElement = document.querySelector('.notation-title');
+        contentElement = document.querySelector('.notation-item');
+      } else if (position === 'position3') {
+        titleElement = document.querySelector('.duration-title');
+        contentElement = document.querySelector('.duration-item');
+      } else if (position === 'position4') {
+        titleElement = document.querySelector('.commissioned-title');
+        contentElement = document.querySelector('.commissioned-item');
+      }
+    }
+    
+    return { titleElement, contentElement };
+  };
+
+  // Function to update the content
+  const updateContent = () => {
+    const { titleElement, contentElement } = getElements();
+    
+    if (!titleElement || !contentElement) {
+      console.warn(`Elements for ${position} not found`);
+      return;
+    }
+    
+    // Get the current item
+    const itemIndex = currentIndices[position];
+    const item = items[itemIndex];
+    
+    // Update the DOM
+    titleElement.textContent = item.title;
+    contentElement.innerHTML = item.content;
+    
+    // Log the update (for debugging)
+    console.log(`Updated ${position} to:`, item);
+    
+    // Increment the index for next rotation
+    currentIndices[position] = (itemIndex + 1) % items.length;
+  };
+  
+  // Initial update (apply first item immediately)
+  setTimeout(updateContent, initialDelay);
+  
+  // Set up the interval for continuous rotation
+  setTimeout(() => {
+    setInterval(updateContent, interval);
+  }, initialDelay + interval);
+}
+
+/**
+ * Initialize all rotations with a staggered start
+ */
+export function initializeRotations() {
+  console.log('Initializing metadata rotations on ALL pages');
+  
+  // Check if rotation configuration is valid
+  if (!rotationConfig || !rotationConfig.rotationSets) {
+    console.error('Invalid rotation configuration');
+    return;
+  }
+  
+  // First, ensure the metadata structure exists on EVERY page
+  ensureMetadataStructureExists();
+  
+  const { rotationSets } = rotationConfig;
+  
+  // Set up staggered delays for each position
+  initializeRotation('position1', rotationSets.position1, 0);
+  initializeRotation('position2', rotationSets.position2, interval * 0.25);
+  initializeRotation('position3', rotationSets.position3, interval * 0.5);
+  initializeRotation('position4', rotationSets.position4, interval * 0.75);
+  
+  console.log('All rotations initialized successfully');
+}
+
+/**
+ * Ensures the metadata HTML structure exists on every page AND
+ * converts any static metadata to the rotating format.
+ */
+function ensureMetadataStructureExists() {
+  console.log('ROTATION SYSTEM: Checking/fixing metadata structure on this page');
+  
+  // First check if we already have a metadata section
+  let metadataContainer = document.querySelector('.metadata');
+  
+  if (!metadataContainer) {
+    console.log('ROTATION SYSTEM: No metadata found - creating from scratch');
+    
+    // Look for a good place to add it - prefer header or top of page
+    const targetContainer = document.querySelector('#header-container') || 
+                           document.querySelector('.container') || 
+                           document.querySelector('main') || 
+                           document.body;
+    
+    // Create the metadata container
+    metadataContainer = document.createElement('div');
+    metadataContainer.className = 'metadata';
+    
+    // Create the definition list
+    const dl = document.createElement('dl');
+    dl.id = 'rotating-dl-target';
+    
+    // Create the structure for all four positions
+    for (let i = 1; i <= 4; i++) {
+      const position = `position${i}`;
+      
+      // Create title element (dt)
+      const dt = document.createElement('dt');
+      dt.className = `${position}-title`;
+      
+      // Add legacy class names for compatibility
+      if (i === 1) dt.classList.add('medium-title');
+      if (i === 2) dt.classList.add('notation-title');
+      if (i === 3) dt.classList.add('duration-title');
+      if (i === 4) dt.classList.add('commissioned-title');
+      
+      // Create content element (dd)
+      const dd = document.createElement('dd');
+      dd.className = `${position}-item`;
+      
+      // Add legacy class names for compatibility
+      if (i === 1) dd.classList.add('medium-item');
+      if (i === 2) dd.classList.add('notation-item');
+      if (i === 3) dd.classList.add('duration-item');
+      if (i === 4) dd.classList.add('commissioned-item');
+      
+      // Add initial placeholder content
+      const initialItem = rotationConfig.rotationSets[position][0];
+      dt.textContent = initialItem.title;
+      dd.innerHTML = initialItem.content;
+      
+      // Add to the definition list
+      dl.appendChild(dt);
+      dl.appendChild(dd);
+    }
+    
+    // Add the definition list to the metadata container
+    metadataContainer.appendChild(dl);
+    
+    // Add the metadata container to the page in an appropriate location
+    if (targetContainer.querySelector('.header-grid')) {
+      // If there's a header grid, insert it there
+      targetContainer.querySelector('.header-grid').prepend(metadataContainer);
+    } else {
+      // Otherwise insert at the beginning of the target container
+      targetContainer.prepend(metadataContainer);
+    }
+    
+    console.log('ROTATION SYSTEM: Metadata structure created successfully');
+  } else {
+    console.log('ROTATION SYSTEM: Existing metadata structure found - checking format');
+    
+    // Check if this is a static metadata (like on listen/index.html) that needs converting
+    const dl = metadataContainer.querySelector('dl');
+    
+    if (dl) {
+      // Check if this is already a rotation-ready structure
+      if (dl.id === 'rotating-dl-target') {
+        console.log('ROTATION SYSTEM: Metadata already in rotation format');
+        return; // Already in correct format
+      }
+      
+      console.log('ROTATION SYSTEM: Converting static metadata to rotation format');
+      
+      // This is a static metadata that needs to be converted to rotation format
+      // First, ensure we preserve any existing content
+      const existingDts = Array.from(dl.querySelectorAll('dt'));
+      const existingDds = Array.from(dl.querySelectorAll('dd'));
+      
+      // Set the proper ID for rotations
+      dl.id = 'rotating-dl-target';
+      
+      // Clear the dl and rebuild with proper class names
+      dl.innerHTML = '';
+      
+      // Map legacy position names to positions
+      const positionMap = {
+        'Medium': 1,
+        'Notation': 2, 
+        'Duration': 3,
+        'Commissioned By': 4
+      };
+      
+      // Re-add existing content with proper classes
+      for (let i = 0; i < existingDts.length && i < existingDds.length; i++) {
+        const dtText = existingDts[i].textContent.trim();
+        const position = positionMap[dtText] || (i + 1);
+        
+        // Create properly classed dt
+        const dt = document.createElement('dt');
+        dt.className = `position${position}-title`;
+        dt.classList.add(`${dtText.toLowerCase().replace(/ by$/i, '')}-title`);
+        dt.textContent = dtText;
+        
+        // Create properly classed dd
+        const dd = document.createElement('dd');
+        dd.className = `position${position}-item`;
+        dd.classList.add(`${dtText.toLowerCase().replace(/ by$/i, '')}-item`);
+        dd.innerHTML = existingDds[i].innerHTML;
+        
+        // Add to definition list
+        dl.appendChild(dt);
+        dl.appendChild(dd);
+      }
+      
+      console.log('ROTATION SYSTEM: Successfully converted static metadata to rotation format');
+    }
+  }
+}
+
+// Initialize rotations when the document is ready
+document.addEventListener('DOMContentLoaded', initializeRotations);
+```
+
+## FILE: assets/js/config/rotations.js
+```
+/**
+ * Text Rotation Configuration
+ * 
+ * This file contains all the configuration for rotating text sections.
+ * You can easily add, remove, or modify the rotation items here.
+ * 
+ * Structure:
+ * - rotationSets contains different sets of sections that will rotate
+ * - Each rotation set contains an array of objects with title and content
+ * - Rotation interval is set in milliseconds (5000ms = 5 seconds)
+ */
+
+const rotationConfig = {
+  // Rotation interval in milliseconds (5 seconds)
+  interval: 5000,
+  
+  // Rotation sets for each position in the metadata
+  rotationSets: {
+    // First position (previously 'Medium')
+    position1: [
+      { title: 'Medium', content: 'Acoustic / Electronic / Tape' },
+      { title: 'Channels', content: 'Piano / Ensembles / Machines' },
+      { title: 'Core', content: 'Melancholic / Experimental' },
+      { title: 'Heritage', content: 'Classical / Electronic' }
+    ],
+    
+    // Second position (previously 'Notation')
+    position2: [
+      { title: 'Notation', content: 'Traditional / MIDI' },
+      { title: 'Input', content: 'Line / Mic' },
+      { title: 'Output', content: 'Minimal / Complex' },
+      { title: 'Technique', content: 'Polyphonic / Textural' }
+    ],
+    
+    // Third position (previously 'Duration')
+    position3: [
+      { title: 'Duration', content: 'Variable / Custom / Eternal' },
+      { title: 'Form', content: 'Abstract / Structured' },
+      { title: 'Time', content: 'Fluid / Static' },
+      { title: 'Scale', content: 'Intimate / Expansive' }
+    ],
+    
+    // Fourth position (previously 'Commissioned by')
+    position4: [
+      { title: 'Commissioned By', content: 'El Deseo, Coca-Cola,<br>Mccann Erickson, Ogilvy,<br>Festival BAM' },
+      { title: 'Awards & Nominations', content: 'Goya, León de Cannes,<br>Festival de Cine de Gijón,<br>Festival de Ciudad Rodrigo' },
+      { title: 'Referents', content: 'Johann Johannssonn, Max Richter,<br>Steve Reich, Philip Glass,<br>Arvo Pärt, William Basinski'},
+      { title: 'Influence', content: 'Boards of Canada, Aphex Twin,<br>Moderat, Radiohead, Merzbow,<br>Ryuichi Sakamoto, Fennesz' }
+    ]
+  }
+};
+
+// Export the configuration for use in rotation scripts
+export default rotationConfig;
+```
+
+## FILE: assets/js/components/animations.js
+```
+// assets/js/components/animations.js
+export function initAnimations() {
+    const animations = ['fadeMoveVertical', 'fadeMoveHorizontal', 'fadeMoveDiagonal'];
+    
+    // Create style element for animations
+    const style = document.createElement('style');
+    document.head.appendChild(style);
+    
+    // Animate title elements
+    animateElement('.title-container::after');
+    
+    // Animate h2 elements
+    document.querySelectorAll('h2').forEach(el => {
+        animateElement(`h2[data-id="${generateUniqueId(el)}"]::before`);
+    });
+    
+    // Animate each metadata item independently
+    document.querySelectorAll('.medium-item, .notation-item, .duration-item, .commissioned-item').forEach(el => {
+        animateElement(`.${el.className}[data-id="${generateUniqueId(el)}"]::before`);
+        setCSSVariablesForElement(el);
+    });
+    
+    // Set up the profile decoration
+    setupProfileDecoration();
+    
+    // Function to generate a unique ID
+    function generateUniqueId(el) {
+        const id = 'anim-' + Math.random().toString(36).substring(2, 9);
+        el.setAttribute('data-id', id);
+        return id;
+    }
+    
+    // Function to apply a random animation to an element
+    function animateElement(selector) {
+        const animation = animations[Math.floor(Math.random() * animations.length)];
+        style.textContent += `${selector} { animation: ${animation} 0.8s ease-out both; }`;
+    }
+    
+    // Apply unique random CSS variables to each element
+    function setCSSVariablesForElement(el) {
+        // Set line parameters with more dramatic randomness
+        el.style.setProperty('--line-start', `${Math.floor(Math.random() * 40)}%`);
+        el.style.setProperty('--line-width', `${Math.floor(Math.random() * 100) + 80}%`);
+        el.style.setProperty('--line-top', `${Math.floor(Math.random() * 70)}%`);
+    }
+    
+    // Set general CSS variables
+    setCSSVariable('--title-glyph-width', 180, 300, 'px');
+    setCSSVariable('--title-glyph-height', 40, 70, 'px');
+    setCSSVariable('--title-glyph-left', 40, 60);
+    setCSSVariable('--title-glyph-top', 20, 40);
+}
+
+// Helper function to set CSS variables with randomness
+function setCSSVariable(prop, min, max, unit = '%') {
+    const value = Math.floor(Math.random() * (max - min + 1)) + min;
+    document.documentElement.style.setProperty(prop, `${value}${unit}`);
+}
+
+function setupProfileDecoration() {
+    const profileContainer = document.querySelector('.profile-image-container');
+    if (!profileContainer) return;
+
+    // Clear any existing decorations
+    const existingDecorations = profileContainer.querySelectorAll('.profile-decoration');
+    existingDecorations.forEach(el => el.remove());
+
+    // Create a new decoration
+    const decoration = document.createElement('div');
+    decoration.className = 'profile-decoration';
+    profileContainer.appendChild(decoration);
+
+    // Get container dimensions
+    const containerRect = profileContainer.getBoundingClientRect();
+    const profileImage = profileContainer.querySelector('.profile-image');
+    const imageRect = profileImage ? profileImage.getBoundingClientRect() : containerRect;
+
+    // More variation in shape sizes
+    const minSize = Math.min(containerRect.width, containerRect.height) * 0.25;
+    const maxSize = Math.min(containerRect.width, containerRect.height) * 0.7;
+    const size = Math.floor(Math.random() * (maxSize - minSize + 1)) + minSize;
+    
+    decoration.style.width = `${size}px`;
+    decoration.style.height = `${size}px`;
+
+    // More random positioning around the image
+    const maxOffset = imageRect.width * 0.4;
+    
+    // Generate offset for x and y
+    const xOffset = (Math.random() * maxOffset * 2) - maxOffset;
+    const yOffset = (Math.random() * maxOffset * 2) - maxOffset;
+    
+    // Position relative to the image's center
+    const imageCenter = {
+        x: imageRect.left + imageRect.width / 2 - containerRect.left,
+        y: imageRect.top + imageRect.height / 2 - containerRect.top
+    };
+    
+    decoration.style.left = `${imageCenter.x + xOffset}px`;
+    decoration.style.top = `${imageCenter.y + yOffset}px`;
+    decoration.style.transform = 'translate(-50%, -50%)';
+
+    // More shape variety
+    const shapes = ['circle', 'triangle', 'square', 'rhombus', 'ellipse'];
+    const shape = shapes[Math.floor(Math.random() * shapes.length)];
+    
+    if (shape === 'circle') {
+        decoration.style.borderRadius = '50%';
+    } else if (shape === 'triangle') {
+        decoration.style.clipPath = 'polygon(50% 0%, 0% 100%, 100% 100%)';
+        decoration.style.transform = `translate(-50%, -50%) rotate(${Math.floor(Math.random() * 360)}deg)`;
+    } else if (shape === 'rhombus') {
+        decoration.style.clipPath = 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)';
+        decoration.style.transform = `translate(-50%, -50%) rotate(${Math.floor(Math.random() * 45)}deg)`;
+    } else if (shape === 'ellipse') {
+        decoration.style.borderRadius = '50%';
+        // Create an ellipse by scaling differently in x and y
+        const scaleX = 0.6 + Math.random() * 0.8;
+        const scaleY = 0.6 + Math.random() * 0.8;
+        decoration.style.transform = `translate(-50%, -50%) scale(${scaleX}, ${scaleY})`;
+    }
+
+    // Random opacity for more variation
+    decoration.style.opacity = (0.6 + Math.random() * 0.4).toString();
+
+    // Apply random animation
+    const animations = ['fadeMoveVertical', 'fadeMoveHorizontal', 'fadeMoveDiagonal'];
+    const randomAnimation = animations[Math.floor(Math.random() * animations.length)];
+    decoration.style.animation = `${randomAnimation} 0.8s ease-out both`;
+}```
+
+## FILE: assets/js/components/header.js
+```
+export async function initHeader() {
+    try {
+      const response = await fetch('/components/header.html');
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      
+      const html = await response.text();
+      document.getElementById('header-container').innerHTML = html;
+      
+      // Set up profile decoration immediately
+      const profileDecoration = document.createElement('div');
+      profileDecoration.className = 'profile-decoration';
+      document.querySelector('.profile-image-container').appendChild(profileDecoration);
+      
+      setupProfileDecoration();
+      
+    } catch (error) {
+      console.error('Error loading header:', error);
+      document.getElementById('header-container').innerHTML = `
+        <header class="header">
+          <div class="title-container">
+            <h1 class="title">Jorge Viñals</h1>
+          </div>
+          <div class="header-grid">
+            <div class="metadata">
+              <dl>
+                <dt>Medium</dt>
+                <dd class="medium-item">Acoustic / Electronic / Tape</dd>
+                <dt>Notation</dt>
+                <dd class="notation-item">Traditional / MIDI</dd>
+                <dt>Duration</dt>
+                <dd class="duration-item">Variable</dd>
+                <dt>Commissioned By</dt>
+                <dd class="commissioned-item">Coca-Cola, New Balance,<br>Mccann Erickson, Ogilvy,<br>El Deseo</dd>
+              </dl>
+            </div>
+            <div class="profile-image-container">
+              <img src="/assets/images/2024/04/110.jpg" alt="Jorge Viñals" class="profile-image">
+              <div class="profile-decoration"></div>
+            </div>
+          </div>
+        </header>
+      `;
+      setupProfileDecoration();
+    }
+  
+    function setupProfileDecoration() {
+      const decoration = document.querySelector('.profile-decoration');
+      if (!decoration) return;
+  
+      // Set random size (120-180px)
+      const size = Math.floor(Math.random() * 60) + 120;
+      decoration.style.width = `${size}px`;
+      decoration.style.height = `${size}px`;
+  
+      // Position near the profile image (not menu)
+      const imgContainer = document.querySelector('.profile-image-container');
+      const imgRect = imgContainer.getBoundingClientRect();
+      
+      decoration.style.left = `${imgRect.left + (Math.random() * 100 - 30)}px`;
+      decoration.style.top = `${imgRect.top + (Math.random() * 100 - 20)}px`;
+  
+      // Random shape
+      const shapes = ['circle', 'triangle', 'square'];
+      const shape = shapes[Math.floor(Math.random() * shapes.length)];
+      
+      if (shape === 'circle') {
+        decoration.style.borderRadius = '50%';
+      } else if (shape === 'triangle') {
+        decoration.style.clipPath = 'polygon(50% 0%, 0% 100%, 100% 100%)';
+        decoration.style.transform = `rotate(${Math.floor(Math.random() * 360)}deg)`;
+      }
+    }
+  }```
+
+## FILE: assets/js/components/footer.js
+```
+// assets/js/components/footer.js
+export async function initFooter() {
+    try {
+      console.log('Loading footer...');
+      const response = await fetch('/components/footer.html');
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+      const html = await response.text();
+      document.getElementById('footer-container').innerHTML = html;
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+      
+      console.log('Footer loaded successfully');
+    } catch (error) {
+      console.error('Error loading footer:', error);
+      document.getElementById('footer-container').innerHTML = `
+        <footer class="site-footer">
+          <div class="container">
+            <p>© ${new Date().getFullYear()} Jorge Viñals</p>
+          </div>
+        </footer>
+      `;
+    }
+  }```
+
+## CSS FILES
+## FILE: assets/css/style.css
+```
+/* /assets/css/style.css */
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  --title-glyph-width: 100px;
+  --title-glyph-height: 60px;
+  --title-glyph-top: 30%;
+  --title-glyph-left: 50%;
+  --title-glyph-right: 50%;
+
+  --color-bg: #f7f7f7;
+  --color-paper: #fff;
+  --color-ink: #111;
+  --color-accent: #d12e2e;
+  --color-midi: #4a6da7;
+  --color-background: #000;
+  --color-text: #e0e0e0;
+  --font-sans: 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Andale Mono', monospace;
+  --font-score: 'Times New Roman', serif;
+  --font-heading: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --site-width: 1200px;
+  --header-height: 60px;
+  --animation-speed: 0.3s;
+
+  --line-start: 10%;
+  --line-width: 150%;
+  --line-top: 50%;
+
+  --medium-line-start: 0%;
+  --medium-line-width: 150%;
+  --medium-line-top: 50%;
+  --notation-line-start: 0%;
+  --notation-line-width: 150%;
+  --notation-line-top: 50%;
+  --duration-line-start: 0%;
+  --duration-line-width: 150%;
+  --duration-line-top: 50%;
+  --commissioned-line-start: 0%;
+  --commissioned-line-width: 150%;
+  --commissioned-line-top: 50%;
+  --inspiration-line-width: 150%;
+  --inspiration-line-start: 0%;
+  --inspiration-line-top: 50%;
+
+  --title-rect-width: 60px;
+  --title-rect-height: 40px;
+  --title-rect-top: 30%;
+  --title-rect-left: 40%;
+    
+    /* Profile decoration */
+    --profile-decoration-size: 100%;     /* Base size as percentage of image */
+    --profile-decoration-scale: 1.2;     /* Random scale multiplier (1.0 to 1.2) */
+    --profile-decoration-offset-x: 0%;   /* Horizontal offset from center */
+    --profile-decoration-offset-y: 0%;   /* Vertical offset from center */
+    --profile-decoration-shape: 'square'; /* Shape type */
+    --profile-decoration-rotation: 0deg;  /* Rotation (for triangles) */
+  }  
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  line-height: 1.5;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading) !important;
+  color: var(--color-ink) !important;
+  letter-spacing: 0.02em !important;
+  font-weight: normal !important;
+}
+
+.container {
+  max-width: 900px;
+  width: 100%;
+  background: var(--color-paper);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.header-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .header-grid { grid-template-columns: 1fr; }
+}
+
+.metadata {
+  font-family: 'Andale Mono', monospace !important;
+  font-size: 14px !important;
+  line-height: 1.6;
+  overflow: hidden;
+}
+
+.metadata {
+  font-family: 'Andale Mono', monospace !important;
+  font-size: 0.85rem !important;
+  line-height: 1.6;
+  overflow: hidden;
+}
+
+.metadata dt {
+  font-family: 'Andale Mono', monospace !important;
+  font-weight: bold !important;
+  margin-top: 1rem;
+  font-size: 0.85rem !important;
+}
+
+.metadata dd {
+  font-family: 'Andale Mono', monospace !important;
+  font-weight: normal !important;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem !important;
+}
+
+/* Base styles for all color bars */
+.medium-item::before,
+.notation-item::before,
+.duration-item::before,
+.commissioned-item::before,
+.inspiration-item::before,
+.position1-item::before,
+.position2-item::before,
+.position3-item::before,
+.position4-item::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  background-color: var(--color-accent);
+  width: 185px !important; /* Fixed width for all bars */
+  max-width: 100%;
+  z-index: -1;
+}
+
+.rotating-item::before { left: var(--medium-line-start); top: var(--medium-line-top); width: var(--medium-line-width); animation: none; }
+.medium-item::before,
+.notation-item::before,
+.duration-item::before,
+.commissioned-item::before,
+.inspiration-item::before,
+.position1-item::before,
+.position2-item::before,
+.position3-item::before,
+.position4-item::before {
+  width: 220px;
+  left: 0;
+  top: 0;
+}
+
+.profile-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  overflow: visible;
+}
+
+.profile-image {
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 1/1;
+  filter: grayscale(100%) contrast(120%);
+  border: 1px solid var(--color-ink);
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+
+.profile-decoration {
+  position: absolute;
+  background-color: var(--color-accent);
+  z-index: 0;
+  opacity: 1;
+}
+
+.container {
+  max-width: 900px;
+  width: 100%;
+  background: var(--color-paper);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.content {
+  font-family: var(--font-score);
+  font-size: 1.1rem;
+}
+
+.title-container {
+  position: relative;
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Removed title-container::before element that created the fixed rectangle */
+
+.title-container::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  background: var(--color-accent);
+  width: var(--title-glyph-width);
+  height: var(--title-glyph-height);
+  top: var(--title-glyph-top);
+  left: var(--title-glyph-left);
+  right: var(--title-glyph-right);
+  animation: fadeMove 0.8s ease-out;
+  transform: translate(-50%, -50%);
+}
+
+h1 {
+  font-weight: normal !important;
+  font-size: 2.2rem;
+  letter-spacing: -1px;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  padding: 0 1rem;
+}
+
+h2 {
+  font-weight: normal !important;
+  font-size: 1.2rem;
+  margin: 2rem 0 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: var(--font-sans);
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+
+h2::before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  background-color: var(--color-accent);
+  top: var(--line-top);
+  left: var(--line-start);
+  width: var(--line-width);
+  z-index: -1;
+  animation: fadeMove 0.8s ease-out;
+}
+
+.medium-item::before,
+.notation-item::before,
+.duration-item::before,
+.commissioned-item::before,
+.inspiration-item::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  background-color: var(--color-accent);
+  width: var(--medium-line-width);
+  max-width: 100%;
+  z-index: -1;
+  animation: fadeMove 0.8s ease-out;
+}
+
+p {
+  margin-bottom: 1.5rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.param-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 2rem 0;
+  padding: 1rem 0;
+  border-top: 1px solid var(--color-ink);
+  border-bottom: 1px solid var(--color-ink);
+  justify-content: center;
+}
+
+.param-nav a {
+  padding: 0.5rem 1rem;
+  background: var(--color-paper);
+  border: 1px solid var(--color-ink);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--color-ink);
+  transition: all 0.2s;
+  position: relative;
+}
+
+.param-nav a:hover {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+.param-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transition: width 0.2s;
+}
+
+.param-nav a:hover::after {
+  width: 100%;
+}
+
+.piano-roll {
+  margin-top: 2rem;
+  position: relative;
+  padding-top: 1rem;
+}
+
+.piano-roll::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--color-ink);
+}
+
+.roll-container {
+  position: relative;
+  height: 60px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--color-paper),
+    var(--color-paper) 14px,
+    rgba(0, 0, 0, 0.05) 14px,
+    rgba(0, 0, 0, 0.05) 15px
+  );
+}
+
+.midi-note {
+  position: absolute;
+  background-color: var(--color-accent);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: white;
+  text-decoration: none;
+  transition: all 0.2s;
+  height: 12px;
+  padding: 0 4px;
+  white-space: nowrap;
+}
+
+.midi-note:hover {
+  background-color: var(--color-midi);
+  transform: scale(1.05);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.instagram { top: 5px; left: 5%; width: 70px; }
+.tiktok { top: 20px; left: 40%; width: 50px; }
+.youtube { top: 35px; left: 70%; width: 65px; }
+.twitch { top: 15px; left: 80%; width: 55px; }
+.mail { top: 40px; left: 15%; width: 40px; }
+.support { top: 25px; left: 25%; width: 80px; }
+
+.site-footer {
+  padding: 2rem 0 0;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: #666;
+  border-top: 1px solid var(--color-ink);
+}
+
+@keyframes fadeMoveVertical {
+  0% { opacity: 0; transform: translateY(-12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeMoveHorizontal {
+  0% { opacity: 0; transform: translateX(-12px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeMoveDiagonal {
+  0% { opacity: 0; transform: translate(-10px, -10px); }
+  100% { opacity: 1; transform: translate(0, 0); }
+}
+
+@keyframes fadeMove {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animated-shape {
+  animation-duration: 0.8s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-out;
+}
+
+.animate-shape {
+  animation: fadeMove 0.8s ease-out;
+}
+
+/* Contact page styles */
+.contact-methods {
+  margin: 2rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.contact-simple {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.email-link {
+  color: var(--color-accent);
+  text-decoration: none;
+  position: relative;
+  font-weight: bold;
+}
+
+.email-link:hover {
+  text-decoration: underline;
+}
+
+.contact-image {
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem 0;
+  position: relative;
+  display: inline-block;
+}
+
+.contact-image::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 20px;
+  width: 60%;
+  height: 20px;
+  background-color: var(--color-accent);
+  z-index: -1;
+  animation: fadeMove 0.8s ease-out;
+}
+
+.featured-image {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--color-ink);
+  filter: grayscale(100%) contrast(120%);
+}
+
+@media (max-width: 768px) {
+  .contact-methods {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mailing list styles */
+.mailing-form-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mailing-form-container.visible {
+  opacity: 1;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 600px;
+  padding: 2rem;
+  background-color: var(--color-paper);
+  border: 1px solid var(--color-ink);
+  position: relative;
+  animation: fadeMove 0.8s ease-out;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.form-container h3 {
+  font-family: var(--font-sans);
+  font-weight: normal;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  display: inline-block;
+}
+
+.form-container h3::before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  background-color: var(--color-accent);
+  top: 50%;
+  left: -10px;
+  width: 120%;
+  z-index: -1;
+  animation: fadeMove 0.8s ease-out;
+}
+
+.close-form-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-ink);
+  transition: color 0.2s;
+}
+
+.close-form-button:hover {
+  color: var(--color-accent);
+}
+
+/* Style for the Email Octopus form */
+.emailoctopus-form-wrapper {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.contact-method {
+  padding: 2rem;
+  border: 1px solid var(--color-ink);
+  position: relative;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-method:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-method::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.contact-method:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.contact-icon {
+  font-size: 2.5rem;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+}
+
+.contact-title {
+  font-family: var(--font-mono);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.contact-description {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.contact-button {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background-color: var(--color-paper);
+  border: 1px solid var(--color-ink);
+  color: var(--color-ink);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.contact-button:hover {
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+}
+
+/* Player styles */
+.player-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.player-tab {
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0 0.25rem;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  position: relative;
+  color: var(--color-ink);
+  transition: all 0.2s;
+}
+
+.player-tab::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-accent);
+  transition: width 0.2s;
+}
+
+.player-tab:hover::after,
+.player-tab.active::after {
+  width: 100%;
+}
+
+.player-tab.active {
+  font-weight: bold;
+}
+
+.player-wrapper {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.player-container {
+  display: none;
+  width: 100%;
+}
+
+.player-container.active {
+  display: block;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Links page styles */
+.links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.link-item {
+  background-color: var(--color-paper);
+  border: 1px solid var(--color-ink);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--color-ink);
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.link-item:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 5px;
+  background-color: var(--color-accent);
+  transition: width 0.2s;
+}
+
+.link-item:hover:before {
+  width: 10px;
+}
+
+.link-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Fix for listen page player heights */
+#soundcloud iframe {
+  display: block;
+  margin-bottom: 0;
+  height: 315px;
+}
+
+.link-icon {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  width: 40px;
+  text-align: center;
+  color: var(--color-accent);
+}
+
+.link-content {
+  flex: 1;
+}
+
+.link-title {
+  font-weight: bold;
+  font-family: var(--font-mono);
+  margin-bottom: 0.25rem;
+}
+
+.link-description {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Listen page styles */
+.player-container {
+  margin: 2rem 0;
+  position: relative;
+  padding: 2rem;
+  border: 1px solid var(--color-ink);
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.player-container::before {
+  content: "";
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 50%;
+  height: 70%;
+  background-color: var(--color-accent);
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.player-content {
+  position: relative;
+  z-index: 1;
+}
+
+.player-message {
+  font-family: var(--font-mono);
+  text-align: center;
+  padding: 2rem;
+  line-height: 1.7;
+}
+
+.player-message strong {
+  color: var(--color-accent);
+}
+
+.external-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+}
+
+.external-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.external-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Mailing list page styles */
+.mailing-intro {
+  margin: 2rem 0;
+  padding: 1rem;
+  border-left: 4px solid var(--color-accent);
+  background-color: rgba(0, 0, 0, 0.03);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.form-container {
+  margin: 2rem 0;
+  padding: 2rem;
+  border: 1px solid var(--color-ink);
+  position: relative;
+}
+
+.form-container::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 30px;
+  width: 20px;
+  height: 20px;
+  background-color: var(--color-paper);
+  border-top: 1px solid var(--color-ink);
+  border-left: 1px solid var(--color-ink);
+  transform: rotate(45deg);
+}
+
+/* Style for the Email Octopus form */
+.emailoctopus-form-wrapper {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Music Player Tabs */
+.player-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin: 2rem 0 1rem;
+  font-family: 'Space Mono', monospace;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 0.5rem;
+}
+
+.player-tab {
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border-radius: 6px 6px 0 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: bold;
+  color: #555;
+  border: 2px solid transparent;
+  margin-bottom: -2px;
+}
+
+.player-tab:hover {
+  color: #3282C2;
+  background: rgba(50, 130, 194, 0.1);
+}
+
+.player-tab.active {
+  color: #3282C2;
+  border-color: #f0f0f0;
+  border-bottom-color: white;
+  background: white;
+}
+
+.player-container {
+  margin-top: -2px;
+  border-top: 2px solid #f0f0f0;
+  padding-top: 1rem;
+}```
+
+## FILE: assets/css/background-direct.css
+```
+/* Direct background styling - no JavaScript required */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/images/background/2e9ea32e-9a95-4c1e-bb05-e730465e0f19.png');
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+}
+
+/* Apply the accent color to all geometric elements */
+.title-container::after, 
+h2::before, 
+.medium-item::before, 
+.notation-item::before,
+.duration-item::before, 
+.commissioned-item::before, 
+.inspiration-item::before,
+.profile-decoration {
+  background-color: var(--color-accent);
+}
+```
+
+## IMAGES STRUCTURE
+### Background Images
+```
+total 15120
+drwxr-xr-x  7 jorgevs  staff      224 May 22 21:49 .
+drwxr-xr-x  7 jorgevs  staff      224 May 22 21:49 ..
+-rw-r--r--@ 1 jorgevs  staff  1392136 May 22 21:44 2e9ea32e-9a95-4c1e-bb05-e730465e0f19.png
+-rw-r--r--@ 1 jorgevs  staff  1805299 May 20 19:48 352b7503-9023-456e-90f2-69875a0d3820.png
+-rw-r--r--@ 1 jorgevs  staff  1400344 May 22 21:38 92a9cf41-11b4-436d-8e2e-dc1f83c08c39.png
+-rw-r--r--@ 1 jorgevs  staff  1685494 May 20 19:47 d004a045-43b1-4c5c-abb5-7032dd10d395.png
+-rw-r--r--@ 1 jorgevs  staff  1451028 May 22 21:39 e4d523a1-2a0e-4189-a7c3-341144c7a491.png
+```
+
+### Geometry Images
+```
+total 18296
+drwxr-xr-x  8 jorgevs  staff      256 May 22 21:50 .
+drwxr-xr-x  7 jorgevs  staff      224 May 22 21:49 ..
+-rw-r--r--@ 1 jorgevs  staff     6148 May 22 21:50 .DS_Store
+-rw-r--r--@ 1 jorgevs  staff  2078852 May 20 19:53 0f6255a0-b8cf-4c9d-b12a-0708b288f847.png
+-rw-r--r--@ 1 jorgevs  staff  1164999 May 22 18:26 1aacc4eb-7ef1-453f-a88f-a98b089364c2.png
+-rw-r--r--@ 1 jorgevs  staff  2258319 May 22 18:25 7319fe29-2b49-43db-9c96-7ea78e2a82fb (1).png
+-rw-r--r--@ 1 jorgevs  staff  1869394 May 20 19:48 b52b84d6-d2e6-4537-8672-462d3d7c8fbc.png
+-rw-r--r--@ 1 jorgevs  staff  1975641 May 20 19:54 f0cd9415-0daa-465f-9ae9-08dd2011a9ed.png
+```
+

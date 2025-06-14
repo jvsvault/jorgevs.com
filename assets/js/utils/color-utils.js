@@ -45,33 +45,101 @@ export class ColorUtils {
   static extractDominantColor(imagePath) {
     return new Promise((resolve, reject) => {
       const img = new Image();
-      img.crossOrigin = 'Anonymous';
+      // Only set crossOrigin if it's an external URL
+      if (imagePath.startsWith('http') && !imagePath.includes(window.location.hostname)) {
+        img.crossOrigin = 'Anonymous';
+      }
       
       img.onload = () => {
         try {
           const canvas = document.createElement('canvas');
           const ctx = canvas.getContext('2d');
-          const size = 50;
+          const size = 100; // Larger sample size for better analysis
           
           canvas.width = size;
           canvas.height = size;
           ctx.drawImage(img, 0, 0, size, size);
           
           const imageData = ctx.getImageData(0, 0, size, size).data;
-          const centerIndex = Math.floor((size * size / 2) + (size / 2)) * 4;
           
-          const r = imageData[centerIndex];
-          const g = imageData[centerIndex + 1];
-          const b = imageData[centerIndex + 2];
+          // Sample multiple points across the image
+          const colorCounts = {};
+          const samplePoints = [
+            // Grid of 9 points
+            {x: 0.25, y: 0.25}, {x: 0.5, y: 0.25}, {x: 0.75, y: 0.25},
+            {x: 0.25, y: 0.5}, {x: 0.5, y: 0.5}, {x: 0.75, y: 0.5},
+            {x: 0.25, y: 0.75}, {x: 0.5, y: 0.75}, {x: 0.75, y: 0.75},
+            // Extra points for better coverage
+            {x: 0.33, y: 0.33}, {x: 0.67, y: 0.33},
+            {x: 0.33, y: 0.67}, {x: 0.67, y: 0.67}
+          ];
           
-          const hex = this.rgbToHex(r, g, b);
-          resolve(hex);
+          // Sample colors from multiple points
+          let totalR = 0, totalG = 0, totalB = 0;
+          let validSamples = 0;
+          
+          samplePoints.forEach(point => {
+            const x = Math.floor(point.x * size);
+            const y = Math.floor(point.y * size);
+            const index = (y * size + x) * 4;
+            
+            const r = imageData[index];
+            const g = imageData[index + 1];
+            const b = imageData[index + 2];
+            
+            // Skip very dark or very light colors (likely background)
+            const brightness = (r + g + b) / 3;
+            if (brightness > 20 && brightness < 235) {
+              totalR += r;
+              totalG += g;
+              totalB += b;
+              validSamples++;
+            }
+          });
+          
+          // If we got valid samples, use average
+          if (validSamples > 0) {
+            const avgR = Math.round(totalR / validSamples);
+            const avgG = Math.round(totalG / validSamples);
+            const avgB = Math.round(totalB / validSamples);
+            
+            // Boost saturation slightly for more vibrant colors
+            const max = Math.max(avgR, avgG, avgB);
+            const min = Math.min(avgR, avgG, avgB);
+            const saturationBoost = 1.2;
+            
+            const finalR = Math.round(min + (avgR - min) * saturationBoost);
+            const finalG = Math.round(min + (avgG - min) * saturationBoost);
+            const finalB = Math.round(min + (avgB - min) * saturationBoost);
+            
+            const hex = this.rgbToHex(
+              Math.min(255, Math.max(0, finalR)),
+              Math.min(255, Math.max(0, finalG)),
+              Math.min(255, Math.max(0, finalB))
+            );
+            
+            console.log(`COLOR UTILS: Extracted color ${hex} from ${imagePath}`);
+            resolve(hex);
+          } else {
+            // Fallback to center pixel if no valid samples
+            const centerIndex = Math.floor((size * size / 2) + (size / 2)) * 4;
+            const r = imageData[centerIndex];
+            const g = imageData[centerIndex + 1];
+            const b = imageData[centerIndex + 2];
+            const hex = this.rgbToHex(r, g, b);
+            console.log(`COLOR UTILS: Fallback color ${hex} from center of ${imagePath}`);
+            resolve(hex);
+          }
         } catch (error) {
+          console.error('COLOR UTILS: Error extracting color:', error);
           reject(error);
         }
       };
       
-      img.onerror = () => reject(new Error('Failed to load image'));
+      img.onerror = () => {
+        console.error(`COLOR UTILS: Failed to load image: ${imagePath}`);
+        reject(new Error('Failed to load image'));
+      };
       img.src = imagePath;
     });
   }

@@ -1,0 +1,688 @@
+/**
+ * Jorge Viñals Website - Main Stylesheet v3
+ * Complete rewrite to fix all layout issues
+ */
+
+/* CSS Custom Properties */
+:root {
+    /* Colors */
+    --text-color: #ffffff;
+    --border-color: #ffffff;
+    --accent-color: #808080;
+    --container-bg: transparent;
+    
+    /* Images - will be set by randomizer */
+    --bg-image: none;
+    --geometry-texture: none;
+    
+    /* Typography */
+    --font-mono: 'Andale Mono', 'Monaco', 'Courier New', monospace;
+    --font-sans: 'Helvetica Neue', Arial, sans-serif;
+    --font-score: 'Times New Roman', serif;
+    
+    /* Layout */
+    --container-padding: 1rem;
+    --section-gap: 2rem;
+    --border-width: 1px;
+    
+    /* Shape variables - will be set by randomizer */
+    --title-width: 200px;
+    --title-height: 60px;
+    --profile-shape: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    --profile-rotation: 0deg;
+}
+
+/* Reset and base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Body - Background layer */
+body {
+    font-family: var(--font-sans);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    background-color: #000;
+    position: relative;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    
+    /* Prevent initial flash */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Background image */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+body.loaded {
+    opacity: 1;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: var(--container-bg);
+    border: var(--border-width) solid var(--border-color);
+    padding: var(--container-padding);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 10;
+    overflow: hidden; /* Contain decorations */
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    color: var(--text-color);
+    font-weight: normal;
+    letter-spacing: 0.02em;
+    position: relative;
+    z-index: 20;
+}
+
+h1 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: var(--section-gap) 0 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+/* H2 decoration */
+h2::before {
+    content: "";
+    position: absolute;
+    background-color: var(--decoration-color, var(--accent-color));
+    background-image: var(--geometry-texture);
+    background-size: cover;
+    background-position: center;
+    height: var(--shape-height, 20px);
+    top: 50%;
+    left: var(--h2-offset, -10px);
+    transform: translateY(-50%);
+    z-index: -1;
+    width: var(--shape-width, 180px);
+    animation: var(--h2-animation, fadeInLeft) 0.6s ease-out both;
+}
+
+/* Text elements */
+p, div, span, li {
+    font-family: var(--font-score);
+    color: var(--text-color);
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    line-height: 1.6;
+    position: relative;
+    z-index: 20;
+}
+
+p {
+    margin-bottom: 1.5rem;
+    text-align: justify;
+    hyphens: auto;
+}
+
+/* Title container */
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-bottom: 1.5rem;
+    z-index: 20;
+}
+
+.title-container h1 {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+}
+
+/* Title decoration */
+.title-container h1::after {
+    content: "";
+    position: absolute;
+    background-color: var(--accent-color);
+    background-image: var(--geometry-texture);
+    background-size: cover;
+    background-position: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    pointer-events: none;
+    width: var(--title-width, 200px);
+    height: var(--title-height, 80px);
+    opacity: 0;
+    animation: var(--title-animation, fadeIn) 0.8s ease-out forwards;
+}
+
+/* Header grid - Desktop: side by side, Mobile: stacked */
+.header-grid {
+    display: flex;
+    gap: 1.5rem;
+    margin: 0 0 1.5rem 0;
+    padding: 0;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+}
+
+/* Metadata section */
+.metadata {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.3;
+    padding: 1.5rem;
+    position: relative;
+    width: 300px; /* Larger for desktop */
+    aspect-ratio: 1;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    overflow: visible; /* Allow decorations to extend */
+}
+
+.metadata dl {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.metadata dt {
+    font-weight: bold;
+    margin-top: 0.5rem;
+    margin-bottom: 0.2rem;
+    color: var(--text-color);
+    position: relative;
+    z-index: 20;
+}
+
+.metadata dt:first-child {
+    margin-top: 0;
+}
+
+.metadata dd {
+    font-weight: normal;
+    position: relative;
+    margin: 0 0 0.3rem 0;
+    padding-left: 0;
+    color: var(--text-color);
+    z-index: 20;
+}
+
+/* Metadata decorations */
+.metadata dd::before {
+    content: "";
+    position: absolute;
+    background-color: var(--decoration-color, var(--accent-color));
+    background-image: var(--geometry-texture);
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    top: 0;
+    z-index: -1;
+    width: var(--shape-width, 140px);
+    left: var(--shape-offset, -5px);
+    opacity: 0;
+    animation: var(--dd-animation, fadeInLeft) 0.6s ease-out forwards;
+}
+
+/* Profile image section */
+.profile-image-container {
+    position: relative;
+    width: 300px; /* Match metadata width */
+    aspect-ratio: 1;
+    box-sizing: border-box;
+}
+
+.profile-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: grayscale(100%) contrast(120%);
+    border: var(--border-width) solid var(--border-color);
+    object-fit: cover;
+    z-index: 10;
+}
+
+/* Profile decoration */
+.profile-decoration {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(var(--profile-rotation, 0deg));
+    z-index: -1;
+    pointer-events: none;
+    width: var(--profile-frame-width, 110%);
+    height: var(--profile-frame-height, 110%);
+    background-color: var(--profile-decoration-color, var(--accent-color));
+    background-image: var(--geometry-texture);
+    background-size: cover;
+    background-position: center;
+    clip-path: var(--profile-shape);
+    border-radius: var(--profile-radius, 0);
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 0.3s forwards;
+}
+
+/* Navigation */
+.param-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0 auto 1rem auto;
+    padding: 0.5rem 0;
+    border-top: var(--border-width) solid var(--border-color);
+    border-bottom: var(--border-width) solid var(--border-color);
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 624px; /* Match header grid width */
+}
+
+.param-nav a {
+    padding: 0.4rem 0.8rem;
+    background: transparent;
+    border: var(--border-width) solid var(--border-color);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all 0.2s ease;
+    position: relative;
+    z-index: 3;
+    white-space: nowrap;
+}
+
+.param-nav a:hover,
+.param-nav a.active {
+    background-color: var(--accent-color);
+    background-image: var(--geometry-texture);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Content section */
+.content {
+    font-family: var(--font-score);
+    position: relative;
+    z-index: 3;
+    transition: opacity 0.15s ease-in-out;
+    margin: 1rem auto 0 auto;
+    width: 100%;
+    max-width: 624px; /* Match header grid width: 300 + 24 + 300 */
+}
+
+.content h2:first-child {
+    margin-top: 0;
+}
+
+/* Piano roll section */
+.piano-roll {
+    margin: 1.5rem auto 0 auto;
+    position: relative;
+    padding-top: 1rem;
+    border-top: var(--border-width) solid var(--border-color);
+    max-width: 624px; /* Match header grid width */
+}
+
+.roll-container {
+    position: relative;
+    height: 80px;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 14px,
+        rgba(255, 255, 255, 0.1) 14px,
+        rgba(255, 255, 255, 0.1) 15px
+    );
+}
+
+.midi-note {
+    position: absolute;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: white;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    height: 12px;
+    padding: 0 4px;
+    white-space: nowrap;
+    z-index: 3;
+    animation: fadeIn 0.8s ease-out both;
+}
+
+.midi-note:hover {
+    background-image: var(--geometry-texture);
+    background-size: cover;
+    transform: scale(1.05);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* MIDI note positions */
+.instagram { top: 10px; left: 5%; width: 60px; animation-delay: 0.1s; }
+.tiktok { top: 25px; left: 30%; width: 45px; animation-delay: 0.2s; }
+.youtube { top: 40px; left: 60%; width: 55px; animation-delay: 0.3s; }
+.twitch { top: 20px; left: 75%; width: 50px; animation-delay: 0.4s; }
+.mail { top: 45px; left: 15%; width: 35px; animation-delay: 0.5s; }
+.support { top: 30px; left: 45%; width: 65px; animation-delay: 0.6s; }
+
+/* Site footer */
+.site-footer {
+    margin: 1.5rem auto 0 auto;
+    padding: 1rem 0 0.75rem;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-color);
+    border-top: var(--border-width) solid var(--border-color);
+    position: relative;
+    z-index: 3;
+    animation: fadeIn 1s ease-out both;
+    width: 100%;
+    max-width: 624px; /* Match header grid width */
+}
+
+/* Contact page specific */
+.email-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.email-link:hover {
+    text-decoration: underline;
+}
+
+/* Listen page styles */
+.disco-player-container {
+    margin: var(--section-gap) 0;
+    border: var(--border-width) solid var(--border-color);
+    animation: fadeIn 0.5s ease-out both;
+}
+
+.video-container {
+    margin: 1.5rem 0;
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    animation: fadeIn 0.5s ease-out both;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Mobile responsive - COMPLETE REWRITE */
+@media (max-width: 768px) {
+    .container {
+        border-left: none;
+        border-right: none;
+        padding: 1rem;
+        max-width: 100%; /* Full width on mobile */
+    }
+    
+    /* Stack layout on mobile */
+    .header-grid {
+        flex-direction: column;
+        gap: 1.5rem;
+        width: 280px; /* Fixed width */
+        margin: 0 auto 0.5rem auto;
+    }
+    
+    .profile-image-container {
+        order: -1; /* Image first */
+        width: 280px; /* Fixed width matching content */
+        aspect-ratio: 1;
+        margin: 0 auto;
+    }
+    
+    .metadata {
+        order: 1;
+        font-size: 0.65rem; /* Smaller text on mobile */
+        padding: 1rem;
+        width: 280px; /* Match image width */
+        aspect-ratio: unset;
+        min-height: auto;
+        max-width: none;
+        margin: 0 auto;
+        overflow: hidden; /* Critical: contain decorations */
+    }
+    
+    /* Ensure proper spacing in metadata */
+    .metadata dt {
+        margin-top: 0.8rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .metadata dd {
+        margin-bottom: 0.5rem;
+        white-space: pre-line;
+    }
+    
+    /* Constrain decorations on mobile */
+    .metadata dd::before {
+        max-width: calc(100% + 20px);
+        left: -10px;
+    }
+    
+    /* Profile decoration smaller on mobile */
+    .profile-decoration {
+        width: 105%;
+        height: 105%;
+    }
+    
+    /* Title decoration responsive */
+    .title-container h1::after {
+        width: min(var(--title-width), 80vw);
+        height: calc(var(--title-height) * 0.8);
+    }
+    
+    /* H2 decorations constrained */
+    h2::before {
+        max-width: calc(100vw - 3rem);
+    }
+    
+    .param-nav {
+        margin: 1rem auto;
+        width: 100%;
+        max-width: 280px; /* Match content width */
+        justify-content: space-between;
+        gap: 0.3rem;
+    }
+    
+    .param-nav a {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.65rem; /* Smaller on mobile */
+        flex: 1;
+        text-align: center;
+    }
+    
+    .roll-container {
+        height: 90px;
+    }
+    
+    .site-footer {
+        font-size: 0.65rem;
+    }
+    
+    /* Constrain content widths on mobile */
+    .content,
+    .piano-roll {
+        max-width: 280px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Small screens (480px - 768px) */
+@media (min-width: 480px) and (max-width: 768px) {
+    .header-grid {
+        max-width: 400px;
+    }
+    
+    .content,
+    .piano-roll {
+        max-width: 400px;
+    }
+}
+
+/* Tablet (768px+) - Switch to desktop layout */
+@media (min-width: 768px) {
+    .container {
+        border-left: var(--border-width) solid var(--border-color);
+        border-right: var(--border-width) solid var(--border-color);
+    }
+    
+    /* Desktop layout for header */
+    .header-grid {
+        flex-direction: row;
+        width: fit-content;
+        gap: 1.5rem;
+    }
+    
+    .metadata {
+        width: 300px;
+        aspect-ratio: 1;
+        padding: 1.5rem;
+        overflow: visible;
+    }
+    
+    .profile-image-container {
+        width: 300px;
+        order: 0; /* Reset order */
+    }
+    
+    /* Desktop nav */
+    .param-nav {
+        max-width: none;
+        margin: 0 0 1rem 0;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    
+    .param-nav a {
+        flex: none;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    
+    /* Keep desktop constraints */
+    .content,
+    .piano-roll,
+    .site-footer {
+        /* Keep max-width from base styles */
+    }
+}
+
+/* Desktop refinements */
+@media (min-width: 1024px) {
+    .container {
+        padding: 2rem;
+    }
+    
+    .metadata {
+        font-size: 0.8rem;
+    }
+}
+
+/* Remove this - no need for larger container */
