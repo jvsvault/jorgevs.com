@@ -28,10 +28,11 @@ Since there's no build process:
 
 ### Visual Randomization System
 The site's core feature is the randomization of backgrounds, textures, and colors:
-- **Background images**: Located in `/assets/images/background/`
-- **Geometry textures**: Located in `/assets/images/geometry/`
-- **Color extraction**: Pulls dominant color from geometry images for accent colors
+- **Background & Geometry**: Images in `/assets/images/bg-geo/` - same images used for both full background and geometry textures for coherent color palette
+- **Profile images**: Located in `/assets/images/profile/` - randomly selected profile pictures
+- **Color extraction**: Pulls dominant color from geometry textures for accent colors
 - **Default fallback**: Grey (#808080) for shapes, black background
+- **All links**: Must use HTTPS protocol for security
 
 ### Z-Index Hierarchy (CRITICAL)
 Proper layering is essential - many bugs stem from incorrect z-index:

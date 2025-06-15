@@ -26,16 +26,21 @@ const server = http.createServer((req, res) => {
   
   // API endpoint for listing images
   if (req.url === '/api/images') {
-    const backgroundDir = path.join(ROOT, 'assets/images/background');
-    const geometryDir = path.join(ROOT, 'assets/images/geometry');
+    const bgGeoDir = path.join(ROOT, 'assets/images/bg-geo');
+    const profileDir = path.join(ROOT, 'assets/images/profile');
     
     try {
-      const backgroundImages = fs.readdirSync(backgroundDir)
-        .filter(file => /\.(jpg|jpeg|png|gif)$/i.test(file))
-        .sort();
-      const geometryImages = fs.readdirSync(geometryDir)
-        .filter(file => /\.(jpg|jpeg|png|gif)$/i.test(file))
-        .sort();
+      // Get images from bg-geo folder
+      const bgGeoImages = fs.existsSync(bgGeoDir) ? 
+        fs.readdirSync(bgGeoDir)
+          .filter(file => /\.(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)$/i.test(file))
+          .sort() : [];
+      
+      // Get images from profile folder
+      const profileImages = fs.existsSync(profileDir) ? 
+        fs.readdirSync(profileDir)
+          .filter(file => /\.(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)$/i.test(file))
+          .sort() : [];
       
       res.writeHead(200, {
         'Content-Type': 'application/json',
@@ -44,8 +49,11 @@ const server = http.createServer((req, res) => {
       });
       
       res.end(JSON.stringify({
-        background: backgroundImages,
-        geometry: geometryImages
+        bgGeo: bgGeoImages,
+        profile: profileImages,
+        // For backwards compatibility
+        background: bgGeoImages,
+        geometry: bgGeoImages
       }));
       return;
     } catch (error) {
