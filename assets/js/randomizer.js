@@ -5,12 +5,13 @@
 
 import { ColorUtils } from './utils/color-utils.js';
 import { ShapeUtils } from './utils/shape-utils.js';
-import { detectAllImages } from './auto-image-detector.js';
+// import { detectAllImages } from './auto-image-detector.js';
 
 class JorgeVSRandomizer {
     constructor() {
       this.backgroundImages = [];
       this.geometryImages = [];
+      this.profileImages = [];
       this.isInitialized = false;
       this.colorVariations = null;
     }
@@ -41,17 +42,19 @@ class JorgeVSRandomizer {
         const response = await fetch('/api/images');
         if (response.ok) {
           const data = await response.json();
-          this.backgroundImages = data.background;
-          this.geometryImages = data.geometry;
-          console.log(`RANDOMIZER: API loaded ${this.backgroundImages.length} backgrounds, ${this.geometryImages.length} geometry images`);
+          // bg-geo images are used for both background and geometry textures
+          this.backgroundImages = data.bgGeo || [];
+          this.geometryImages = data.bgGeo || [];
+          this.profileImages = data.profile || [];
+          console.log(`RANDOMIZER: API loaded ${this.backgroundImages.length} bg-geo images, ${this.profileImages.length} profile images`);
           return;
         }
       } catch (error) {
         console.log('RANDOMIZER: API not available');
       }
       
-      // Fallback list based on your actual files
-      this.backgroundImages = [
+      // Fallback list - hardcoded image names
+      const bgGeoImages = [
         '00420020.JPG',
         'R1-02565-022A.JPG',
         'r001-004.jpg',
@@ -61,16 +64,24 @@ class JorgeVSRandomizer {
         'r001-018.jpg',
         'r001-020.jpg',
         'r001-021 2.jpg',
-        'r001-021.jpg',
         'r001-025.jpg'
       ];
       
-      this.geometryImages = [
-        '01.jpg', '02.jpg', '03.jpg', '03 copia.jpg', '05.jpg', '07.jpg',
-        '08.jpg', '09.jpg', '10.jpg', '11.jpg', '12.jpg'
+      const profileImages = [
+        '036_BW-2048x1152.jpg',
+        '051-2048x1154.jpg',
+        '060-2048x1154.jpg',
+        '064-2048x1154.jpg',
+        '110-2048x1153.jpg',
+        '117-2048x1153.jpg'
       ];
       
-      console.log(`RANDOMIZER: Using fallback - ${this.backgroundImages.length} backgrounds, ${this.geometryImages.length} geometry images`);
+      // Use bg-geo images for both background and geometry
+      this.backgroundImages = bgGeoImages;
+      this.geometryImages = bgGeoImages;
+      this.profileImages = profileImages;
+      
+      console.log(`RANDOMIZER: Using fallback - ${bgGeoImages.length} bg-geo images, ${profileImages.length} profile images`);
     }
   
     /**
@@ -79,38 +90,46 @@ class JorgeVSRandomizer {
     applyRandomization() {
       const root = document.documentElement;
       
-      // Select random images
+      // Select ONE random image for both background and color extraction
       const bgIndex = Math.floor(Math.random() * this.backgroundImages.length);
-      const geoIndex = Math.floor(Math.random() * this.geometryImages.length);
       
-      // Set image paths as CSS custom properties
-      const bgPath = `/assets/images/background/${this.backgroundImages[bgIndex]}`;
-      const geoPath = `/assets/images/geometry/${this.geometryImages[geoIndex]}`;
+      // Use the SAME image for both background and color extraction
+      const selectedImage = this.backgroundImages[bgIndex];
+      const imagePath = `/assets/images/bg-geo/${selectedImage}`;
       
-      root.style.setProperty('--bg-image', `url('${bgPath}')`);
-      root.style.setProperty('--geometry-texture', `url('${geoPath}')`);
+      root.style.setProperty('--bg-image', `url('${imagePath}')`);
       
-      console.log(`RANDOMIZER: Setting background: ${bgPath}`);
-      console.log(`RANDOMIZER: Setting geometry: ${geoPath}`);
+      console.log(`RANDOMIZER: Setting background and extracting colors from: ${imagePath}`);
       
       // Verify background image loads
       const testImg = new Image();
       testImg.onerror = () => {
-        console.error(`RANDOMIZER: Failed to load background: ${bgPath}`);
+        console.error(`RANDOMIZER: Failed to load background: ${imagePath}`);
         // Set a solid fallback color instead of trying another image
         root.style.setProperty('--bg-image', 'none');
         root.style.setProperty('background-color', '#1a1a1a');
         console.log(`RANDOMIZER: Using solid color fallback`);
       };
-      testImg.src = bgPath;
+      testImg.src = imagePath;
+      
+      // Randomize profile image
+      if (this.profileImages.length > 0) {
+        const profileIndex = Math.floor(Math.random() * this.profileImages.length);
+        const profilePath = `/assets/images/profile/${this.profileImages[profileIndex]}`;
+        const profileImg = document.querySelector('.profile-image');
+        if (profileImg) {
+          profileImg.src = profilePath;
+          console.log(`RANDOMIZER: Setting profile image: ${profilePath}`);
+        }
+      }
       
       // Generate random values for shapes
       this.randomizeShapes();
       
-      // Extract and set accent color
-      this.setAccentColor(geoPath);
+      // Extract and set accent color from the SAME background image
+      this.setAccentColor(imagePath);
       
-      console.log(`RANDOMIZER: Applied background ${this.backgroundImages[bgIndex]}, geometry ${this.geometryImages[geoIndex]}`);
+      console.log(`RANDOMIZER: Applied background and color extraction from ${selectedImage}`);
     }
   
     /**
@@ -269,10 +288,15 @@ class JorgeVSRandomizer {
      */
     applyFallbackRandomization() {
       const root = document.documentElement;
-      root.style.setProperty('--bg-image', "url('/assets/images/background/01.jpg')");
-      root.style.setProperty('--geometry-texture', "url('/assets/images/geometry/01.jpg')");
+      root.style.setProperty('--bg-image', "url('/assets/images/bg-geo/r001-004.jpg')");
       root.style.setProperty('--accent-color', '#808080');
       this.randomizeShapes();
+      
+      // Set fallback profile image
+      const profileImg = document.querySelector('.profile-image');
+      if (profileImg) {
+        profileImg.src = '/assets/images/profile/110-2048x1153.jpg';
+      }
     }
   
     /**
