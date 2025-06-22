@@ -61,21 +61,29 @@ class ContentManager {
           `
         },
         
+        img: {
+          title: '/img | Jorge Viñals',
+          content: `
+            <h2>/IMG</h2>
+            
+            <p>Besides music and sound, I also explore visual arts through photography. My work focuses on capturing textures, geometries, and moments that resonate with the same emotional depth as my compositions. You can explore my visual work and color experiments at:</p>
+            <a href="https://jvs.vision" target="_blank" rel="noopener noreferrer" class="vault-button">Visit jvs.vision</a>
+          `
+        },
+        
         etc: {
           title: '/etc | Jorge Viñals',
           content: `
             <h2>/ETC</h2>
+            
             <p>
               I had an interest in computers since childhood because they became my first tool for making music. So besides studying music and sound, I also got my degree in Telecommunications Engineering. An old boss used to say I'm a hybrid of creative and engineer. I always say I'm a bad engineer, but because I'm creative and resourceful I always find a way. Music is Math, as a wise duo used to say.
             </p>
             
             <p>
-              At the moment I'm lucky enough to work at BMAT, where flexibility is a core identity, so I can give my all there while working on my music. And maybe yours. I don't see myself leaving this company, but maybe if I win a couple of Goyas and an Oscar I'll consider it.
+              At the moment I'm lucky enough to work at BMAT, where flexibility is a core identity, so I can give my all there while working on my music. And maybe yours. I don't see myself leaving this company, but maybe if I win a couple of Goyas and an Oscar I'll consider it. You can check my dev adventures here:
             </p>
-            
-            <p>
-              In the meantime, you can check my engineering profile below. Bonus points: I've develop a couple of tools you can use for free, one to tame your data, one to tame your online life.
-            </p>
+            <a href="https://jvsvault.dev" target="_blank" rel="noopener noreferrer" class="vault-button">Visit jvsvault.dev</a>
           `
         }
       };

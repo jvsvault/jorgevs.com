@@ -90,27 +90,31 @@ class JorgeVSRandomizer {
     applyRandomization() {
       const root = document.documentElement;
       
-      // Select ONE random image for both background and color extraction
+      // Select random images for background and geometry texture
       const bgIndex = Math.floor(Math.random() * this.backgroundImages.length);
+      const geoIndex = Math.floor(Math.random() * this.geometryImages.length);
       
-      // Use the SAME image for both background and color extraction
-      const selectedImage = this.backgroundImages[bgIndex];
-      const imagePath = `/assets/images/bg-geo/${selectedImage}`;
+      // Use different images for background and geometry
+      const selectedBgImage = this.backgroundImages[bgIndex];
+      const selectedGeoImage = this.geometryImages[geoIndex];
+      const bgImagePath = `/assets/images/bg-geo/${selectedBgImage}`;
+      const geoImagePath = `/assets/images/bg-geo/${selectedGeoImage}`;
       
-      root.style.setProperty('--bg-image', `url('${imagePath}')`);
+      root.style.setProperty('--bg-image', `url('${bgImagePath}')`);
+      root.style.setProperty('--geometry-texture', `url('${geoImagePath}')`);
       
-      console.log(`RANDOMIZER: Setting background and extracting colors from: ${imagePath}`);
+      console.log(`RANDOMIZER: Setting background: ${bgImagePath}, geometry: ${geoImagePath}`);
       
       // Verify background image loads
       const testImg = new Image();
       testImg.onerror = () => {
-        console.error(`RANDOMIZER: Failed to load background: ${imagePath}`);
+        console.error(`RANDOMIZER: Failed to load background: ${bgImagePath}`);
         // Set a solid fallback color instead of trying another image
         root.style.setProperty('--bg-image', 'none');
         root.style.setProperty('background-color', '#1a1a1a');
         console.log(`RANDOMIZER: Using solid color fallback`);
       };
-      testImg.src = imagePath;
+      testImg.src = bgImagePath;
       
       // Randomize profile image
       if (this.profileImages.length > 0) {
@@ -126,10 +130,10 @@ class JorgeVSRandomizer {
       // Generate random values for shapes
       this.randomizeShapes();
       
-      // Extract and set accent color from the SAME background image
-      this.setAccentColor(imagePath);
+      // Extract and set accent color from the background image
+      this.setAccentColor(bgImagePath);
       
-      console.log(`RANDOMIZER: Applied background and color extraction from ${selectedImage}`);
+      console.log(`RANDOMIZER: Applied background from ${selectedBgImage}, geometry from ${selectedGeoImage}`);
     }
   
     /**
@@ -138,22 +142,7 @@ class JorgeVSRandomizer {
     randomizeShapes() {
       const root = document.documentElement;
   
-      // Title decoration - random size AND animation
-      const titleAnimations = ['fadeIn', 'fadeInUp', 'fadeInDown', 'fadeInLeft', 'fadeInRight'];
-      const titleAnimation = titleAnimations[Math.floor(Math.random() * titleAnimations.length)];
-      const titleWidth = Math.floor(Math.random() * 100) + 180; // 180-280px (longer but contained)
-      const titleHeight = Math.floor(Math.random() * 40) + 50; // 50-90px (varied sizes)
-      
-      root.style.setProperty('--title-width', `${titleWidth}px`);
-      root.style.setProperty('--title-height', `${titleHeight}px`);
-      root.style.setProperty('--title-animation', titleAnimation);
-      
-      // Set random side for title decoration
-      const titleSide = Math.random() < 0.5 ? 'left' : 'right';
-      const h1 = document.querySelector('.title-container h1');
-      if (h1) {
-        h1.setAttribute('data-decoration-side', titleSide);
-      }
+      // Title decoration will be added after colors are set
   
       // H2 decoration - varied rectangles with different animations  
       const h2Animations = ['fadeInLeft', 'fadeInRight', 'fadeInUp', 'fadeInDown', 'fadeIn'];
@@ -253,16 +242,123 @@ class JorgeVSRandomizer {
       const colorArray = Object.values(colorVariations);
       console.log('RANDOMIZER: Applying color variations to elements:', colorArray);
       
+      // Find the darkest color by converting to RGB and calculating luminance
+      let darkestColor = colorArray[0];
+      let lowestLuminance = 999999;
+      
+      colorArray.forEach(color => {
+        let r, g, b;
+        
+        // Handle both hex and rgb() format
+        if (color.startsWith('#')) {
+          r = parseInt(color.substr(1,2), 16);
+          g = parseInt(color.substr(3,2), 16);
+          b = parseInt(color.substr(5,2), 16);
+        } else if (color.startsWith('rgb')) {
+          const match = color.match(/\d+/g);
+          r = parseInt(match[0]);
+          g = parseInt(match[1]);
+          b = parseInt(match[2]);
+        }
+        
+        // Calculate relative luminance
+        const luminance = (0.299 * r + 0.587 * g + 0.114 * b);
+        
+        if (luminance < lowestLuminance) {
+          lowestLuminance = luminance;
+          darkestColor = color;
+        }
+      });
+      
+      // Apply darkest color with darker opacity to title cell background
+      const titleCell = document.querySelector('.title-cell');
+      if (titleCell) {
+        let r, g, b;
+        
+        // Handle both hex and rgb() format
+        if (darkestColor.startsWith('#')) {
+          r = parseInt(darkestColor.substr(1,2), 16);
+          g = parseInt(darkestColor.substr(3,2), 16);
+          b = parseInt(darkestColor.substr(5,2), 16);
+        } else if (darkestColor.startsWith('rgb')) {
+          const match = darkestColor.match(/\d+/g);
+          r = parseInt(match[0]);
+          g = parseInt(match[1]);
+          b = parseInt(match[2]);
+        }
+        
+        // Use 80% opacity for an even darker appearance
+        titleCell.style.backgroundColor = `rgba(${r}, ${g}, ${b}, 0.8)`;
+        console.log(`RANDOMIZER: Applied darkest color ${darkestColor} as rgba(${r}, ${g}, ${b}, 0.8) to title cell`);
+      }
+      
       // Apply random colors to decorations after a delay to ensure elements exist
       setTimeout(() => {
-        // H2 decorations
+        // Add title decoration shape
+        const titleCell = document.querySelector('.title-cell');
+        if (titleCell) {
+          // Remove any existing decoration
+          const existingDecoration = titleCell.querySelector('.title-decoration');
+          if (existingDecoration) {
+            existingDecoration.remove();
+          }
+          
+          // Use the lightest color for title decoration
+          let lightestColor = colorArray[0];
+          let highestLuminance = 0;
+          
+          colorArray.forEach(color => {
+            let r, g, b;
+            if (color.startsWith('#')) {
+              r = parseInt(color.substr(1,2), 16);
+              g = parseInt(color.substr(3,2), 16);
+              b = parseInt(color.substr(5,2), 16);
+            } else if (color.startsWith('rgb')) {
+              const match = color.match(/\d+/g);
+              r = parseInt(match[0]);
+              g = parseInt(match[1]);
+              b = parseInt(match[2]);
+            }
+            const luminance = (0.299 * r + 0.587 * g + 0.114 * b);
+            if (luminance > highestLuminance) {
+              highestLuminance = luminance;
+              lightestColor = color;
+            }
+          });
+          
+          // Create a decoration element
+          const decoration = document.createElement('div');
+          decoration.className = 'title-decoration';
+          decoration.style.position = 'absolute';
+          decoration.style.backgroundColor = lightestColor;
+          decoration.style.opacity = '0.8';
+          
+          // Random size and position
+          const width = Math.floor(Math.random() * 150) + 100; // 100-250px
+          const height = Math.floor(Math.random() * 40) + 30; // 30-70px
+          const left = Math.floor(Math.random() * 60) + 20; // 20-80% from left
+          const top = Math.floor(Math.random() * 40) + 30; // 30-70% from top
+          
+          decoration.style.width = `${width}px`;
+          decoration.style.height = `${height}px`;
+          decoration.style.left = `${left}%`;
+          decoration.style.top = `${top}%`;
+          decoration.style.zIndex = '1';
+          decoration.style.transform = `translateX(-50%) rotate(${Math.random() * 10 - 5}deg)`;
+          
+          // Add it to title cell
+          titleCell.appendChild(decoration);
+          console.log(`RANDOMIZER: Added title decoration shape with lightest color ${lightestColor}`);
+        }
+        
+        // H2 decorations - keep random variety
         document.querySelectorAll('h2').forEach((h2, index) => {
           const color = colorArray[Math.floor(Math.random() * colorArray.length)];
           h2.style.setProperty('--decoration-color', color);
           console.log(`RANDOMIZER: Applied color ${color} to H2 #${index}: "${h2.textContent}"`);
         });
         
-        // Metadata decorations
+        // Metadata decorations - keep random variety
         document.querySelectorAll('.metadata dd').forEach((dd, index) => {
           const color = colorArray[Math.floor(Math.random() * colorArray.length)];
           dd.style.setProperty('--decoration-color', color);

@@ -519,20 +519,25 @@ p {
     .container {
         border-left: var(--border-width) solid var(--border-color);
         border-right: var(--border-width) solid var(--border-color);
+        max-width: 700px;
+        background-color: rgba(0, 0, 0, 0.7);
     }
     
     /* Switch to side-by-side layout */
     .header-grid {
         flex-direction: row;
-        align-items: flex-start;
-        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        max-width: 624px; /* 300 + 24 + 300 */
     }
     
-    /* Equal width sections */
+    /* Fixed width sections */
     .profile-image-container,
     .metadata {
-        width: calc(50% - 0.5rem);
+        width: 300px;
         max-width: none;
+        flex-shrink: 0;
     }
     
     .profile-image-container {
@@ -627,9 +632,7 @@ p {
         --container-padding: 2rem;
     }
     
-    .header-grid {
-        max-width: 600px;
-    }
+    /* Header grid already has proper max-width from 768px breakpoint */
     
     .metadata {
         font-size: 0.9rem;
