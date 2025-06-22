@@ -14,7 +14,9 @@ const mimeTypes = {
   '.json': 'application/json',
   '.png': 'image/png',
   '.jpg': 'image/jpeg',
+  '.JPG': 'image/jpeg',  // Added uppercase
   '.jpeg': 'image/jpeg',
+  '.JPEG': 'image/jpeg', // Added uppercase
   '.gif': 'image/gif',
   '.svg': 'image/svg+xml',
   '.woff': 'font/woff',
@@ -24,8 +26,12 @@ const mimeTypes = {
 const server = http.createServer((req, res) => {
   console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
   
+  // Parse URL to remove query string
+  const parsedUrl = new URL(req.url, `http://localhost:${PORT}`);
+  const pathname = parsedUrl.pathname;
+  
   // API endpoint for listing images
-  if (req.url === '/api/images') {
+  if (pathname === '/api/images') {
     const bgGeoDir = path.join(ROOT, 'assets/images/bg-geo');
     const profileDir = path.join(ROOT, 'assets/images/profile');
     
@@ -63,7 +69,7 @@ const server = http.createServer((req, res) => {
     }
   }
   
-  let filePath = path.join(ROOT, req.url === '/' ? '/index.html' : req.url);
+  let filePath = path.join(ROOT, pathname === '/' ? '/index.html' : pathname);
   
   // Security check
   if (!filePath.startsWith(ROOT)) {

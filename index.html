@@ -9,7 +9,7 @@
   <title>Jorge Viñals - Composer</title>
   
   <!-- Main stylesheet -->
-  <link rel="stylesheet" href="/assets/css/main-v3-clean.css?v=20250615-contrast-fix">
+  <link rel="stylesheet" href="/assets/css/main-v3-clean.css?v=20250621-mobile-final">
   
   <!-- Favicon -->
   <link rel="icon" href="/assets/images/2024/04/cropped-110-32x32.jpg" sizes="32x32">
@@ -17,43 +17,48 @@
   <link rel="apple-touch-icon" href="/assets/images/2024/04/cropped-110-180x180.jpg">
   
   <!-- Preload critical fonts -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" as="style">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" as="style">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
-    <!-- Header Section - ALWAYS THE SAME -->
-    <div class="title-container">
-      <h1>Jorge Viñals</h1>
-    </div>
-
-    <div class="header-grid">
-      <!-- Metadata Section - ALWAYS THE SAME -->
-      <div class="metadata">
-        <dl id="rotating-dl-target">
-          <dt class="position1-title medium-title">Medium</dt>
-          <dd class="position1-item medium-item">Acoustic / Electronic / Tape</dd>
-          <dt class="position2-title notation-title">Notation</dt>
-          <dd class="position2-item notation-item">Traditional / MIDI</dd>
-          <dt class="position3-title duration-title">Duration</dt>
-          <dd class="position3-item duration-item">Variable</dd>
-          <dt class="position4-title commissioned-title">Commissioned By</dt>
-          <dd class="position4-item commissioned-item">Coca-Cola, New Balance,<br>Mccann Erickson, Ogilvy,<br>El Deseo</dd>
-        </dl>
-      </div>
-      
-      <!-- Profile Image Section - ALWAYS THE SAME -->
-      <div class="profile-image-container">
-        <img src="/assets/images/2024/04/110.jpg" alt="Jorge Viñals" class="profile-image" />
-        <div class="profile-decoration"></div>
-      </div>
-    </div>
+    <!-- Main table structure -->
+    <table class="main-table">
+      <tr class="title-row">
+        <td colspan="2" class="title-cell" style="padding: 35px 30px !important;">
+          <h1 class="site-title">JORGE VIÑALS</h1>
+        </td>
+      </tr>
+      <tr class="content-row">
+        <td class="metadata-cell">
+          <div class="metadata">
+            <dl id="rotating-dl-target">
+              <dt class="position1-title medium-title">Medium</dt>
+              <dd class="position1-item medium-item">Acoustic / Electronic / Tape</dd>
+              <dt class="position2-title notation-title">Notation</dt>
+              <dd class="position2-item notation-item">Traditional / MIDI</dd>
+              <dt class="position3-title duration-title">Duration</dt>
+              <dd class="position3-item duration-item">Variable</dd>
+              <dt class="position4-title commissioned-title">Commissioned By</dt>
+              <dd class="position4-item commissioned-item">Coca-Cola, New Balance,<br>Mccann Erickson, Ogilvy,<br>El Deseo</dd>
+            </dl>
+          </div>
+        </td>
+        <td class="profile-cell">
+          <div class="profile-image-container">
+            <img src="/assets/images/2024/04/110.jpg" alt="Jorge Viñals" class="profile-image" />
+            <div class="profile-decoration"></div>
+          </div>
+        </td>
+      </tr>
+    </table>
 
     <!-- Navigation - ALWAYS THE SAME -->
     <div class="param-nav">
       <a href="#about" data-section="about">About</a>
       <a href="#listen" data-section="listen">Listen</a>
       <a href="#contact" data-section="contact">Contact</a>
+      <a href="#img" data-section="img">/img</a>
       <a href="#etc" data-section="etc">/etc</a>
     </div>
 
@@ -73,12 +78,14 @@
     </div>
 
     <!-- Footer - ALWAYS THE SAME -->
-    <div class="site-footer">
-      &copy; <span id="current-year">2025</span> Jorge Viñals
-    </div>
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p>&copy; <span id="current-year">2025</span> Jorge Viñals</p>
+      </div>
+    </footer>
   </div>
 
   <!-- Main JavaScript -->
-  <script type="module" src="/assets/js/main.js?v=20250615-contrast-fix2"></script>
+  <script type="module" src="/assets/js/main.js?v=20250621-darkest-fix"></script>
 </body>
 </html>

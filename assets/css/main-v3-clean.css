@@ -54,7 +54,7 @@ body {
     min-height: 100vh;
     background-color: #000;
     position: relative;
-    opacity: 0;
+    opacity: 1;
     transition: opacity 0.3s ease;
 }
 
@@ -79,22 +79,35 @@ body.loaded {
 /* Container - mobile first */
 .container {
     width: 100%;
-    margin: 0 auto;
-    background-color: rgba(0, 0, 0, 0.5); /* 50% opacity black */
-    border-top: var(--border-width) solid var(--border-color);
-    border-bottom: var(--border-width) solid var(--border-color);
-    padding: var(--container-padding);
+    max-width: 624px; /* Fixed width container */
+    margin: 3rem auto; /* Top and bottom margin */
+    background-color: rgba(0, 0, 0, 0.5); /* 50% opacity background */
+    border: var(--border-width) solid var(--border-color); /* Border all around */
+    padding: 0; /* No padding - table cells handle their own */
     position: relative;
     z-index: 10;
     overflow: hidden;
 }
 
-/* Inner wrapper for consistent widths */
-.container > * {
-    width: 100%;
-    max-width: 280px;
-    margin-left: auto;
-    margin-right: auto;
+/* Direct children that aren't tables get padding */
+.container > *:not(table) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.param-nav {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.content {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.piano-roll {
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 /* Typography */
@@ -140,25 +153,62 @@ h2::before {
 
 /* Text elements */
 p, div, span, li {
-    font-family: var(--font-score);
+    font-family: 'Inter', sans-serif;
     color: var(--text-color);
-    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    font-size: 0.9rem;
+    font-weight: 300;
     line-height: 1.6;
 }
 
 p {
     margin-bottom: 1.5rem;
-    text-align: justify;
-    hyphens: auto;
+    text-align: left;
 }
 
-/* Title container */
-.title-container {
+/* Main table structure */
+.main-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Title row with randomized background */
+.title-row td {
+    padding: 0;
+}
+
+.title-cell {
+    background-color: rgba(0, 0, 0, 0.5); /* Default fallback */
+    padding: 6rem 2rem;
     text-align: center;
-    padding: 1.5rem 0;
-    margin-bottom: 1.5rem;
     position: relative;
-    z-index: 30; /* Higher than profile decoration */
+    overflow: hidden;
+}
+
+/* No geometry texture - only solid color from randomizer */
+
+.site-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 30px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #fff;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+    animation: titleFadeIn 0.8s ease-out;
+}
+
+@keyframes titleFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .title-container h1 {
@@ -168,21 +218,9 @@ p {
     isolation: isolate; /* Create new stacking context */
 }
 
-/* Title decoration */
+/* Title decoration - REMOVED for clean design */
 .title-container h1::after {
-    content: "";
-    position: absolute;
-    background-color: var(--accent-color);
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: -1; /* Behind the h1 text */
-    width: var(--title-width, 200px);
-    height: var(--title-height, 80px);
-    animation: fadeIn 0.8s ease-out forwards;
-    opacity: 0.85; /* Slightly higher opacity since colors are now darker */
-    /* Dynamic positioning */
-    left: auto;
-    right: auto;
+    display: none;
 }
 
 /* Position decoration based on data attribute */
@@ -194,20 +232,24 @@ p {
     left: calc(100% + 10px);
 }
 
-/* Header grid - mobile stacked */
-.header-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
+/* Content row */
+.content-row {
+    vertical-align: top;
+}
+
+.content-row td {
+    padding: 1.5rem;
 }
 
 /* Metadata section */
+.metadata-cell {
+    width: 50%;
+}
+
 .metadata {
     font-family: var(--font-mono);
     font-size: 0.65rem;
     line-height: 1.3;
-    padding: 1rem;
     overflow: hidden;
 }
 
@@ -254,21 +296,26 @@ p {
 }
 
 /* Profile image section */
+.profile-cell {
+    width: 50%;
+    position: relative;
+}
+
 .profile-image-container {
     position: relative;
-    aspect-ratio: 1;
-    order: -1; /* Image first on mobile */
+    width: 100%;
+    height: 100%;
 }
 
 .profile-image {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
+    height: auto;
+    aspect-ratio: 1;
     filter: grayscale(100%) contrast(120%);
     border: var(--border-width) solid var(--border-color);
     object-fit: cover;
+    display: block;
+    position: relative;
     z-index: 10;
 }
 
@@ -278,7 +325,7 @@ p {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(var(--profile-rotation, 0deg));
-    z-index: 5; /* Behind image but not negative */
+    z-index: 1; /* Behind image */
     width: 105%;
     height: 105%;
     background-color: var(--profile-decoration-color, var(--accent-color));
@@ -306,11 +353,11 @@ p {
 
 .param-nav a {
     flex: 1;
-    padding: 0.3rem 0.5rem;
+    padding: 0.5rem 1rem;
     background: transparent;
     border: var(--border-width) solid var(--border-color);
     font-family: var(--font-mono);
-    font-size: 0.65rem;
+    font-size: 0.875rem;
     text-decoration: none;
     color: var(--text-color);
     transition: all 0.2s ease;
@@ -338,7 +385,7 @@ p {
 
 /* Piano roll section */
 .piano-roll {
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     padding-top: 1rem;
     border-top: var(--border-width) solid var(--border-color);
 }
@@ -388,25 +435,71 @@ p {
 
 /* Site footer */
 .site-footer {
-    margin-top: 1.5rem;
-    padding: 1rem 0 0.75rem;
+    border-top: 1px solid #333333;
+    padding: 2rem;
     text-align: center;
-    font-family: var(--font-sans);
-    font-size: 0.7rem;
-    color: var(--text-color);
-    border-top: var(--border-width) solid var(--border-color);
-    letter-spacing: 0.02em;
+    margin-top: 0;
 }
 
-/* Contact page specific */
-.email-link {
+.footer-content {
+    margin: 0 auto;
+}
+
+.footer-content p {
+    font-family: 'Inter', sans-serif;
+    color: #cccccc;
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    margin: 0;
+    text-align: center;
+}
+
+/* Links and buttons */
+.email-link,
+.inline-link {
     color: var(--accent-color);
     text-decoration: none;
     font-weight: bold;
+    transition: all 0.2s ease;
 }
 
-.email-link:hover {
+.email-link:hover,
+.inline-link:hover {
     text-decoration: underline;
+}
+
+/* Vault button style */
+.vault-button {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--accent-color);
+    color: #fff;
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    border: var(--border-width) solid var(--accent-color);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.vault-button:hover {
+    background-color: transparent;
+    color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* /etc section headers */
+.content h3 {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    font-weight: normal;
+    color: var(--accent-color);
+    margin: 2rem 0 0.5rem;
+    opacity: 0.8;
 }
 
 /* Listen page styles */
@@ -451,19 +544,75 @@ p {
     to { opacity: 1; }
 }
 
-/* Tablet and up (768px+) */
-@media (min-width: 768px) {
-    /* Add side borders */
+/* Mobile adjustments */
+@media (max-width: 767px) {
     .container {
-        border-left: var(--border-width) solid var(--border-color);
-        border-right: var(--border-width) solid var(--border-color);
-        max-width: 700px;
-        padding: 2rem;
+        width: 95%;
+        margin: 1rem auto;
     }
     
-    /* Update content width */
-    .container > * {
-        max-width: var(--content-width);
+    /* Keep table structure but adjust padding */
+    .title-cell {
+        padding: 5rem 1.5rem;
+    }
+    
+    .site-title {
+        font-size: 24px; /* Slightly smaller on mobile */
+    }
+    
+    /* Reorder elements on mobile */
+    .content-row {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Profile image first */
+    .profile-cell {
+        order: 1;
+        padding: 1rem;
+        width: 100%;
+    }
+    
+    /* Metadata second */
+    .metadata-cell {
+        order: 2;
+        padding: 1rem;
+        width: 100%;
+        font-size: 0.7rem;
+    }
+    
+    /* Profile takes full width on mobile */
+    .profile-image-container {
+        width: 100%;
+        margin: 0;
+    }
+    
+    /* Navigation - single line */
+    .param-nav {
+        padding: 0.3rem 0;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .param-nav a {
+        flex: 0 0 auto;
+        padding: 0.3rem 0.6rem;
+        font-size: 0.7rem;
+    }
+}
+
+/* Tablet and up (768px+) */
+@media (min-width: 768px) {
+    /* Container already has max-width set */
+    
+    /* Table adjustments */
+    .title-cell {
+        padding: 7rem 3rem;
+    }
+    
+    .site-title {
+        font-size: 30px; /* Same as jvs.vision */
     }
     
     /* Smaller content text on desktop */
@@ -474,64 +623,18 @@ p {
         font-size: 1rem;
     }
     
-    /* Header grid side by side */
-    .header-grid {
-        flex-direction: row;
-        justify-content: center;
-        gap: 1.5rem;
-    }
-    
-    /* Fixed width sections */
-    .metadata,
-    .profile-image-container {
-        width: 300px;
-        flex-shrink: 0;
-    }
-    
-    .metadata {
-        font-size: 0.75rem;
+    /* Fixed width cells */
+    .metadata-cell,
+    .profile-cell {
+        width: 50%;
         padding: 1.5rem;
-        aspect-ratio: 1;
-        display: flex;
-        align-items: center;
-        overflow: visible;
     }
     
-    .metadata dl {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+    .metadata-cell {
+        font-size: 0.75rem;
     }
     
-    .metadata dt {
-        margin-top: 0.5rem;
-        margin-bottom: 0.2rem;
-    }
-    
-    .metadata dd {
-        margin-bottom: 0.3rem;
-    }
-    
-    .profile-image-container {
-        order: 0; /* Reset order */
-    }
-    
-    .profile-decoration {
-        width: 110%;
-        height: 110%;
-    }
-    
-    /* Navigation */
-    .param-nav {
-        gap: 0.5rem;
-        justify-content: center;
-    }
-    
-    .param-nav a {
-        flex: none;
-        padding: 0.4rem 0.8rem;
-        font-size: 0.8rem;
-    }
+    /* Navigation - keep full width on desktop too */
     
     /* Text sizes */
     .site-footer {
