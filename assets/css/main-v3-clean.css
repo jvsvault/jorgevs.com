@@ -24,6 +24,10 @@
     --container-padding: 1rem;
     --content-width: 624px; /* 300 + 24 + 300 */
     --border-width: 1px;
+    --cell-padding: 1.5rem; /* Universal padding for all content cells */
+    --section-spacing: 1.5rem; /* Vertical spacing between sections */
+    --mobile-padding: 1rem; /* Mobile padding */
+    --mobile-section-gap: 1rem; /* Gap between mobile sections */
     
     /* Shape variables - will be set by randomizer */
     --title-side: right;
@@ -91,23 +95,23 @@ body.loaded {
 
 /* Direct children that aren't tables get padding */
 .container > *:not(table) {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: var(--cell-padding);
+    padding-right: var(--cell-padding);
 }
 
 .param-nav {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-top: var(--section-spacing);
+    padding-bottom: var(--section-spacing);
 }
 
 .content {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: var(--section-spacing);
+    padding-bottom: var(--section-spacing);
 }
 
 .piano-roll {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: var(--cell-padding);
+    padding-right: var(--cell-padding);
 }
 
 /* Typography */
@@ -238,7 +242,7 @@ p {
 }
 
 .content-row td {
-    padding: 1.5rem;
+    padding: var(--cell-padding);
 }
 
 /* Metadata section */
@@ -302,14 +306,21 @@ p {
 }
 
 .profile-image-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    top: var(--cell-padding);
+    left: var(--cell-padding);
+    right: var(--cell-padding);
+    bottom: var(--cell-padding);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .profile-image {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
     aspect-ratio: 1;
     filter: grayscale(100%) contrast(120%);
     border: var(--border-width) solid var(--border-color);
@@ -322,16 +333,17 @@ p {
 /* Profile decoration */
 .profile-decoration {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(var(--profile-rotation, 0deg));
-    z-index: 1; /* Behind image */
-    width: 105%;
-    height: 105%;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    transform: rotate(var(--profile-rotation, 0deg));
+    z-index: -1; /* Behind image */
     background-color: var(--profile-decoration-color, var(--accent-color));
     clip-path: var(--profile-shape);
     opacity: 0;
     animation: fadeInProfile 0.8s ease-out 0.3s forwards;
+    pointer-events: none;
 }
 
 @keyframes fadeInProfile {
@@ -344,8 +356,7 @@ p {
     display: flex;
     flex-wrap: wrap;
     gap: 0.3rem;
-    margin-bottom: 1rem;
-    padding: 0.5rem 0;
+    margin-bottom: 0;
     border-top: var(--border-width) solid var(--border-color);
     border-bottom: var(--border-width) solid var(--border-color);
     justify-content: space-between;
@@ -376,7 +387,7 @@ p {
     position: relative;
     z-index: 3;
     transition: opacity 0.15s ease-in-out;
-    margin-top: 1rem;
+    margin-top: 0;
 }
 
 .content h2:first-child {
@@ -385,8 +396,9 @@ p {
 
 /* Piano roll section */
 .piano-roll {
-    margin-top: 1rem;
-    padding-top: 1rem;
+    margin-top: 0;
+    padding-top: var(--section-spacing);
+    padding-bottom: var(--section-spacing);
     border-top: var(--border-width) solid var(--border-color);
 }
 
@@ -436,7 +448,7 @@ p {
 /* Site footer */
 .site-footer {
     border-top: 1px solid #333333;
-    padding: 2rem;
+    padding: var(--section-spacing) var(--cell-padding);
     text-align: center;
     margin-top: 0;
 }
@@ -564,40 +576,108 @@ p {
     .content-row {
         display: flex;
         flex-direction: column;
+        gap: 0; /* Remove any flexbox gap */
+    }
+    
+    /* Reset table cell display on mobile */
+    .content-row td {
+        display: block !important;
+        /* Don't override padding here - let individual cells handle it */
     }
     
     /* Profile image first */
     .profile-cell {
         order: 1;
-        padding: 1rem;
+        padding: var(--mobile-padding) !important;
+        padding-bottom: calc(var(--mobile-padding) / 2) !important; /* Half padding */
         width: 100%;
     }
     
-    /* Metadata second */
+    /* Metadata second - total gap equals mobile-padding */
     .metadata-cell {
         order: 2;
-        padding: 1rem;
+        padding: var(--mobile-padding) !important;
+        padding-top: calc(var(--mobile-padding) / 2) !important; /* Half padding */
         width: 100%;
-        font-size: 0.7rem;
     }
     
-    /* Profile takes full width on mobile */
-    .profile-image-container {
-        width: 100%;
+    /* Fix metadata spacing completely */
+    .metadata {
+        font-size: 0.65rem;
         margin: 0;
+        padding: 0;
     }
     
-    /* Navigation - single line */
+    .metadata dl {
+        margin: 0;
+        padding: 0;
+    }
+    
+    /* Override ALL desktop margins */
+    .metadata dt {
+        margin: 0 !important;
+        padding: 0 !important;
+        margin-bottom: 0.2rem !important;
+    }
+    
+    .metadata dt:not(:first-child) {
+        margin-top: 0.6rem !important;
+    }
+    
+    .metadata dd {
+        margin: 0 !important;
+        padding: 0 !important;
+        margin-bottom: 0.3rem !important;
+    }
+    
+    /* Reset profile image container for mobile */
+    .profile-image-container {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 !important; /* Ensure no margin */
+        display: block !important;
+    }
+    
+    .profile-image {
+        width: 100% !important;
+        height: auto !important;
+        position: relative !important;
+        margin: 0 !important; /* Ensure no margin */
+        display: block; /* Ensure it's block to prevent inline gaps */
+    }
+    
+    /* Navigation - consistent spacing */
     .param-nav {
-        padding: 0.3rem 0;
+        padding: var(--mobile-section-gap) var(--mobile-padding);
         flex-wrap: nowrap;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
     }
     
+    /* Other sections with consistent spacing */
+    .content {
+        padding: var(--mobile-section-gap) var(--mobile-padding) !important;
+    }
+    
+    .piano-roll {
+        padding-left: var(--mobile-padding) !important;
+        padding-right: var(--mobile-padding) !important;
+        padding-top: var(--mobile-section-gap) !important;
+        padding-bottom: var(--mobile-section-gap) !important;
+    }
+    
+    .site-footer {
+        padding: var(--mobile-section-gap) var(--mobile-padding) !important;
+    }
+    
     .param-nav a {
         flex: 0 0 auto;
-        padding: 0.3rem 0.6rem;
+        padding: calc(var(--mobile-section-gap) * 0.3) calc(var(--mobile-section-gap) * 0.6);
         font-size: 0.7rem;
     }
 }
@@ -627,11 +707,49 @@ p {
     .metadata-cell,
     .profile-cell {
         width: 50%;
-        padding: 1.5rem;
+        padding: var(--cell-padding);
     }
     
     .metadata-cell {
         font-size: 0.75rem;
+    }
+    
+    /* Desktop: Make both cells equal height */
+    .content-row {
+        display: table-row;
+    }
+    
+    .metadata-cell,
+    .profile-cell {
+        display: table-cell;
+        vertical-align: middle;
+        position: relative;
+        height: auto;
+    }
+    
+    /* Make image container fill cell height */
+    .profile-image-container {
+        position: absolute;
+        top: var(--cell-padding);
+        left: var(--cell-padding);
+        right: var(--cell-padding);
+        bottom: var(--cell-padding);
+        display: flex;
+        align-items: center;
+        justify-content: flex-end; /* Align to right edge */
+        overflow: hidden; /* Ensure decoration doesn't overflow */
+    }
+    
+    /* Create inner wrapper for proper centering */
+    .profile-image {
+        position: relative;
+        width: auto;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        display: block;
     }
     
     /* Navigation - keep full width on desktop too */
