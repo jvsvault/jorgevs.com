@@ -560,12 +560,12 @@ p {
 @media (max-width: 767px) {
     .container {
         width: 95%;
-        margin: 1rem auto;
+        margin: var(--mobile-padding) auto;
     }
     
     /* Keep table structure but adjust padding */
     .title-cell {
-        padding: 5rem 1.5rem;
+        padding: 3rem var(--mobile-padding);
     }
     
     .site-title {
@@ -654,9 +654,9 @@ p {
     /* Navigation - consistent spacing */
     .param-nav {
         padding: var(--mobile-section-gap) var(--mobile-padding);
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+        flex-wrap: nowrap; /* Force single row */
+        gap: 0.2rem;
+        justify-content: space-between;
     }
     
     /* Other sections with consistent spacing */
@@ -676,9 +676,12 @@ p {
     }
     
     .param-nav a {
-        flex: 0 0 auto;
-        padding: calc(var(--mobile-section-gap) * 0.3) calc(var(--mobile-section-gap) * 0.6);
-        font-size: 0.7rem;
+        flex: 1 1 auto; /* Equal width for all items */
+        min-width: 0; /* Allow items to shrink */
+        padding: calc(var(--mobile-section-gap) * 0.2) calc(var(--mobile-section-gap) * 0.2);
+        font-size: 0.55rem;
+        text-align: center;
+        white-space: nowrap;
     }
 }
 
