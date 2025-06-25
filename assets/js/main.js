@@ -3,7 +3,7 @@
  * Much simpler now that we have a single page
  */
 
-import randomizer from './randomizer.js';
+import randomizer from './fast-randomizer.js';
 import { initializeRotations } from './metadata-rotator.js';
 import contentManager from './content-manager.js';
 
