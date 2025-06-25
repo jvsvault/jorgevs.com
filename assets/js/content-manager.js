@@ -177,7 +177,9 @@ class ContentManager {
         // Trigger full randomization on section change
         if (window.jorgevsRandomizer) {
           setTimeout(() => {
-            // Re-randomize everything: background, shapes, colors
+            // Force new random selection on section change
+            window.jorgevsRandomizer._forceNew = true;
+            sessionStorage.removeItem('jvs_current_images');
             window.jorgevsRandomizer.applyRandomization();
             console.log('CONTENT MANAGER: Triggered new randomization for section change');
           }, 100);
