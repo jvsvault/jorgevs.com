@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Diagnostic</title>
+  <style>
+    body {
+      font-family: monospace;
+      padding: 20px;
+      background: #222;
+      color: #0f0;
+    }
+    .test {
+      margin: 20px 0;
+      padding: 10px;
+      border: 1px solid #0f0;
+    }
+    .loaded { color: #0f0; }
+    .failed { color: #f00; }
+    .info { color: #ff0; }
+  </style>
+</head>
+<body>
+  <h1>CSS Loading Diagnostic</h1>
+  
+  <div class="test">
+    <h2>CSS File Tests:</h2>
+    <div id="css-tests"></div>
+  </div>
+  
+  <div class="test">
+    <h2>Network Information:</h2>
+    <div id="network-info"></div>
+  </div>
+
+  <script>
+    // Test CSS files
+    const cssFiles = [
+      '/assets/css/main-v2.css',
+      '/assets/css/main-v3-clean.css',
+      '/assets/css/main-v4.css',
+      'assets/css/main-v2.css',  // relative path
+      'assets/css/main-v3-clean.css'
+    ];
+    
+    const testContainer = document.getElementById('css-tests');
+    const networkInfo = document.getElementById('network-info');
+    
+    // Display current location info
+    networkInfo.innerHTML = `
+      <p class="info">Current URL: ${window.location.href}</p>
+      <p class="info">Origin: ${window.location.origin}</p>
+      <p class="info">Pathname: ${window.location.pathname}</p>
+      <p class="info">Protocol: ${window.location.protocol}</p>
+    `;
+    
+    // Test each CSS file
+    cssFiles.forEach(async (cssPath) => {
+      const testDiv = document.createElement('div');
+      testDiv.innerHTML = `Testing: ${cssPath}... `;
+      testContainer.appendChild(testDiv);
+      
+      try {
+        const response = await fetch(cssPath);
+        const contentType = response.headers.get('content-type');
+        
+        if (response.ok) {
+          const text = await response.text();
+          testDiv.innerHTML += `<span class="loaded">✓ Loaded (${response.status}) - ${text.length} bytes - Content-Type: ${contentType}</span>`;
+          
+          // Check if it's actually CSS
+          if (!contentType.includes('text/css')) {
+            testDiv.innerHTML += ` <span class="failed">⚠️ Wrong MIME type!</span>`;
+          }
+        } else {
+          testDiv.innerHTML += `<span class="failed">✗ Failed (${response.status})</span>`;
+        }
+      } catch (error) {
+        testDiv.innerHTML += `<span class="failed">✗ Error: ${error.message}</span>`;
+      }
+    });
+    
+    // Test stylesheets in document
+    setTimeout(() => {
+      const loadedSheets = document.styleSheets;
+      const sheetDiv = document.createElement('div');
+      sheetDiv.innerHTML = '<h3>Document StyleSheets:</h3>';
+      
+      if (loadedSheets.length === 0) {
+        sheetDiv.innerHTML += '<p class="failed">No external stylesheets loaded!</p>';
+      } else {
+        for (let sheet of loadedSheets) {
+          try {
+            sheetDiv.innerHTML += `<p class="loaded">Loaded: ${sheet.href || 'inline styles'}</p>`;
+          } catch (e) {
+            sheetDiv.innerHTML += `<p class="failed">Error accessing: ${e.message}</p>`;
+          }
+        }
+      }
+      testContainer.appendChild(sheetDiv);
+    }, 1000);
+  </script>
+</body>
+</html>

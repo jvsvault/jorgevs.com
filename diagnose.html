@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jorge Viñals - Diagnostic</title>
+  
+  <!-- Main stylesheet WITHOUT cache busting -->
+  <link rel="stylesheet" href="/assets/css/main-v3-clean.css">
+  
+  <style>
+    /* Emergency override styles */
+    body {
+      opacity: 1 !important;
+      display: block !important;
+      background-color: #000 !important;
+    }
+    
+    .container {
+      opacity: 1 !important;
+      display: block !important;
+      background-color: rgba(0, 0, 0, 0.8) !important;
+      min-height: 100vh !important;
+    }
+    
+    * {
+      opacity: 1 !important;
+      display: initial !important;
+    }
+    
+    .diagnostic {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: red;
+      color: white;
+      padding: 10px;
+      z-index: 99999;
+    }
+  </style>
+</head>
+<body>
+  <div class="diagnostic">DIAGNOSTIC MODE</div>
+  
+  <div class="container">
+    <!-- Header Section -->
+    <div class="title-container">
+      <h1>Jorge Viñals</h1>
+    </div>
+
+    <div class="header-grid">
+      <!-- Metadata Section -->
+      <div class="metadata">
+        <dl id="rotating-dl-target">
+          <dt class="position1-title medium-title">Medium</dt>
+          <dd class="position1-item medium-item">Acoustic / Electronic / Tape</dd>
+          <dt class="position2-title notation-title">Notation</dt>
+          <dd class="position2-item notation-item">Traditional / MIDI</dd>
+          <dt class="position3-title duration-title">Duration</dt>
+          <dd class="position3-item duration-item">Variable</dd>
+          <dt class="position4-title commissioned-title">Commissioned By</dt>
+          <dd class="position4-item commissioned-item">Coca-Cola, New Balance,<br>Mccann Erickson, Ogilvy,<br>El Deseo</dd>
+        </dl>
+      </div>
+      
+      <!-- Profile Image Section -->
+      <div class="profile-image-container">
+        <img src="/assets/images/2024/04/110.jpg" alt="Jorge Viñals" class="profile-image" />
+        <div class="profile-decoration"></div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="param-nav">
+      <a href="#about" data-section="about">About</a>
+      <a href="#listen" data-section="listen">Listen</a>
+      <a href="#contact" data-section="contact">Contact</a>
+      <a href="#etc" data-section="etc">/etc</a>
+    </div>
+
+    <!-- Content -->
+    <div class="content" id="dynamic-content">
+      <h2>DIAGNOSTIC CONTENT</h2>
+      <p>If you can see this text, the HTML is loading properly.</p>
+      <p>This version has NO JavaScript to isolate CSS issues.</p>
+    </div>
+
+    <!-- Piano Roll Links -->
+    <div class="piano-roll">
+      <div class="roll-container">
+        <a href="https://instagram.com/jorgevmusica" target="_blank" rel="noopener noreferrer" class="midi-note instagram">Instagram</a>
+        <a href="https://tiktok.com/@jorgevmusica" target="_blank" rel="noopener noreferrer" class="midi-note tiktok">TikTok</a>
+        <a href="https://youtube.com/@jorgevsmusic" target="_blank" rel="noopener noreferrer" class="midi-note youtube">YouTube</a>
+        <a href="https://buymeacoffee.com/jorgevmusica" target="_blank" rel="noopener noreferrer" class="midi-note support">Support</a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="site-footer">
+      &copy; 2025 Jorge Viñals
+    </div>
+  </div>
+
+  <!-- NO JavaScript -->
+</body>
+</html>

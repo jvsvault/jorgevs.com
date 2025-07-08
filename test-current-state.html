@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testing Current State</title>
+  <link rel="stylesheet" href="/assets/css/main-v3-clean.css">
+  <style>
+    /* Diagnostic styles */
+    .debug-info {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: rgba(255,255,255,0.9);
+      color: black;
+      padding: 10px;
+      z-index: 9999;
+      font-family: monospace;
+      font-size: 12px;
+    }
+    
+    /* Force visibility for testing */
+    body {
+      opacity: 1 !important;
+    }
+    
+    /* Test background directly */
+    body::before {
+      background-image: url('/assets/images/bg-geo/r001-004.jpg');
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="debug-info">
+    <div>Container bg: <span id="container-bg"></span></div>
+    <div>Border color: <span id="border-color"></span></div>
+    <div>Background image: <span id="bg-image"></span></div>
+  </div>
+
+  <div class="container">
+    <div class="title-container">
+      <h1>JORGE VIÑALS</h1>
+    </div>
+
+    <div class="header-grid">
+      <div class="metadata">
+        <dl>
+          <dt>Medium</dt>
+          <dd>Acoustic / Electronic / Tape</dd>
+          <dt>Notation</dt>
+          <dd>Traditional / MIDI</dd>
+          <dt>Duration</dt>
+          <dd>Variable</dd>
+          <dt>Commissioned By</dt>
+          <dd>Coca-Cola, New Balance,<br>Mccann Erickson, Ogilvy,<br>El Deseo</dd>
+        </dl>
+      </div>
+      
+      <div class="profile-image-container">
+        <img src="/assets/images/2024/04/110.jpg" alt="Jorge Viñals" class="profile-image" />
+        <div class="profile-decoration"></div>
+      </div>
+    </div>
+
+    <div class="param-nav">
+      <a href="#about">About</a>
+      <a href="#listen">Listen</a>
+      <a href="#contact">Contact</a>
+      <a href="#etc">/etc</a>
+    </div>
+  </div>
+
+  <script>
+    // Show computed styles
+    const container = document.querySelector('.container');
+    const body = document.body;
+    const root = document.documentElement;
+    
+    const containerStyle = getComputedStyle(container);
+    const rootStyle = getComputedStyle(root);
+    const bodyStyle = getComputedStyle(body);
+    
+    document.getElementById('container-bg').textContent = containerStyle.backgroundColor;
+    document.getElementById('border-color').textContent = rootStyle.getPropertyValue('--border-color');
+    document.getElementById('bg-image').textContent = rootStyle.getPropertyValue('--bg-image') || 'none';
+    
+    // Check if background is loading
+    const bgImage = new Image();
+    bgImage.onload = () => console.log('Background image loaded successfully');
+    bgImage.onerror = () => console.error('Background image failed to load');
+    bgImage.src = '/assets/images/bg-geo/r001-004.jpg';
+  </script>
+</body>
+</html>

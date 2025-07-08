@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Loading Test</title>
+  <link rel="stylesheet" href="/assets/css/main-v3-clean.css">
+  <style>
+    /* Inline test styles to verify CSS is working */
+    .test-box {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      color: white;
+      padding: 20px;
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>CSS Loading Test</h1>
+    <div class="test-box">
+      If you see this red box with white text, inline CSS is working.
+    </div>
+    <div class="title-container">
+      <h1>If this has styling from main-v3-clean.css, external CSS is loading</h1>
+    </div>
+    <p>Check the browser console for any errors.</p>
+  </div>
+  
+  <script>
+    // Check if CSS loaded
+    const link = document.querySelector('link[href*="main-v3-clean.css"]');
+    console.log('CSS Link element:', link);
+    
+    // Check computed styles
+    const container = document.querySelector('.container');
+    const computedStyles = window.getComputedStyle(container);
+    console.log('Container background-color:', computedStyles.backgroundColor);
+    console.log('Container color:', computedStyles.color);
+    
+    // Check CSS variables
+    const rootStyles = window.getComputedStyle(document.documentElement);
+    console.log('--text-color:', rootStyles.getPropertyValue('--text-color'));
+    console.log('--bg-image:', rootStyles.getPropertyValue('--bg-image'));
+  </script>
+</body>
+</html>

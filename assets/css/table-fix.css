@@ -1,0 +1,42 @@
+/* Table layout fix for main-v2.css compatibility */
+
+/* Page title - outside container */
+.page-title {
+    width: 100%;
+    max-width: 700px;
+    margin: 2rem auto 1rem;
+    padding: 0 1rem;
+    text-align: center;
+    position: relative;
+    z-index: 20;
+}
+
+.page-title-table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 624px;
+}
+
+.page-title-table td {
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.page-title-table .title-cell {
+    padding: 1.5rem;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.page-title-table .content-cell {
+    padding: 0;
+    background: transparent;
+    border: none;
+}
+
+/* Override inline styles on h1 */
+.title-cell h1 {
+    margin: 0;
+    color: var(--text-color, #ffffff);
+}

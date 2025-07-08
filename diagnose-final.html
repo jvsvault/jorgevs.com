@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Final Diagnosis - Background Issue</title>
+  
+  <!-- Load the actual site CSS -->
+  <link rel="stylesheet" href="/assets/css/main-v3-clean.css">
+  
+  <style>
+    /* Override for visibility */
+    body {
+      min-height: 100vh;
+    }
+    
+    .diagnostic-overlay {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      width: 400px;
+      max-height: 90vh;
+      overflow-y: auto;
+      background: rgba(255, 255, 255, 0.95);
+      color: black;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      z-index: 99999;
+      font-family: monospace;
+      font-size: 12px;
+    }
+    
+    .diagnostic-overlay h2 {
+      margin: 0 0 10px 0;
+      font-size: 16px;
+    }
+    
+    .diagnostic-overlay .section {
+      margin: 15px 0;
+      padding: 10px;
+      background: #f5f5f5;
+      border-radius: 4px;
+    }
+    
+    .success { color: green; font-weight: bold; }
+    .error { color: red; font-weight: bold; }
+    .warning { color: orange; font-weight: bold; }
+    
+    pre {
+      background: white;
+      padding: 8px;
+      overflow-x: auto;
+      margin: 5px 0;
+      border: 1px solid #ddd;
+    }
+    
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      margin: 5px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <!-- Site content -->
+  <div class="container">
+    <div class="title-container">
+      <h1>Jorge Viñals</h1>
+    </div>
+    <p style="padding: 20px;">Diagnostic page - check the panel on the right →</p>
+  </div>
+
+  <!-- Diagnostic panel -->
+  <div class="diagnostic-overlay">
+    <h2>🔍 Background Issue Diagnosis</h2>
+    
+    <div id="diagnosis-results"></div>
+    
+    <div style="margin-top: 20px;">
+      <button onclick="runFullDiagnosis()">Run Full Diagnosis</button>
+      <button onclick="fixBackground()">Apply Fix</button>
+    </div>
+  </div>
+
+  <script>
+    const results = document.getElementById('diagnosis-results');
+    let diagnosticData = {};
+    
+    // Capture console logs and errors
+    const logs = [];
+    const errors = [];
+    const originalLog = console.log;
+    const originalError = console.error;
+    
+    console.log = function() {
+      logs.push(Array.from(arguments).join(' '));
+      originalLog.apply(console, arguments);
+    };
+    
+    console.error = function() {
+      errors.push(Array.from(arguments).join(' '));
+      originalError.apply(console, arguments);
+    };
+    
+    async function runFullDiagnosis() {
+      results.innerHTML = '<p>Running diagnosis...</p>';
+      let html = '';
+      
+      // 1. Check environment
+      html += '<div class="section">';
+      html += '<h3>1. Environment</h3>';
+      html += `<p>Host: ${window.location.host}</p>`;
+      html += `<p>Protocol: ${window.location.protocol}</p>`;
+      html += `<p>Is localhost: ${window.location.host.includes('localhost') ? '<span class="success">YES</span>' : '<span class="warning">NO</span>'}</p>`;
+      html += '</div>';
+      
+      // 2. Check CSS variables
+      html += '<div class="section">';
+      html += '<h3>2. CSS Variables (Initial)</h3>';
+      const computedStyle = getComputedStyle(document.documentElement);
+      const bgImage = computedStyle.getPropertyValue('--bg-image').trim();
+      html += `<p>--bg-image: ${bgImage || '<span class="error">NOT SET</span>'}</p>`;
+      if (bgImage === 'none') {
+        html += '<p class="warning">⚠️ Background is set to "none"</p>';
+      }
+      html += '</div>';
+      
+      // 3. Check API endpoint
+      html += '<div class="section">';
+      html += '<h3>3. API Endpoint Test</h3>';
+      try {
+        const response = await fetch('/api/images');
+        if (response.ok) {
+          const data = await response.json();
+          html += '<p class="success">✓ API works</p>';
+          html += `<pre>${JSON.stringify(data, null, 2).substring(0, 200)}...</pre>`;
+          diagnosticData.apiWorks = true;
+          diagnosticData.apiData = data;
+        } else {
+          html += `<p class="error">✗ API returned ${response.status}</p>`;
+          diagnosticData.apiWorks = false;
+        }
+      } catch (error) {
+        html += `<p class="error">✗ API failed: ${error.message}</p>`;
+        diagnosticData.apiWorks = false;
+      }
+      html += '</div>';
+      
+      // 4. Test image loading
+      html += '<div class="section">';
+      html += '<h3>4. Image Loading Test</h3>';
+      const testImage = '/assets/images/bg-geo/r001-004.jpg';
+      const img = new Image();
+      await new Promise((resolve) => {
+        img.onload = () => {
+          html += `<p class="success">✓ Images load correctly</p>`;
+          html += `<p>Test image: ${testImage}</p>`;
+          diagnosticData.imagesWork = true;
+          resolve();
+        };
+        img.onerror = () => {
+          html += `<p class="error">✗ Images fail to load</p>`;
+          diagnosticData.imagesWork = false;
+          resolve();
+        };
+        img.src = testImage;
+      });
+      html += '</div>';
+      
+      // 5. Load and test randomizer
+      html += '<div class="section">';
+      html += '<h3>5. Randomizer Module</h3>';
+      try {
+        // Clear logs
+        logs.length = 0;
+        errors.length = 0;
+        
+        const { default: randomizer } = await import('/assets/js/randomizer.js');
+        html += '<p class="success">✓ Module loaded</p>';
+        
+        // Initialize
+        await randomizer.initialize();
+        html += '<p class="success">✓ Randomizer initialized</p>';
+        
+        // Check what was set
+        const newBgImage = getComputedStyle(document.documentElement).getPropertyValue('--bg-image').trim();
+        html += `<p>New --bg-image: ${newBgImage || '<span class="error">STILL NOT SET</span>'}</p>`;
+        
+        if (newBgImage === 'none' || !newBgImage) {
+          html += '<p class="error">❌ Background not set properly!</p>';
+        }
+        
+        // Show logs
+        if (logs.length > 0) {
+          html += '<h4>Console logs:</h4>';
+          html += `<pre>${logs.join('\n')}</pre>`;
+        }
+        
+        if (errors.length > 0) {
+          html += '<h4>Console errors:</h4>';
+          html += `<pre class="error">${errors.join('\n')}</pre>`;
+        }
+        
+        diagnosticData.randomizerWorks = true;
+        diagnosticData.finalBgImage = newBgImage;
+      } catch (error) {
+        html += `<p class="error">✗ Randomizer failed: ${error.message}</p>`;
+        html += `<pre>${error.stack}</pre>`;
+        diagnosticData.randomizerWorks = false;
+      }
+      html += '</div>';
+      
+      // 6. Diagnosis summary
+      html += '<div class="section">';
+      html += '<h3>6. Diagnosis Summary</h3>';
+      
+      if (!diagnosticData.apiWorks && diagnosticData.imagesWork) {
+        html += '<p class="warning">⚠️ API not working on localhost - randomizer using fallback list</p>';
+        html += '<p>This is normal for local development without the Node.js server running.</p>';
+      }
+      
+      if (diagnosticData.finalBgImage === 'none' || !diagnosticData.finalBgImage) {
+        html += '<p class="error">❌ PROBLEM: Background image not being set</p>';
+        html += '<p>The randomizer is either failing or setting background to "none"</p>';
+      } else {
+        html += '<p class="success">✓ Background should be visible</p>';
+      }
+      
+      html += '</div>';
+      
+      results.innerHTML = html;
+    }
+    
+    // Apply a fix
+    function fixBackground() {
+      const images = [
+        'r001-004.jpg',
+        'r001-005.jpg',
+        'r001-012.jpg',
+        'r001-013.jpg',
+        'r001-018.jpg'
+      ];
+      
+      const randomImage = images[Math.floor(Math.random() * images.length)];
+      const imagePath = `/assets/images/bg-geo/${randomImage}`;
+      
+      document.documentElement.style.setProperty('--bg-image', `url('${imagePath}')`);
+      
+      results.innerHTML = `
+        <div class="section">
+          <h3>Fix Applied</h3>
+          <p class="success">✓ Background set manually</p>
+          <p>Image: ${imagePath}</p>
+          <p>The background should now be visible!</p>
+        </div>
+      `;
+    }
+    
+    // Run diagnosis on load
+    window.addEventListener('load', () => {
+      setTimeout(runFullDiagnosis, 1000);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+/**
+ * Visibility Fix - Ensures page is always visible
+ */
+
+/* Override the opacity: 0 on body */
+body {
+    animation: ensureVisibility 3s forwards;
+}
+
+@keyframes ensureVisibility {
+    0% {
+        opacity: 0;
+    }
+    99% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* If JavaScript works, this takes precedence immediately */
+body.loaded {
+    animation: none;
+    opacity: 1;
+}
