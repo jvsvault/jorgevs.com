@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test API Fetch</title>
+  <style>
+    body {
+      font-family: monospace;
+      padding: 20px;
+      background: #f0f0f0;
+    }
+    .test-section {
+      background: white;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .success { color: green; }
+    .error { color: red; }
+    pre {
+      background: #f5f5f5;
+      padding: 10px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>API Fetch Test - Production vs Local</h1>
+  
+  <div class="test-section">
+    <h2>1. Test Local API</h2>
+    <button onclick="testLocalAPI()">Test /api/images</button>
+    <div id="local-result"></div>
+  </div>
+  
+  <div class="test-section">
+    <h2>2. Test Direct File Access</h2>
+    <button onclick="testDirectAccess()">Test Direct Access</button>
+    <div id="direct-result"></div>
+  </div>
+  
+  <div class="test-section">
+    <h2>3. Compare Randomizer Behavior</h2>
+    <button onclick="testRandomizer()">Test Randomizer</button>
+    <div id="randomizer-result"></div>
+  </div>
+
+  <script>
+    // Test local API endpoint
+    async function testLocalAPI() {
+      const result = document.getElementById('local-result');
+      result.innerHTML = '<p>Testing /api/images endpoint...</p>';
+      
+      try {
+        const response = await fetch('/api/images');
+        const data = await response.json();
+        
+        result.innerHTML = `
+          <p class="success">✓ API endpoint works!</p>
+          <pre>${JSON.stringify(data, null, 2)}</pre>
+        `;
+      } catch (error) {
+        result.innerHTML = `
+          <p class="error">✗ API failed: ${error.message}</p>
+          <p>This means the randomizer will use fallback images.</p>
+        `;
+      }
+    }
+    
+    // Test direct file access
+    async function testDirectAccess() {
+      const result = document.getElementById('direct-result');
+      const testImages = [
+        '/assets/images/bg-geo/r001-004.jpg',
+        '/assets/images/bg-geo/r001-005.jpg',
+        '/assets/images/profile/110-2048x1153.jpg'
+      ];
+      
+      let html = '<h3>Testing direct image access:</h3>';
+      
+      for (const imgPath of testImages) {
+        const img = new Image();
+        const loadPromise = new Promise((resolve) => {
+          img.onload = () => resolve({ path: imgPath, status: 'loaded' });
+          img.onerror = () => resolve({ path: imgPath, status: 'failed' });
+          img.src = imgPath;
+        });
+        
+        const result = await loadPromise;
+        html += `<p class="${result.status === 'loaded' ? 'success' : 'error'}">
+          ${result.status === 'loaded' ? '✓' : '✗'} ${result.path}
+        </p>`;
+      }
+      
+      result.innerHTML = html;
+    }
+    
+    // Test randomizer behavior
+    async function testRandomizer() {
+      const result = document.getElementById('randomizer-result');
+      result.innerHTML = '<p>Loading randomizer module...</p>';
+      
+      try {
+        // Clear any existing background
+        document.documentElement.style.setProperty('--bg-image', 'none');
+        
+        // Import and initialize randomizer
+        const { default: randomizer } = await import('/assets/js/randomizer.js');
+        
+        // Log what's happening
+        const originalLog = console.log;
+        const logs = [];
+        console.log = function() {
+          logs.push(Array.from(arguments).join(' '));
+          originalLog.apply(console, arguments);
+        };
+        
+        await randomizer.initialize();
+        
+        // Restore console.log
+        console.log = originalLog;
+        
+        // Check what was set
+        const bgImage = getComputedStyle(document.documentElement).getPropertyValue('--bg-image');
+        
+        result.innerHTML = `
+          <p class="success">✓ Randomizer loaded and initialized</p>
+          <h4>Background Image Set:</h4>
+          <pre>${bgImage || 'NONE'}</pre>
+          <h4>Console Logs:</h4>
+          <pre>${logs.join('\n')}</pre>
+          <h4>Randomizer State:</h4>
+          <pre>
+Background Images: ${randomizer.backgroundImages.length}
+Geometry Images: ${randomizer.geometryImages.length}
+Profile Images: ${randomizer.profileImages.length}
+          </pre>
+        `;
+      } catch (error) {
+        result.innerHTML = `
+          <p class="error">✗ Randomizer error: ${error.message}</p>
+          <pre>${error.stack}</pre>
+        `;
+      }
+    }
+  </script>
+</body>
+</html>

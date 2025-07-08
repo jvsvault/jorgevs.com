@@ -63,8 +63,8 @@ class BackgroundCache {
     const bgImage = bgImages[bgIndex];
     const geoImage = geoImages[geoIndex];
     
-    const bgPath = `/assets/images/bg-geo/${encodeURIComponent(bgImage)}`;
-    const geoPath = `/assets/images/bg-geo/${encodeURIComponent(geoImage)}`;
+    const bgPath = `https://jvsvault.github.io/jorgevs.com/assets/images/bg-geo/${encodeURIComponent(bgImage)}`;
+    const geoPath = `https://jvsvault.github.io/jorgevs.com/assets/images/bg-geo/${encodeURIComponent(geoImage)}`;
     
     // Preload both images
     try {
@@ -98,8 +98,8 @@ class BackgroundCache {
     console.log('CACHE: Starting background preload of all images');
     
     // Convert to full paths
-    const bgPaths = bgImages.map(img => `/assets/images/bg-geo/${encodeURIComponent(img)}`);
-    const geoPaths = geoImages.map(img => `/assets/images/bg-geo/${encodeURIComponent(img)}`);
+    const bgPaths = bgImages.map(img => `https://jvsvault.github.io/jorgevs.com/assets/images/bg-geo/${encodeURIComponent(img)}`);
+    const geoPaths = geoImages.map(img => `https://jvsvault.github.io/jorgevs.com/assets/images/bg-geo/${encodeURIComponent(img)}`);
     
     // Combine and deduplicate
     const allPaths = [...new Set([...bgPaths, ...geoPaths])];

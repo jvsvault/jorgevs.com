@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>JVS Vision - Color Palette Explorer</title>
+  
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/assets/css/jvs-vision.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/images/2024/04/cropped-110-32x32.jpg" sizes="32x32">
+  <link rel="icon" href="/assets/images/2024/04/cropped-110-192x192.jpg" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/images/2024/04/cropped-110-180x180.jpg">
+</head>
+<body>
+  <!-- Palette Selector Box - Fixed Left Corner -->
+  <div class="palette-selector-box">
+    <h3 class="selector-title">Color Palettes</h3>
+    <div class="palette-options">
+      <button class="palette-option active" data-palette="extracted">
+        <span class="color-swatch" style="background: var(--accent-color)"></span>
+        <span class="palette-name">Extracted</span>
+      </button>
+      <button class="palette-option" data-palette="monochrome">
+        <span class="color-swatch" style="background: #808080"></span>
+        <span class="palette-name">Monochrome</span>
+      </button>
+      <button class="palette-option" data-palette="warm">
+        <span class="color-swatch" style="background: #D97834"></span>
+        <span class="palette-name">Warm</span>
+      </button>
+      <button class="palette-option" data-palette="cool">
+        <span class="color-swatch" style="background: #3498DB"></span>
+        <span class="palette-name">Cool</span>
+      </button>
+      <button class="palette-option" data-palette="earth">
+        <span class="color-swatch" style="background: #8B6B47"></span>
+        <span class="palette-name">Earth</span>
+      </button>
+      <button class="palette-option" data-palette="neon">
+        <span class="color-swatch" style="background: #FF006E"></span>
+        <span class="palette-name">Neon</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="vision-container">
+    <header class="vision-header">
+      <h1 class="vision-title">JVS Vision</h1>
+      <p class="vision-subtitle">Explore color palettes and visual themes</p>
+    </header>
+
+    <main class="vision-content">
+      <!-- Color Preview Grid -->
+      <section class="color-preview">
+        <h2>Current Palette</h2>
+        <div class="color-grid">
+          <div class="color-card primary">
+            <div class="color-display"></div>
+            <span class="color-label">Primary</span>
+            <span class="color-value">#808080</span>
+          </div>
+          <div class="color-card light">
+            <div class="color-display"></div>
+            <span class="color-label">Light</span>
+            <span class="color-value">#A0A0A0</span>
+          </div>
+          <div class="color-card dark">
+            <div class="color-display"></div>
+            <span class="color-label">Dark</span>
+            <span class="color-value">#606060</span>
+          </div>
+          <div class="color-card vibrant">
+            <div class="color-display"></div>
+            <span class="color-label">Vibrant</span>
+            <span class="color-value">#909090</span>
+          </div>
+          <div class="color-card muted">
+            <div class="color-display"></div>
+            <span class="color-label">Muted</span>
+            <span class="color-value">#707070</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Visual Examples -->
+      <section class="visual-examples">
+        <h2>Visual Applications</h2>
+        <div class="example-grid">
+          <div class="example-card">
+            <div class="example-shapes">
+              <div class="shape shape-1"></div>
+              <div class="shape shape-2"></div>
+              <div class="shape shape-3"></div>
+            </div>
+            <span class="example-label">Geometric Patterns</span>
+          </div>
+          <div class="example-card">
+            <div class="example-text">
+              <h3>Typography</h3>
+              <p>Sample text with current palette</p>
+            </div>
+            <span class="example-label">Text Hierarchy</span>
+          </div>
+          <div class="example-card">
+            <div class="example-gradient"></div>
+            <span class="example-label">Gradient Effects</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="vision-footer">
+      <a href="/" class="back-link">← Back to main site</a>
+    </footer>
+  </div>
+
+  <!-- JavaScript -->
+  <script type="module" src="/assets/js/jvs-vision.js"></script>
+</body>
+</html>

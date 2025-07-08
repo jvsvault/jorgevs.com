@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Summary - Jorge Viñals Site</title>
+  <style>
+    body {
+      font-family: monospace;
+      padding: 20px;
+      background: #111;
+      color: #0f0;
+    }
+    .test {
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #333;
+    }
+    .pass { color: #0f0; }
+    .fail { color: #f00; }
+    .info { color: #ff0; }
+    h1 { color: #fff; }
+    a { color: #0af; }
+  </style>
+</head>
+<body>
+  <h1>Jorge Viñals Site - Test Summary</h1>
+  
+  <div class="test">
+    <h2>Server Status</h2>
+    <div id="server-status">Checking...</div>
+  </div>
+  
+  <div class="test">
+    <h2>API Status</h2>
+    <div id="api-status">Checking...</div>
+  </div>
+  
+  <div class="test">
+    <h2>CSS Files</h2>
+    <div id="css-status">Checking...</div>
+  </div>
+  
+  <div class="test">
+    <h2>JavaScript Modules</h2>
+    <div id="js-status">Checking...</div>
+  </div>
+  
+  <div class="test">
+    <h2>Available Test Pages</h2>
+    <ul>
+      <li><a href="/index.html">Main Index (with fixes)</a></li>
+      <li><a href="/index-immediate.html">Immediate Styling Version</a></li>
+      <li><a href="/index-diagnostic.html">Diagnostic Version</a></li>
+      <li><a href="/debug-test.html">Debug Test</a></li>
+    </ul>
+  </div>
+  
+  <script>
+    // Test server
+    fetch('/')
+      .then(r => {
+        document.getElementById('server-status').innerHTML = 
+          `<span class="pass">✓ Server running on port 8080</span>`;
+      })
+      .catch(err => {
+        document.getElementById('server-status').innerHTML = 
+          `<span class="fail">✗ Server error: ${err.message}</span>`;
+      });
+    
+    // Test API
+    fetch('/api/images')
+      .then(r => r.json())
+      .then(data => {
+        const total = (data.bgGeo?.length || 0) + (data.profile?.length || 0);
+        document.getElementById('api-status').innerHTML = 
+          `<span class="pass">✓ API working - ${data.bgGeo.length} bg-geo, ${data.profile.length} profile images</span>`;
+      })
+      .catch(err => {
+        document.getElementById('api-status').innerHTML = 
+          `<span class="fail">✗ API error: ${err.message}</span>`;
+      });
+    
+    // Test CSS
+    Promise.all([
+      fetch('/assets/css/main-v4.css'),
+      fetch('/assets/css/visibility-fix.css')
+    ]).then(responses => {
+      const allOk = responses.every(r => r.ok);
+      if (allOk) {
+        document.getElementById('css-status').innerHTML = 
+          `<span class="pass">✓ All CSS files loading correctly</span>`;
+      } else {
+        document.getElementById('css-status').innerHTML = 
+          `<span class="fail">✗ Some CSS files failed to load</span>`;
+      }
+    });
+    
+    // Test JS modules
+    import('/assets/js/main.js')
+      .then(() => {
+        document.getElementById('js-status').innerHTML = 
+          `<span class="pass">✓ JavaScript modules loading correctly</span>`;
+      })
+      .catch(err => {
+        document.getElementById('js-status').innerHTML = 
+          `<span class="fail">✗ JavaScript module error: ${err.message}</span>`;
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debug Test</title>
+  <link rel="stylesheet" href="/assets/css/main-v4.css?v=20250619">
+  <style>
+    /* Debug styles */
+    body { 
+      background: #333 !important; 
+      opacity: 1 !important;
+    }
+    body::before {
+      background: url('/assets/images/bg-geo/r001-004.jpg') !important;
+      opacity: 0.5;
+    }
+    .container {
+      border: 2px solid red !important;
+      background: rgba(0,0,0,0.8) !important;
+    }
+    .debug-info {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: rgba(0,0,0,0.9);
+      color: #0f0;
+      padding: 10px;
+      font-family: monospace;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body class="loaded">
+  <div class="debug-info">
+    <div>CSS Loaded: <span id="css-status">Checking...</span></div>
+    <div>JS Status: <span id="js-status">Checking...</span></div>
+    <div>Images: <span id="img-status">Checking...</span></div>
+  </div>
+
+  <!-- Main Container -->
+  <div class="container">
+    <div class="title-container">
+      <h1>JORGE VIÑALS - DEBUG</h1>
+    </div>
+
+    <div class="header-grid">
+      <div class="metadata">
+        <dl>
+          <dt>Testing</dt>
+          <dd>CSS and JavaScript Loading</dd>
+        </dl>
+      </div>
+      <div class="profile-image-container">
+        <img src="/assets/images/profile/110-2048x1153.jpg" alt="Test" class="profile-image" />
+      </div>
+    </div>
+
+    <nav class="param-nav">
+      <a href="#test">Test Link</a>
+    </nav>
+
+    <div class="content">
+      <h2>Testing Content</h2>
+      <p>If you can see this styled properly, CSS is working.</p>
+    </div>
+  </div>
+
+  <script>
+    // Check CSS loading
+    const cssLoaded = document.styleSheets.length > 0;
+    document.getElementById('css-status').textContent = cssLoaded ? 'Loaded' : 'Failed';
+    document.getElementById('css-status').style.color = cssLoaded ? '#0f0' : '#f00';
+
+    // Check JS
+    document.getElementById('js-status').textContent = 'Working';
+    document.getElementById('js-status').style.color = '#0f0';
+
+    // Check images
+    fetch('/api/images')
+      .then(r => r.json())
+      .then(data => {
+        const count = (data.bgGeo?.length || 0) + (data.profile?.length || 0);
+        document.getElementById('img-status').textContent = `${count} found`;
+        document.getElementById('img-status').style.color = '#0f0';
+      })
+      .catch(err => {
+        document.getElementById('img-status').textContent = 'Error';
+        document.getElementById('img-status').style.color = '#f00';
+      });
+  </script>
+</body>
+</html>
