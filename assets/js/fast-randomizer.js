@@ -57,7 +57,7 @@ class FastRandomizer {
     async loadAvailableImages() {
       // Try API endpoints first
       try {
-        const response = await fetch('https://jvsvault.github.io/jorgevs.com/api/images');
+        const response = await fetch('/api/images');
         if (response.ok) {
           const data = await response.json();
           this.backgroundImages = data.bgGeo || [];
@@ -70,7 +70,7 @@ class FastRandomizer {
         console.log('FAST RANDOMIZER: API not available, using fallback');
       }
       
-      // Fallback - hardcoded list of images
+      // Fallback - hardcoded list of images for when API is not available (e.g., GitHub Pages)
       this.backgroundImages = [
         '00420020.JPG',
         'R1-02565-022A.JPG',
@@ -138,9 +138,9 @@ class FastRandomizer {
       this._forceNew = false; // Reset flag
       
       // Encode filenames to handle spaces and special characters
-      const bgImagePath = `https://jvsvault.github.io/jorgevs.com/assets/images/bg-geo/${encodeURIComponent(selectedBgImage)}`;
-      const geoImagePath = `https://jvsvault.github.io/jorgevs.com/assets/images/bg-geo/${encodeURIComponent(selectedGeoImage)}`;
-      const profilePath = `https://jvsvault.github.io/jorgevs.com/assets/images/profile/${encodeURIComponent(selectedProfileImage)}`;
+      const bgImagePath = `/assets/images/bg-geo/${encodeURIComponent(selectedBgImage)}`;
+      const geoImagePath = `/assets/images/bg-geo/${encodeURIComponent(selectedGeoImage)}`;
+      const profilePath = `/assets/images/profile/${encodeURIComponent(selectedProfileImage)}`;
       
       // Preload images before applying
       try {
