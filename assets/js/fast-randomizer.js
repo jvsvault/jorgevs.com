@@ -70,28 +70,23 @@ class FastRandomizer {
         console.log('FAST RANDOMIZER: API not available, using fallback');
       }
       
-      // Fallback - hardcoded list of images for when API is not available (e.g., GitHub Pages)
-      this.backgroundImages = [
-        '00420020.JPG',
-        'R1-02565-022A.JPG',
-        'r001-004.jpg',
-        'r001-005.jpg',
-        'r001-012.jpg',
-        'r001-013.jpg',
-        'r001-018.jpg',
-        'r001-020.jpg',
-        'r001-021 2.jpg',
-        'r001-025.jpg'
-      ];
-      this.geometryImages = this.backgroundImages; // Same images for both
-      this.profileImages = [
-        '036_BW-2048x1152.jpg',
-        '051-2048x1154.jpg',
-        '060-2048x1154.jpg',
-        '064-2048x1154.jpg',
-        '110-2048x1153.jpg',
-        '117-2048x1153.jpg'
-      ];
+      // Fallback - try to load from JSON config
+      try {
+        const configResponse = await fetch('/assets/js/config/images.json');
+        if (configResponse.ok) {
+          const config = await configResponse.json();
+          this.backgroundImages = config.bgGeo || [];
+          this.geometryImages = config.bgGeo || [];
+          this.profileImages = config.profile || [];
+          console.log('FAST RANDOMIZER: Loaded images from config.json');
+        }
+      } catch (configError) {
+        console.log('FAST RANDOMIZER: Config not available, using hardcoded fallback');
+        // Last resort fallback
+        this.backgroundImages = ['00420020.JPG', 'R1-02565-022A.JPG', 'r001-004.jpg'];
+        this.geometryImages = this.backgroundImages;
+        this.profileImages = ['036_BW-2048x1152.jpg', '051-2048x1154.jpg'];
+      }
     }
   
     /**
