@@ -56,8 +56,13 @@ class ContentManager {
           title: 'Contact | Jorge Viñals',
           content: `
             <h2>CONTACT</h2>
-            
-            <p>If you want to share some thoughts, or you have a project you think I may fit in, you can drop me a line <a href="mailto:jorgevs.com@gmail.com" class="email-link">here</a>.</p>
+
+            <p><strong>I'm available for commissioned work.</strong> Scores, additional music, sound design, and music for image in general. If you're a director, a producer or a music supervisor, this is the fastest way to reach me.</p>
+
+            <p>Music and scoring: <a href="mailto:jvs.music@proton.me" class="email-link">jvs.music@proton.me</a><br>
+            Everything else: <a href="mailto:jvs.work@proton.me" class="email-link">jvs.work@proton.me</a></p>
+
+            <p>Everything I write is one-stop: I own both the composition and the master, so licensing takes one email and no waiting for third parties to clear anything.</p>
           `
         },
         
@@ -67,7 +72,7 @@ class ContentManager {
             <h2>/IMG</h2>
             
             <p>Besides music and sound, I also explore visual arts through photography. My work focuses on capturing textures, geometries, and moments that resonate with the same emotional depth as my compositions. You can explore my visual work and color experiments at:</p>
-            <a href="https://jvs.vision" target="_blank" rel="noopener noreferrer" class="vault-button">Visit jvs.vision</a>
+            <a href="https://vision.jorgevs.com" target="_blank" rel="noopener noreferrer" class="vault-button">Visit vision.jorgevs.com</a>
           `
         },
         
@@ -81,9 +86,13 @@ class ContentManager {
             </p>
             
             <p>
-              At the moment I'm lucky enough to work at BMAT, where flexibility is a core identity, so I can give my all there while working on my music. And maybe yours. I don't see myself leaving this company, but maybe if I win a couple of Goyas and an Oscar I'll consider it. You can check my dev adventures here:
+              For five years I was a Recording Operations Engineer at BMAT, on the Venues side of music identification. That work is about making sure the music played in clubs and venues gets identified, reported, and paid to whoever wrote it. It taught me the plumbing of how music actually gets paid for, which turns out to be very useful knowledge for someone who writes it.
             </p>
-            <a href="https://jvsvault.dev" target="_blank" rel="noopener noreferrer" class="vault-button">Visit jvsvault.dev</a>
+
+            <p>
+              That chapter closed in 2026. I'm now working on my own music full time, and building software on the side. Mostly tools I needed and couldn't find: a batch auto-sampler for instruments your DAW won't sample, a duplicate finder that works on whole folders instead of file by file, and a music library manager for people who keep their music on their own servers instead of renting it. Everything runs on your machine. No accounts, no telemetry, no subscriptions.
+            </p>
+            <a href="https://sudo.jorgevs.com" target="_blank" rel="noopener noreferrer" class="vault-button">Visit sudo.jorgevs.com</a>
           `
         }
       };
