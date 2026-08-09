@@ -22,6 +22,9 @@ class ContentManager {
               Over the years, working across so many projects turned me into a Swiss Army knife of sorts, but in the process my own identity was left behind. After taking time to perfect my craft and realign with who I am and who I want to become, I'm ready to take on commissioned work again. But only on projects where I can stay true to myself.
             </p>
             <p>
+              In 2025 I worked as assistant to composer <strong>Olivier Arson</strong> on a film score. Watching how a score is actually built and delivered — not how it's described from the outside — changed how I approach my own work.
+            </p>
+            <p>
               My current sound is fluid, bridging the space between acoustic and electronic, blending raw sounds and physical timbres with pure signal processing. Sometimes it's harmonic and soft, others it's dissonant or noisy. It's always expressive and emotional, and it usually has a signature melancholic sound that many describe as a core element of my style.
             </p>
           `
@@ -63,6 +66,8 @@ class ContentManager {
             Everything else: <a href="mailto:jvs.work@proton.me" class="email-link">jvs.work@proton.me</a></p>
 
             <p>Everything I write is one-stop: I own both the composition and the master, so licensing takes one email and no waiting for third parties to clear anything.</p>
+
+            <p class="support-note">If something here was useful to you and you feel like it, there's a <a href="https://buymeacoffee.com/jorgevmusica" target="_blank" rel="noopener noreferrer" class="email-link">tip jar</a>. Entirely optional and it buys you nothing but my thanks.</p>
           `
         },
         
