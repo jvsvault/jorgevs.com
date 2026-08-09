@@ -3,106 +3,22 @@
  * Handles dynamic loading of different page sections
  */
 
+import { renderMarkdown } from './md.js?v=20260809-1735';
+
 class ContentManager {
     constructor() {
       this.currentSection = 'about'; // default section
       this.contentContainer = null;
       this.navLinks = [];
       
-      // Content definitions - Only the unique content for each section
-      this.sections = {
-        about: {
-          title: 'About | Jorge Viñals',
-          content: `
-            <h2>COMPOSITION NOTES</h2>
-            <p>
-              I was a Conservatory kid that started making music from an early age, and later in life became a composer for others by chance.
-            </p>
-            <p>
-              Over the years, working across so many projects turned me into a Swiss Army knife of sorts, but in the process my own identity was left behind. After taking time to perfect my craft and realign with who I am and who I want to become, I'm ready to take on commissioned work again. But only on projects where I can stay true to myself.
-            </p>
-            <p>
-              In 2025 I worked as assistant to composer <strong>Olivier Arson</strong> on a film score. Watching how a score is actually built and delivered — not how it's described from the outside — changed how I approach my own work.
-            </p>
-            <p>
-              My current sound is fluid, bridging the space between acoustic and electronic, blending raw sounds and physical timbres with pure signal processing. Sometimes it's harmonic and soft, others it's dissonant or noisy. It's always expressive and emotional, and it usually has a signature melancholic sound that many describe as a core element of my style.
-            </p>
-          `
-        },
-        
-        listen: {
-          title: 'Listen | Jorge Viñals',
-          content: `
-            <h2>LISTEN</h2>
-            
-            <p>Here you can listen to a selection of my works through the years. Some have been used in soundtracks, others are from my own projects. The soundtrack pieces are not available for use, for obvious reasons. nor are the rest, as they're part of an ongoing process of shaping my catalogue through proper studio work. I wouldn't feel comfortable having them used in library form. Nevertheless, this feels like a good representation of who I am and some of my skills.</p>
-            
-            <!-- Music Player -->
-            <div class="disco-player-container">
-              <iframe id="disco-playlist-23502159" name="disco-playlist-23502159" allowfullscreen frameborder="0" class="disco-embed" src="https://jorgevs.disco.ac/e/p/23502159?download=false&s=z8RayvDcN70nqZnY6Bx9vUxzNKc%3A5A7Jsc4B&artwork=true&color=%23808080&theme=dark" width="100%" height="500"></iframe>
-            </div>
-            
-            <p>Another facet of my work is my current solo project, VISE, which aims to be a crossroad between classical and electronic music. It's brighter than my composer side, but it also represents another part of me. I think it's also interesting to see some studio footage and how I built a small orchestra from scratch.</p>
-            
-            <!-- YouTube Videos -->
-            <div class="video-container">
-              <iframe width="100%" height="315" src="https://www.youtube.com/embed/6g6dLIBBQ4w?si=X88ZFmaHAiSz_ekJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            
-            <div class="video-container">
-              <iframe width="100%" height="315" src="https://www.youtube.com/embed/i8guhuDX9_I?si=AyVzkhnMmeWIanwB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-          `
-        },
-        
-        contact: {
-          title: 'Contact | Jorge Viñals',
-          content: `
-            <h2>CONTACT</h2>
-
-            <p><strong>I'm available for commissioned work.</strong> Scores, additional music, sound design, and music for image in general. If you're a director, a producer or a music supervisor, this is the fastest way to reach me.</p>
-
-            <p>Music and scoring: <a href="mailto:jvs.music@proton.me" class="email-link">jvs.music@proton.me</a><br>
-            Everything else: <a href="mailto:jvs.work@proton.me" class="email-link">jvs.work@proton.me</a></p>
-
-            <p>Everything I write is one-stop: I own both the composition and the master, so licensing takes one email and no waiting for third parties to clear anything.</p>
-
-            <p class="support-note">If something here was useful to you and you feel like it, there's a <a href="https://buymeacoffee.com/jorgevmusica" target="_blank" rel="noopener noreferrer" class="email-link">tip jar</a>. Entirely optional and it buys you nothing but my thanks.</p>
-          `
-        },
-        
-        img: {
-          title: '/img | Jorge Viñals',
-          content: `
-            <h2>/IMG</h2>
-            
-            <p>Besides music and sound, I also explore visual arts through photography. My work focuses on capturing textures, geometries, and moments that resonate with the same emotional depth as my compositions. You can explore my visual work and color experiments at:</p>
-            <a href="https://vision.jorgevs.com" target="_blank" rel="noopener noreferrer" class="vault-button">Visit vision.jorgevs.com</a>
-          `
-        },
-        
-        etc: {
-          title: '/etc | Jorge Viñals',
-          content: `
-            <h2>/ETC</h2>
-            
-            <p>
-              I had an interest in computers since childhood because they became my first tool for making music. So besides studying music and sound, I also got my degree in Telecommunications Engineering. An old boss used to say I'm a hybrid of creative and engineer. I always say I'm a bad engineer, but because I'm creative and resourceful I always find a way. Music is Math, as a wise duo used to say.
-            </p>
-            
-            <p>
-              For five years I was a Recording Operations Engineer at BMAT, on the Venues side of music identification. That work is about making sure the music played in clubs and venues gets identified, reported, and paid to whoever wrote it. It taught me the plumbing of how music actually gets paid for, which turns out to be very useful knowledge for someone who writes it.
-            </p>
-
-            <p>
-              That chapter closed in 2026. I'm now working on my own music full time, and building software on the side. Mostly tools I needed and couldn't find: a batch auto-sampler for instruments your DAW won't sample, a duplicate finder that works on whole folders instead of file by file, and a music library manager for people who keep their music on their own servers instead of renting it. Everything runs on your machine. No accounts, no telemetry, no subscriptions.
-            </p>
-            <a href="https://sudo.jorgevs.com" target="_blank" rel="noopener noreferrer" class="vault-button">Visit sudo.jorgevs.com</a>
-          `
-        }
-      };
+      // Los textos viven en /content/*.md — se editan ahí, no aquí.
+      // Este objeto solo declara qué secciones existen y guarda lo ya cargado.
+      this.sections = Object.fromEntries(
+        ['about', 'listen', 'contact', 'img', 'etc'].map(n => [n, null])
+      );
+      this.cache = {};
     }
-  
+
     /**
      * Initialize the content management system
      */
@@ -165,16 +81,34 @@ class ContentManager {
     /**
      * Load a specific section
      */
-    loadSection(sectionName, updateURL = true) {
+    async fetchSection(nombre) {
+      if (this.cache[nombre]) return this.cache[nombre];
+      const r = await fetch(`/content/${nombre}.md?v=20260809-1735`);
+      if (!r.ok) throw new Error(`content/${nombre}.md → HTTP ${r.status}`);
+      const src = await r.text();
+      const titulo = (src.match(/<!--\s*title:\s*(.+?)\s*-->/) || [])[1] || 'Jorge Viñals';
+      const section = { title: titulo, content: renderMarkdown(src.replace(/<!--.*?-->/s, '')) };
+      this.cache[nombre] = section;
+      return section;
+    }
+
+    async loadSection(sectionName, updateURL = true) {
       console.log(`CONTENT MANAGER: Loading section '${sectionName}'`);
-      
-      if (!this.sections[sectionName]) {
+
+      if (!(sectionName in this.sections)) {
         console.error(`CONTENT MANAGER: Section '${sectionName}' not found`);
         return;
       }
-  
-      const section = this.sections[sectionName];
-      
+
+      let section;
+      try {
+        section = await this.fetchSection(sectionName);
+      } catch (e) {
+        console.error('CONTENT MANAGER:', e);
+        this.contentContainer.innerHTML = '<p>Content unavailable. Try reloading.</p>';
+        return;
+      }
+
       // Update page title
       document.title = section.title;
       
