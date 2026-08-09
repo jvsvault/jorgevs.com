@@ -3,7 +3,7 @@
  * Handles dynamic loading of different page sections
  */
 
-import { renderMarkdown } from './md.js?v=20260809-1735';
+import { renderMarkdown } from './md.js?v=20260809-1838';
 
 class ContentManager {
     constructor() {
@@ -83,7 +83,7 @@ class ContentManager {
      */
     async fetchSection(nombre) {
       if (this.cache[nombre]) return this.cache[nombre];
-      const r = await fetch(`/content/${nombre}.md?v=20260809-1735`);
+      const r = await fetch(`/content/${nombre}.md?t=${Date.now()}`);
       if (!r.ok) throw new Error(`content/${nombre}.md → HTTP ${r.status}`);
       const src = await r.text();
       const titulo = (src.match(/<!--\s*title:\s*(.+?)\s*-->/) || [])[1] || 'Jorge Viñals';
