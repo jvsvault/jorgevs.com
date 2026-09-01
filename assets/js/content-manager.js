@@ -3,7 +3,7 @@
  * Handles dynamic loading of different page sections
  */
 
-import { renderMarkdown } from './md.js?v=20260901-1256';
+import { renderMarkdown } from './md.js?v=20260901-1348';
 
 class ContentManager {
     constructor() {
@@ -74,8 +74,13 @@ class ContentManager {
      * Get current section from URL hash
      */
     getSectionFromURL() {
+      // Comprobar `in`, no el valor: los valores arrancan a null, asi que
+      // `this.sections[hash]` era siempre falsy y todo caia en 'about'.
+      // Se acepta tanto /subscribe como #subscribe: privacy.md enlaza rutas.
+      const ruta = window.location.pathname.replace(/^\/|\/$/g, '');
+      if (ruta in this.sections) return ruta;
       const hash = window.location.hash.replace('#', '');
-      return this.sections[hash] ? hash : 'about';
+      return hash in this.sections ? hash : 'about';
     }
   
     /**
@@ -134,6 +139,7 @@ class ContentManager {
         }
         
         this.currentSection = sectionName;
+        this.wireSubscribeForm();
         
       }, 150);
   
@@ -143,6 +149,50 @@ class ContentManager {
       }
     }
   
+    /**
+     * Conecta el formulario de suscripcion, si la seccion recien pintada lo
+     * trae. El markup vive en content/subscribe.md para que se edite desde
+     * Obsidian; aqui solo esta la logica. Va contra /api/public/subscription,
+     * que nginx proxya a Listmonk en el mismo origen (sin CORS).
+     */
+    wireSubscribeForm() {
+      const form = this.contentContainer.querySelector('#subscribe-form');
+      if (!form || form.dataset.wired) return;
+      form.dataset.wired = '1';
+      const aviso = form.querySelector('.form-status');
+      const boton = form.querySelector('button[type=submit]');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const listas = [...form.querySelectorAll('input[name=list]:checked')].map(c => c.value);
+        if (!listas.length) {
+          aviso.textContent = 'Pick at least one list.';
+          return;
+        }
+        boton.disabled = true;
+        aviso.textContent = 'Sending...';
+        try {
+          const r = await fetch('/api/public/subscription', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              email: form.email.value.trim(),
+              name: form.name.value.trim(),
+              list_uuids: listas
+            })
+          });
+          // 429 = limite de peticiones de nginx; merece su propio mensaje.
+          if (r.status === 429) throw new Error('Too many attempts. Try again in a minute.');
+          if (!r.ok) throw new Error(`HTTP ${r.status}`);
+          form.reset();
+          aviso.textContent = "You're on the list.";
+        } catch (err) {
+          aviso.textContent = `Could not subscribe: ${err.message}`;
+          boton.disabled = false;
+        }
+      });
+    }
+
     /**
      * Update navigation active states
      */
@@ -161,8 +211,7 @@ class ContentManager {
      * Update URL without triggering page reload
      */
     updateURL(section) {
-      const newURL = `${window.location.pathname}#${section}`;
-      history.pushState({ section }, '', newURL);
+      history.pushState({ section }, '', `/${section}`);
     }
   
     /**

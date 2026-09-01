@@ -818,3 +818,101 @@ p {
         font-size: 0.8rem;
     }
 }
+/* ── Formulario de suscripción (content/subscribe.md) ──────────────────────
+   Los inputs llevan background y color EXPLÍCITOS a propósito: sobre fondo
+   oscuro, el estilo nativo del sistema los deja ilegibles (texto oscuro sobre
+   oscuro en dark mode). El título del grupo es un <span>, no un <legend>:
+   legend ignora los márgenes en todos los navegadores.                     */
+#subscribe-form {
+    margin: 2rem 0;
+    max-width: 34rem;
+    font-family: var(--font-sans);
+}
+
+#subscribe-form label {
+    display: block;
+    margin: 1rem 0 0.35rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-color);
+}
+
+#subscribe-form .opt {
+    text-transform: none;
+    letter-spacing: 0;
+    opacity: 0.55;
+}
+
+#subscribe-form input[type="email"],
+#subscribe-form input[type="text"] {
+    width: 100%;
+    padding: 0.6rem 0.7rem;
+    background-color: rgba(0, 0, 0, 0.35);
+    color: var(--text-color);
+    border: var(--border-width) solid var(--border-color);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+}
+
+#subscribe-form input::placeholder { color: var(--text-color); opacity: 0.4; }
+
+#subscribe-form input[type="email"]:focus,
+#subscribe-form input[type="text"]:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 1px;
+}
+
+#subscribe-form fieldset {
+    margin: 1.75rem 0 0;
+    padding: 0;
+    border: 0;
+}
+
+#subscribe-form .legend-visible {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+#subscribe-form label.check {
+    display: flex;
+    gap: 0.6rem;
+    align-items: baseline;
+    margin: 0 0 0.7rem;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    text-transform: none;
+    letter-spacing: 0;
+    line-height: 1.45;
+    cursor: pointer;
+}
+
+#subscribe-form input[type="checkbox"] {
+    flex: 0 0 auto;
+    width: 1rem;
+    height: 1rem;
+    accent-color: var(--accent-color);
+    cursor: pointer;
+}
+
+#subscribe-form button[type="submit"] { cursor: pointer; }
+#subscribe-form button[disabled] { opacity: 0.5; cursor: default; }
+
+#subscribe-form .form-status:empty { display: none; }
+
+#subscribe-form .form-status {
+    margin: 0.5rem 0 0;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+}
+
+#subscribe-form .form-note {
+    margin: 1.25rem 0 0;
+    font-size: 0.8rem;
+    opacity: 0.65;
+}
