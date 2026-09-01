@@ -3,7 +3,7 @@
  * Handles dynamic loading of different page sections
  */
 
-import { renderMarkdown } from './md.js?v=20260809-1838';
+import { renderMarkdown } from './md.js?v=20260901-1256';
 
 class ContentManager {
     constructor() {
@@ -14,7 +14,7 @@ class ContentManager {
       // Los textos viven en /content/*.md — se editan ahí, no aquí.
       // Este objeto solo declara qué secciones existen y guarda lo ya cargado.
       this.sections = Object.fromEntries(
-        ['about', 'listen', 'contact', 'img', 'etc'].map(n => [n, null])
+        ['about', 'catalog', 'subscribe', 'etc', 'privacy'].map(n => [n, null])
       );
       this.cache = {};
     }
