@@ -1,5 +1,4 @@
 <!-- title: Privacy Policy - Jorge Viñals -->
-<!-- nav: oculto -->
 
 [← Back to subscribe](/subscribe "vault-button")
 

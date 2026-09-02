@@ -1,5 +1,4 @@
 <!-- title: /etc | Jorge Viñals -->
-<!-- nav: 5 -->
 
 ## /ETC
 
