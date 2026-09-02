@@ -3,7 +3,7 @@
  * Handles dynamic loading of different page sections
  */
 
-import { renderMarkdown } from './md.js?v=20260902-1946';
+import { renderMarkdown } from './md.js?v=20260902-1954';
 
 class ContentManager {
     constructor() {
@@ -82,11 +82,16 @@ class ContentManager {
       for (const [n, sec] of cargadas) {
         if (!sec) continue;
         this.sections[n] = null;
-        const orden = sec.raw && sec.raw.match(/<!--\s*nav:\s*(\d+)\s*-->/);
+        // <!-- nav: N -->      posicion en el menu
+        // <!-- nav: oculto -->  seccion accesible por su URL, fuera del menu
+        // sin marcador          se muestra al final, por orden alfabetico
+        const marca = sec.raw && sec.raw.match(/<!--\s*nav:\s*([^\s>-]+)\s*-->/);
+        const valor = marca ? marca[1].toLowerCase() : null;
         this.meta[n] = {
           // "Contact & Subscribe | Jorge Viñals" -> "Contact & Subscribe"
           etiqueta: sec.title.split(/\s+[|\u2013-]\s+/)[0].trim() || n,
-          orden: orden ? parseInt(orden[1], 10) : 500
+          oculta: ['oculto', 'oculta', 'none', 'hidden', 'no'].includes(valor),
+          orden: valor && /^\d+$/.test(valor) ? parseInt(valor, 10) : 500
         };
       }
       console.log('CONTENT MANAGER: secciones descubiertas —', Object.keys(this.sections).join(', '));
@@ -99,8 +104,9 @@ class ContentManager {
     pintarNav() {
       const nav = document.querySelector('.param-nav');
       if (!nav) return;
-      const orden = Object.keys(this.sections).sort((a, b) =>
-        (this.meta[a].orden - this.meta[b].orden) || a.localeCompare(b));
+      const orden = Object.keys(this.sections)
+        .filter(n => !this.meta[n].oculta)
+        .sort((a, b) => (this.meta[a].orden - this.meta[b].orden) || a.localeCompare(b));
       nav.innerHTML = orden.map(n =>
         `<a href="/${n}" data-section="${n}">${this.meta[n].etiqueta}</a>`).join('\n      ');
     }
