@@ -5,7 +5,7 @@
 
 import randomizer from './fast-randomizer.js';
 import { initializeRotations } from './metadata-rotator.js';
-import contentManager from './content-manager.js?v=20260902-1937';
+import contentManager from './content-manager.js?v=20260902-1946';
 
 class JorgeVSMain {
   constructor() {

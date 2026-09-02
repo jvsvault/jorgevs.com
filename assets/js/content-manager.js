@@ -3,7 +3,7 @@
  * Handles dynamic loading of different page sections
  */
 
-import { renderMarkdown } from './md.js?v=20260902-1937';
+import { renderMarkdown } from './md.js?v=20260902-1946';
 
 class ContentManager {
     constructor() {
@@ -62,6 +62,11 @@ class ContentManager {
         const entradas = await r.json();
         const md = entradas
           .filter(e => e.type === 'file' && e.name.endsWith('.md'))
+          // Syncthing deja copias `X.sync-conflict-<fecha>-<id>.md` cuando el
+          // mismo fichero se edita en dos sitios, y aparecieron como cinco
+          // apartados duplicados en el menu el 2026-09-02. Tampoco son paginas
+          // los ficheros que empiezan por `_` o `.` (borradores, ocultos).
+          .filter(e => !/\.sync-conflict-/.test(e.name) && !/^[._]/.test(e.name))
           .map(e => e.name.replace(/\.md$/, ''));
         if (md.length) nombres = md;
         else console.warn('CONTENT MANAGER: índice vacío, uso el respaldo');
