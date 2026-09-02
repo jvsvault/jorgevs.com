@@ -3,7 +3,7 @@
  * Handles dynamic loading of different page sections
  */
 
-import { renderMarkdown } from './md.js?v=20260901-1348';
+import { renderMarkdown } from './md.js?v=20260902-1937';
 
 class ContentManager {
     constructor() {
@@ -11,21 +11,27 @@ class ContentManager {
       this.contentContainer = null;
       this.navLinks = [];
       
-      // Los textos viven en /content/*.md — se editan ahí, no aquí.
-      // Este objeto solo declara qué secciones existen y guarda lo ya cargado.
-      this.sections = Object.fromEntries(
-        ['about', 'catalog', 'subscribe', 'etc', 'privacy'].map(n => [n, null])
-      );
+      // Los textos viven en /content/*.md y MANDAN: las secciones y el menú se
+      // descubren de ahí en cada carga. Antes esta lista estaba escrita a mano
+      // aquí y la nav a mano en el HTML, así que añadir o quitar un .md en
+      // Obsidian dejaba la web desincronizada sin ningún error visible. Pasó
+      // dos veces. La única lista que existe ahora es la del directorio.
+      this.sections = {};
+      this.meta = {};   // nombre -> { etiqueta, orden }
       this.cache = {};
+      // Red de seguridad: si el índice no responde, el sitio sigue navegable.
+      this.RESPALDO = ['about', 'catalog', 'subscribe', 'etc', 'privacy'];
     }
 
     /**
      * Initialize the content management system
      */
-    init() {
+    async init() {
       console.log('CONTENT MANAGER: Initializing SPA system');
       
       this.contentContainer = document.getElementById('dynamic-content');
+      await this.descubrirSecciones();
+      this.pintarNav();
       this.navLinks = document.querySelectorAll('.param-nav a[data-section]');
       
       if (!this.contentContainer) {
@@ -42,6 +48,58 @@ class ContentManager {
       console.log('CONTENT MANAGER: SPA system initialized');
     }
   
+    /**
+     * Descubre qué secciones existen leyendo el directorio de textos.
+     * La etiqueta del menú sale del propio fichero (`<!-- title: X | ... -->`),
+     * y el orden de un `<!-- nav: N -->` opcional. Sin ese marcador, alfabético.
+     * Así se controla todo desde Obsidian, sin tocar una línea de código.
+     */
+    async descubrirSecciones() {
+      let nombres = this.RESPALDO;
+      try {
+        const r = await fetch(`/content-index/?t=${Date.now()}`);
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        const entradas = await r.json();
+        const md = entradas
+          .filter(e => e.type === 'file' && e.name.endsWith('.md'))
+          .map(e => e.name.replace(/\.md$/, ''));
+        if (md.length) nombres = md;
+        else console.warn('CONTENT MANAGER: índice vacío, uso el respaldo');
+      } catch (e) {
+        console.warn('CONTENT MANAGER: no se pudo leer /content-index/, uso el respaldo —', e.message);
+      }
+
+      const cargadas = await Promise.all(nombres.map(async n => {
+        try { return [n, await this.fetchSection(n)]; }
+        catch { return [n, null]; }   // un .md ilegible no puede tumbar el menú
+      }));
+
+      for (const [n, sec] of cargadas) {
+        if (!sec) continue;
+        this.sections[n] = null;
+        const orden = sec.raw && sec.raw.match(/<!--\s*nav:\s*(\d+)\s*-->/);
+        this.meta[n] = {
+          // "Contact & Subscribe | Jorge Viñals" -> "Contact & Subscribe"
+          etiqueta: sec.title.split(/\s+[|\u2013-]\s+/)[0].trim() || n,
+          orden: orden ? parseInt(orden[1], 10) : 500
+        };
+      }
+      console.log('CONTENT MANAGER: secciones descubiertas —', Object.keys(this.sections).join(', '));
+    }
+
+    /**
+     * Pinta el menú a partir de lo descubierto. Sustituye lo que hubiera en el
+     * HTML, que ahora es solo un contenedor vacío.
+     */
+    pintarNav() {
+      const nav = document.querySelector('.param-nav');
+      if (!nav) return;
+      const orden = Object.keys(this.sections).sort((a, b) =>
+        (this.meta[a].orden - this.meta[b].orden) || a.localeCompare(b));
+      nav.innerHTML = orden.map(n =>
+        `<a href="/${n}" data-section="${n}">${this.meta[n].etiqueta}</a>`).join('\n      ');
+    }
+
     /**
      * Set up navigation event listeners
      */
@@ -92,7 +150,11 @@ class ContentManager {
       if (!r.ok) throw new Error(`content/${nombre}.md → HTTP ${r.status}`);
       const src = await r.text();
       const titulo = (src.match(/<!--\s*title:\s*(.+?)\s*-->/) || [])[1] || 'Jorge Viñals';
-      const section = { title: titulo, content: renderMarkdown(src.replace(/<!--.*?-->/s, '')) };
+      // Los comentarios de cabecera son metadatos (title, nav): fuera antes de
+      // renderizar. Se quitan solo los del principio, no los que haya dentro
+      // del contenido (catalog.md usa comentarios junto a los embeds).
+      const cuerpo = src.replace(/^(?:\s*<!--[\s\S]*?-->\s*)+/, '');
+      const section = { title: titulo, raw: src, content: renderMarkdown(cuerpo) };
       this.cache[nombre] = section;
       return section;
     }

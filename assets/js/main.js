@@ -5,7 +5,7 @@
 
 import randomizer from './fast-randomizer.js';
 import { initializeRotations } from './metadata-rotator.js';
-import contentManager from './content-manager.js?v=20260901-1348';
+import contentManager from './content-manager.js?v=20260902-1937';
 
 class JorgeVSMain {
   constructor() {
@@ -23,7 +23,7 @@ class JorgeVSMain {
       await randomizer.initialize();
       
       // Step 2: Initialize content management system
-      contentManager.init();
+      await contentManager.init();
       
       // Step 3: Initialize metadata rotations
       await this.initializeRotations();
