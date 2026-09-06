@@ -7,6 +7,6 @@
 
 As a composer, I'm a one-stop profile. I own the composition and the master, have the ability to work on anything on my own, so licensing takes one email.
 
-Music and scoring: [jvs.music@proton.me](mailto:jvs.music@proton.me "email-link")
+Music and scoring: [music@jorgevs.com](mailto:music@jorgevs.com "email-link")
 
-Everything else (you can have a look at what I mean at http://sudo.jorgevs.com): [jvs.tech@proton.me](mailto:jvs.tech@proton.me "email-link")
+Everything else (you can have a look at what I mean at http://sudo.jorgevs.com): [labs@jorgevs.com](mailto:labs@jorgevs.com "email-link")
