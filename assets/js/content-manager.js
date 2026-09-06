@@ -3,7 +3,7 @@
  * Handles dynamic loading of different page sections
  */
 
-import { renderMarkdown } from './md.js?v=20260902-1954';
+import { renderMarkdown } from './md.js?v=20260906-0832';
 
 class ContentManager {
     constructor() {
