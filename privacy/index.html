@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>Privacy Policy - Jorge Viñals</title>
+
+    <link
+      rel="stylesheet"
+      href="/assets/css/main-v3-clean.css?v=20260809-1838"
+    />
+
+    <link
+      rel="icon"
+      href="/assets/images/profile/110-2048x1153.jpg"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      href="/assets/images/profile/110-2048x1153.jpg"
+      sizes="192x192"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/profile/110-2048x1153.jpg"
+    />
+
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap"
+      as="style"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      (function () {
+        const stored = sessionStorage.getItem("jvs_current_images");
+        if (stored) {
+          const data = JSON.parse(stored);
+          const style = document.createElement("style");
+          style.textContent = `
+          :root {
+            --bg-image: url('/assets/images/bg-geo/${encodeURIComponent(data.bg)}');
+            --geometry-texture: url('/assets/images/bg-geo/${encodeURIComponent(data.geo)}');
+            --accent-color: #808080;
+          }
+        `;
+          document.head.appendChild(style);
+        } else {
+          const style = document.createElement("style");
+          style.textContent = `:root { --bg-image: none; --geometry-texture: none; --accent-color: #808080; }`;
+          document.head.appendChild(style);
+        }
+      })();
+    </script>
+
+    <style>
+      /* .content h3 is styled in the site's own CSS (color: var(--accent-color),
+         opacity 0.8) but nothing on the live site actually uses an h3 yet —
+         this page is the first, and with some randomized accent colors that
+         combination is too low-contrast to read. Keeping the monospace/
+         uppercase feel but anchoring the color to the reliably-legible
+         text color instead. */
+      .content h3 {
+        color: var(--text-color);
+        opacity: 0.85;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      ul {
+        margin: 0 0 1.5rem 1.2rem;
+      }
+      li {
+        margin-bottom: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <table class="main-table">
+        <tr class="title-row">
+          <td
+            colspan="2"
+            class="title-cell"
+            style="padding: 35px 30px !important"
+          >
+            <h1 class="site-title">JORGE VIÑALS</h1>
+          </td>
+        </tr>
+        <tr class="content-row">
+          <td class="metadata-cell">
+            <div class="metadata">
+              <dl>
+                <dt class="position1-title medium-title">Medium</dt>
+                <dd class="position1-item medium-item">
+                  Acoustic / Electronic / Tape
+                </dd>
+                <dt class="position2-title notation-title">Notation</dt>
+                <dd class="position2-item notation-item">Traditional / MIDI</dd>
+                <dt class="position3-title duration-title">Duration</dt>
+                <dd class="position3-item duration-item">Variable</dd>
+                <dt class="position4-title commissioned-title">
+                  Commissioned By
+                </dt>
+                <dd class="position4-item commissioned-item">
+                  Coca-Cola, New Balance,<br />Mccann Erickson, Ogilvy,<br />El
+                  Deseo
+                </dd>
+              </dl>
+            </div>
+          </td>
+          <td class="profile-cell">
+            <div class="profile-image-container">
+              <div class="profile-image-wrapper">
+                <img
+                  src="/assets/images/profile/110-2048x1153.jpg"
+                  alt="Jorge Viñals"
+                  class="profile-image"
+                />
+                <div class="profile-color-overlay"></div>
+              </div>
+              <div class="profile-decoration"></div>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <div class="param-nav">
+        <a href="/#about">About</a>
+        <a href="/#listen">Listen</a>
+        <a href="/#contact">Contact</a>
+        <a href="/#img">/img</a>
+        <a href="/#etc">/etc</a>
+        <a href="/subscribe">Subscribe</a>
+        <a href="/catalog">Catalog</a>
+      </div>
+
+      <div class="content">
+        <p style="margin-bottom: 1.5rem">
+          <a href="/subscribe" class="vault-button">&larr; Back to subscribe</a>
+        </p>
+        <h2 style="margin-top: 0">Privacy Policy</h2>
+        <p>
+          This covers the newsletter subscription at
+          <a href="/subscribe" class="email-link">jorgevs.com/subscribe</a>.
+        </p>
+
+        <h3>Who holds the data</h3>
+        <p>
+          Jorge Viñals, on his own self-hosted server. No third party — no
+          Mailchimp, no Substack, no ad network — has access to this list.
+        </p>
+
+        <h3>What is stored</h3>
+        <ul>
+          <li>Your email address</li>
+          <li>Your name, if you provided one</li>
+          <li>Which list(s) you chose to subscribe to</li>
+          <li>The date and time you subscribed</li>
+          <li>
+            Basic open/click stats tied to campaigns, used only to see if a
+            newsletter reached inboxes — not sold or shared
+          </li>
+        </ul>
+
+        <h3>How it works</h3>
+        <p>
+          You'll only receive mail when there's something real to send — no
+          automated drip sequences.
+        </p>
+
+        <h3>Unsubscribing or deletion</h3>
+        <p>
+          Every email includes an unsubscribe link. Clicking it removes you from
+          that list immediately. To have your data fully deleted rather than
+          just unsubscribed, email
+          <a href="mailto:hola@jorgevs.com" class="email-link"
+            >hola@jorgevs.com</a
+          >.
+        </p>
+
+        <p>
+          <a href="/subscribe" class="vault-button">&larr; Back to subscribe</a>
+        </p>
+      </div>
+
+      <div class="piano-roll">
+        <div class="roll-container">
+          <a
+            href="https://instagram.com/jorgevmusica"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="midi-note instagram"
+            >Instagram</a
+          >
+          <a
+            href="https://tiktok.com/@jorgevmusica"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="midi-note tiktok"
+            >TikTok</a
+          >
+          <a
+            href="https://youtube.com/@jorgevsmusic"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="midi-note youtube"
+            >YouTube</a
+          >
+          <a
+            href="https://buymeacoffee.com/jorgevmusica"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="midi-note support"
+            >Support</a
+          >
+        </div>
+      </div>
+
+      <footer class="site-footer">
+        <div class="footer-content">
+          <p>&copy; <span id="current-year">2026</span> Jorge Viñals</p>
+        </div>
+      </footer>
+    </div>
+
+    <script type="module">
+      import randomizer from "/assets/js/fast-randomizer.js?v=20260809-1838";
+      randomizer.initialize().finally(function () {
+        document.body.classList.add("loaded");
+        document.getElementById("current-year").textContent =
+          new Date().getFullYear();
+      });
+    </script>
+  </body>
+</html>
