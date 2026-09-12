@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>Catalog - Jorge Viñals</title>
+
+    <link
+      rel="stylesheet"
+      href="/assets/css/main-v3-clean.css?v=20260809-1838"
+    />
+
+    <link
+      rel="icon"
+      href="/assets/images/profile/110-2048x1153.jpg"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      href="/assets/images/profile/110-2048x1153.jpg"
+      sizes="192x192"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/profile/110-2048x1153.jpg"
+    />
+
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap"
+      as="style"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      (function () {
+        const stored = sessionStorage.getItem("jvs_current_images");
+        if (stored) {
+          const data = JSON.parse(stored);
+          const style = document.createElement("style");
+          style.textContent = `
+          :root {
+            --bg-image: url('/assets/images/bg-geo/${encodeURIComponent(data.bg)}');
+            --geometry-texture: url('/assets/images/bg-geo/${encodeURIComponent(data.geo)}');
+            --accent-color: #808080;
+          }
+        `;
+          document.head.appendChild(style);
+        } else {
+          const style = document.createElement("style");
+          style.textContent = `:root { --bg-image: none; --geometry-texture: none; --accent-color: #808080; }`;
+          document.head.appendChild(style);
+        }
+      })();
+    </script>
+
+    <style>
+      fieldset {
+        border: 1px solid var(--border-color);
+        padding: 1rem;
+        margin: 0 0 1.5rem;
+      }
+      legend {
+        padding: 0 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.85rem;
+      }
+      .catalog-top {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 1.5rem;
+      }
+      .track-row {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        padding: 0.6rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      }
+      .track-row:last-child {
+        border-bottom: none;
+      }
+      .track-name {
+        flex: 1 1 auto;
+        min-width: 160px;
+        font-family: var(--font-mono);
+        font-size: 0.9rem;
+      }
+      .track-row audio {
+        height: 32px;
+        max-width: 260px;
+        flex: 1 1 260px;
+      }
+      .track-row .discreet-link {
+        flex-shrink: 0;
+      }
+      .discreet-link {
+        color: var(--text-color);
+        opacity: 0.6;
+        font-size: 0.85rem;
+        text-decoration: underline;
+      }
+      .discreet-link:hover {
+        opacity: 0.9;
+      }
+      #catalog-status {
+        opacity: 0.75;
+        font-size: 0.9rem;
+      }
+      #catalog-status.error {
+        color: #ff8080;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <table class="main-table">
+        <tr class="title-row">
+          <td
+            colspan="2"
+            class="title-cell"
+            style="padding: 35px 30px !important"
+          >
+            <h1 class="site-title">JORGE VIÑALS</h1>
+          </td>
+        </tr>
+        <tr class="content-row">
+          <td class="metadata-cell">
+            <div class="metadata">
+              <dl>
+                <dt class="position1-title medium-title">Medium</dt>
+                <dd class="position1-item medium-item">
+                  Acoustic / Electronic / Tape
+                </dd>
+                <dt class="position2-title notation-title">Notation</dt>
+                <dd class="position2-item notation-item">Traditional / MIDI</dd>
+                <dt class="position3-title duration-title">Duration</dt>
+                <dd class="position3-item duration-item">Variable</dd>
+                <dt class="position4-title commissioned-title">
+                  Commissioned By
+                </dt>
+                <dd class="position4-item commissioned-item">
+                  Coca-Cola, New Balance,<br />Mccann Erickson, Ogilvy,<br />El
+                  Deseo
+                </dd>
+              </dl>
+            </div>
+          </td>
+          <td class="profile-cell">
+            <div class="profile-image-container">
+              <div class="profile-image-wrapper">
+                <img
+                  src="/assets/images/profile/110-2048x1153.jpg"
+                  alt="Jorge Viñals"
+                  class="profile-image"
+                />
+                <div class="profile-color-overlay"></div>
+              </div>
+              <div class="profile-decoration"></div>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <div class="param-nav">
+        <a href="/#about">About</a>
+        <a href="/#listen">Listen</a>
+        <a href="/#contact">Contact</a>
+        <a href="/#img">/img</a>
+        <a href="/#etc">/etc</a>
+        <a href="/subscribe">Subscribe</a>
+        <a href="/catalog" class="active">Catalog</a>
+      </div>
+
+      <div class="content">
+        <h2>Catalog</h2>
+        <p>
+          Browse and download from the working catalog. Each folder can be
+          downloaded on its own, or grab everything at once below.
+        </p>
+
+        <div class="catalog-top">
+          <a
+            id="download-all"
+            href="https://cloud.jorgevs.com/s/kPEYdwxbBzKt35d/download"
+            class="vault-button"
+            >Download entire catalog</a
+          >
+          <span id="catalog-status">Loading…</span>
+        </div>
+
+        <div id="catalog-tree"></div>
+      </div>
+
+      <div class="piano-roll">
+        <div class="roll-container">
+          <a
+            href="https://instagram.com/jorgevmusica"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="midi-note instagram"
+            >Instagram</a
+          >
+          <a
+            href="https://tiktok.com/@jorgevmusica"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="midi-note tiktok"
+            >TikTok</a
+          >
+          <a
+            href="https://youtube.com/@jorgevsmusic"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="midi-note youtube"
+            >YouTube</a
+          >
+          <a
+            href="https://buymeacoffee.com/jorgevmusica"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="midi-note support"
+            >Support</a
+          >
+        </div>
+      </div>
+
+      <footer class="site-footer">
+        <div class="footer-content">
+          <p>&copy; <span id="current-year">2026</span> Jorge Viñals</p>
+        </div>
+      </footer>
+    </div>
+
+    <script type="module">
+      import randomizer from "/assets/js/fast-randomizer.js?v=20260809-1838";
+      randomizer.initialize().finally(function () {
+        document.body.classList.add("loaded");
+        document.getElementById("current-year").textContent =
+          new Date().getFullYear();
+      });
+    </script>
+
+    <script>
+      (function () {
+        var SHARE_TOKEN = "kPEYdwxbBzKt35d";
+        var SHARE_BASE =
+          "https://cloud.jorgevs.com/s/" + SHARE_TOKEN + "/download";
+        var statusEl = document.getElementById("catalog-status");
+        var treeEl = document.getElementById("catalog-tree");
+
+        function fileUrl(path) {
+          // path like "/1.7/test-song.mp3" -> split into folder path + filename,
+          // matching Nextcloud's public download URL shape.
+          var idx = path.lastIndexOf("/");
+          var dir = path.slice(0, idx) || "/";
+          var name = path.slice(idx + 1);
+          return (
+            SHARE_BASE +
+            "?path=" +
+            encodeURIComponent(dir) +
+            "&files=" +
+            encodeURIComponent(name)
+          );
+        }
+
+        function folderUrl(path) {
+          return SHARE_BASE + "?path=" + encodeURIComponent(path);
+        }
+
+        fetch("/catalog-api/")
+          .then(function (res) {
+            if (!res.ok) throw new Error("HTTP " + res.status);
+            return res.text();
+          })
+          .then(function (xmlText) {
+            var xml = new DOMParser().parseFromString(
+              xmlText,
+              "application/xml",
+            );
+            var responses = Array.from(
+              xml.getElementsByTagNameNS("DAV:", "response"),
+            );
+
+            // Build a flat list of {path, isDir, name}, skipping the root entry itself.
+            var items = [];
+            responses.forEach(function (r) {
+              var href = r.getElementsByTagNameNS("DAV:", "href")[0]
+                .textContent;
+              var path = decodeURIComponent(
+                href.replace(/^.*\/public\.php\/webdav/, ""),
+              );
+              if (path === "" || path === "/") return;
+              var isDir =
+                r.getElementsByTagNameNS("DAV:", "collection").length > 0;
+              var parts = path.replace(/\/$/, "").split("/").filter(Boolean);
+              items.push({
+                path: path.replace(/\/$/, ""),
+                isDir: isDir,
+                depth: parts.length,
+                name: parts[parts.length - 1],
+              });
+            });
+
+            // Top-level folders (depth 1, isDir) become sections; files inside them
+            // (depth 2, matching prefix) are listed under each.
+            var folders = items.filter(function (i) {
+              return i.isDir && i.depth === 1;
+            });
+            var files = items.filter(function (i) {
+              return !i.isDir;
+            });
+
+            if (folders.length === 0 && files.length === 0) {
+              statusEl.textContent = "Nothing here yet.";
+              return;
+            }
+
+            statusEl.textContent = "";
+
+            folders.forEach(function (folder) {
+              var folderFiles = files.filter(function (f) {
+                return f.path.indexOf(folder.path + "/") === 0;
+              });
+
+              var fieldset = document.createElement("fieldset");
+              var legend = document.createElement("legend");
+              legend.textContent = folder.name;
+              fieldset.appendChild(legend);
+
+              var topRow = document.createElement("p");
+              topRow.style.marginBottom = "1rem";
+              var dl = document.createElement("a");
+              dl.href = folderUrl(folder.path);
+              dl.className = "discreet-link";
+              dl.textContent =
+                "Download this folder (" +
+                folderFiles.length +
+                (folderFiles.length === 1 ? " track" : " tracks") +
+                ")";
+              topRow.appendChild(dl);
+              fieldset.appendChild(topRow);
+
+              folderFiles.forEach(function (f) {
+                var row = document.createElement("div");
+                row.className = "track-row";
+
+                var name = document.createElement("span");
+                name.className = "track-name";
+                name.textContent = f.name;
+                row.appendChild(name);
+
+                var audio = document.createElement("audio");
+                audio.controls = true;
+                audio.preload = "none";
+                audio.src = fileUrl(f.path);
+                row.appendChild(audio);
+
+                var dlFile = document.createElement("a");
+                dlFile.href = fileUrl(f.path);
+                dlFile.download = f.name;
+                dlFile.className = "discreet-link";
+                dlFile.textContent = "Download";
+                row.appendChild(dlFile);
+
+                fieldset.appendChild(row);
+              });
+
+              treeEl.appendChild(fieldset);
+            });
+          })
+          .catch(function (err) {
+            statusEl.className = "error";
+            statusEl.textContent =
+              "Could not load the catalog — try again in a moment.";
+            console.error("catalog load failed:", err);
+          });
+      })();
+    </script>
+  </body>
+</html>

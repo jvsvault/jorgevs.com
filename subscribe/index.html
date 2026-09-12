@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>Subscribe - Jorge Viñals</title>
+
+    <link
+      rel="stylesheet"
+      href="/assets/css/main-v3-clean.css?v=20260809-1838"
+    />
+
+    <link
+      rel="icon"
+      href="/assets/images/profile/110-2048x1153.jpg"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      href="/assets/images/profile/110-2048x1153.jpg"
+      sizes="192x192"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/profile/110-2048x1153.jpg"
+    />
+
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap"
+      as="style"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Same instant-background script as the main page, so the look matches on load -->
+    <script>
+      (function () {
+        const stored = sessionStorage.getItem("jvs_current_images");
+        if (stored) {
+          const data = JSON.parse(stored);
+          const style = document.createElement("style");
+          style.textContent = `
+          :root {
+            --bg-image: url('/assets/images/bg-geo/${encodeURIComponent(data.bg)}');
+            --geometry-texture: url('/assets/images/bg-geo/${encodeURIComponent(data.geo)}');
+            --accent-color: #808080;
+          }
+        `;
+          document.head.appendChild(style);
+        } else {
+          const style = document.createElement("style");
+          style.textContent = `:root { --bg-image: none; --geometry-texture: none; --accent-color: #808080; }`;
+          document.head.appendChild(style);
+        }
+      })();
+    </script>
+
+    <style>
+      /* Subscribe-form-specific additions on top of the site's own tokens. */
+      fieldset {
+        border: 1px solid var(--border-color);
+        padding: 1rem;
+        margin: 0 0 1.5rem;
+      }
+      legend {
+        padding: 0 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.85rem;
+      }
+      .list-option {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.6rem;
+        margin-bottom: 1rem;
+      }
+      .list-option:last-child {
+        margin-bottom: 0;
+      }
+      .list-option input[type="checkbox"] {
+        margin-top: 0.3rem;
+        width: 16px;
+        height: 16px;
+        accent-color: var(--text-color);
+        flex-shrink: 0;
+      }
+      .list-option label {
+        cursor: pointer;
+      }
+      .list-option .list-name {
+        display: block;
+        font-weight: 500;
+      }
+      .list-option .list-desc {
+        display: block;
+        font-size: 0.85rem;
+        opacity: 0.75;
+        margin-top: 0.15rem;
+      }
+      #subscribe-form input[type="email"],
+      #subscribe-form input[type="text"] {
+        width: 100%;
+        background: transparent;
+        border: 1px solid var(--border-color);
+        color: var(--text-color);
+        padding: 0.7rem;
+        font-family: var(--font-sans);
+        font-size: 1rem;
+      }
+      /* Email/Name reuse the plain <fieldset> rule above for their box,
+         same as Lists — one consistent pattern across all three fields. */
+      button.vault-button {
+        cursor: pointer;
+      }
+      button.vault-button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none;
+      }
+      .submit-row {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        margin-top: 0.5rem;
+      }
+      /* Deliberately understated — secondary to the Subscribe action. */
+      .discreet-link {
+        color: var(--text-color);
+        opacity: 0.6;
+        font-size: 0.85rem;
+        text-decoration: underline;
+      }
+      .discreet-link:hover {
+        opacity: 0.9;
+      }
+      #form-status {
+        margin-top: 1rem;
+        font-size: 0.9rem;
+      }
+      #form-status.error {
+        color: #ff8080;
+      }
+      #form-status.success {
+        color: #80ff9c;
+      }
+      .hp-field {
+        position: absolute;
+        left: -9999px;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header — identical markup to the main site (ALWAYS THE SAME per their own convention) -->
+      <table class="main-table">
+        <tr class="title-row">
+          <td
+            colspan="2"
+            class="title-cell"
+            style="padding: 35px 30px !important"
+          >
+            <h1 class="site-title">JORGE VIÑALS</h1>
+          </td>
+        </tr>
+        <tr class="content-row">
+          <td class="metadata-cell">
+            <div class="metadata">
+              <dl>
+                <dt class="position1-title medium-title">Medium</dt>
+                <dd class="position1-item medium-item">
+                  Acoustic / Electronic / Tape
+                </dd>
+                <dt class="position2-title notation-title">Notation</dt>
+                <dd class="position2-item notation-item">Traditional / MIDI</dd>
+                <dt class="position3-title duration-title">Duration</dt>
+                <dd class="position3-item duration-item">Variable</dd>
+                <dt class="position4-title commissioned-title">
+                  Commissioned By
+                </dt>
+                <dd class="position4-item commissioned-item">
+                  Coca-Cola, New Balance,<br />Mccann Erickson, Ogilvy,<br />El
+                  Deseo
+                </dd>
+              </dl>
+            </div>
+          </td>
+          <td class="profile-cell">
+            <div class="profile-image-container">
+              <div class="profile-image-wrapper">
+                <img
+                  src="/assets/images/profile/110-2048x1153.jpg"
+                  alt="Jorge Viñals"
+                  class="profile-image"
+                />
+                <div class="profile-color-overlay"></div>
+              </div>
+              <div class="profile-decoration"></div>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <!-- Nav — same links as the main site, Subscribe added and marked active.
+         Real page links (not #hash) so leaving this page goes back to the real SPA sections. -->
+      <div class="param-nav">
+        <a href="/#about">About</a>
+        <a href="/#listen">Listen</a>
+        <a href="/#contact">Contact</a>
+        <a href="/#img">/img</a>
+        <a href="/#etc">/etc</a>
+        <a href="/subscribe" class="active">Subscribe</a>
+        <a href="/catalog">Catalog</a>
+      </div>
+
+      <!-- Content area — same wrapper class the SPA uses for section content -->
+      <div class="content">
+        <h2>Subscribe</h2>
+        <p>
+          Updates go out only when there's something real to say — no automated
+          drip, no third party owning this list. It lives on my own server.
+        </p>
+
+        <form id="subscribe-form" novalidate>
+          <fieldset>
+            <legend>Email</legend>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              autocomplete="email"
+            />
+          </fieldset>
+
+          <fieldset>
+            <legend>Name (optional)</legend>
+            <input type="text" id="name" name="name" autocomplete="name" />
+          </fieldset>
+
+          <!-- Honeypot: real visitors never see or fill this -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="website">Leave this field empty</label>
+            <input
+              type="text"
+              id="website"
+              name="website"
+              tabindex="-1"
+              autocomplete="off"
+            />
+          </div>
+
+          <fieldset>
+            <legend>Lists</legend>
+
+            <div class="list-option">
+              <input type="checkbox" id="list-jorge" value="jorge-vinals" />
+              <label for="list-jorge">
+                <span class="list-name">Jorge Viñals</span>
+                <span class="list-desc"
+                  >Neoclassical and scoring work under his real name.</span
+                >
+              </label>
+            </div>
+
+            <div class="list-option">
+              <input type="checkbox" id="list-vise" value="vise" />
+              <label for="list-vise">
+                <span class="list-name">VISE</span>
+                <span class="list-desc"
+                  >Downtempo project with real instruments.</span
+                >
+              </label>
+            </div>
+
+            <div class="list-option">
+              <input type="checkbox" id="list-all" value="all" />
+              <label for="list-all">
+                <span class="list-name"
+                  >All present and future music projects</span
+                >
+                <span class="list-desc"
+                  >Including new projects I haven't launched yet. You can
+                  unsubscribe from any of them at any time.</span
+                >
+              </label>
+            </div>
+
+            <div class="list-option">
+              <input type="checkbox" id="list-software" value="software" />
+              <label for="list-software">
+                <span class="list-name">Software</span>
+                <span class="list-desc"
+                  >Desktop tools published at sudo.jorgevs.com.</span
+                >
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="submit-row">
+            <button type="submit" id="submit-btn" class="vault-button">
+              Subscribe
+            </button>
+            <a href="/privacy" id="privacy-link" class="discreet-link"
+              >Privacy policy</a
+            >
+          </div>
+
+          <div id="form-status" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+
+      <!-- Piano roll — identical markup to the main site -->
+      <div class="piano-roll">
+        <div class="roll-container">
+          <a
+            href="https://instagram.com/jorgevmusica"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="midi-note instagram"
+            >Instagram</a
+          >
+          <a
+            href="https://tiktok.com/@jorgevmusica"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="midi-note tiktok"
+            >TikTok</a
+          >
+          <a
+            href="https://youtube.com/@jorgevsmusic"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="midi-note youtube"
+            >YouTube</a
+          >
+          <a
+            href="https://buymeacoffee.com/jorgevmusica"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="midi-note support"
+            >Support</a
+          >
+        </div>
+      </div>
+
+      <!-- Footer — identical markup to the main site -->
+      <footer class="site-footer">
+        <div class="footer-content">
+          <p>&copy; <span id="current-year">2026</span> Jorge Viñals</p>
+        </div>
+      </footer>
+    </div>
+
+    <script type="module">
+      // Same background/geometry randomizer as the main site, loaded standalone —
+      // content-manager.js is intentionally NOT loaded here, since its section
+      // routing would overwrite this page's form with the "about" section.
+      import randomizer from "/assets/js/fast-randomizer.js?v=20260809-1838";
+      randomizer.initialize().finally(function () {
+        document.body.classList.add("loaded");
+        document.getElementById("current-year").textContent =
+          new Date().getFullYear();
+      });
+    </script>
+
+    <script>
+      (function () {
+        var LIST_UUIDS = {
+          "jorge-vinals": "15bc7238-5bf8-4011-a334-c46af7f60e3c",
+          vise: "ba5398b4-835e-4dcf-8a6a-143245bee216",
+          all: "b3c73e18-a840-4ec9-9099-68bfa8721dc6",
+          software: "ce68a6bb-6dd7-491b-a276-b4e8f6395eec",
+        };
+
+        var form = document.getElementById("subscribe-form");
+        var statusEl = document.getElementById("form-status");
+        var submitBtn = document.getElementById("submit-btn");
+        var privacyLink = document.getElementById("privacy-link");
+        var DRAFT_KEY = "jvs_subscribe_draft";
+
+        // Restore whatever the visitor already typed if they left for the
+        // privacy policy and came back — takes priority over ?from=, since
+        // that's only meant to pre-check on a first, fresh visit.
+        var draft = null;
+        try {
+          draft = JSON.parse(sessionStorage.getItem(DRAFT_KEY) || "null");
+        } catch (e) {
+          draft = null;
+        }
+
+        if (draft) {
+          document.getElementById("email").value = draft.email || "";
+          document.getElementById("name").value = draft.name || "";
+          (draft.checked || []).forEach(function (value) {
+            var box = form.querySelector(
+              '.list-option input[value="' + value + '"]',
+            );
+            if (box) box.checked = true;
+          });
+        } else {
+          var params = new URLSearchParams(window.location.search);
+          var from = params.get("from");
+          var preCheckId =
+            { vise: "list-vise", software: "list-software", all: "list-all" }[
+              from
+            ] || "list-jorge";
+          var el = document.getElementById(preCheckId);
+          if (el) el.checked = true;
+        }
+
+        // Save current field values before following the privacy link away
+        // from this page, so coming back via its "back to subscribe" link
+        // restores exactly what was there.
+        privacyLink.addEventListener("click", function () {
+          var checked = Array.from(
+            form.querySelectorAll(
+              '.list-option input[type="checkbox"]:checked',
+            ),
+          ).map(function (c) {
+            return c.value;
+          });
+          sessionStorage.setItem(
+            DRAFT_KEY,
+            JSON.stringify({
+              email: document.getElementById("email").value,
+              name: document.getElementById("name").value,
+              checked: checked,
+            }),
+          );
+        });
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          statusEl.className = "";
+          statusEl.textContent = "";
+
+          if (document.getElementById("website").value) {
+            statusEl.className = "success";
+            statusEl.textContent = "Thanks — you're on the list.";
+            form.reset();
+            return;
+          }
+
+          var email = document.getElementById("email").value.trim();
+          var name = document.getElementById("name").value.trim();
+          var checked = Array.from(
+            form.querySelectorAll(
+              '.list-option input[type="checkbox"]:checked',
+            ),
+          ).map(function (c) {
+            return c.value;
+          });
+          var listUuids = checked
+            .map(function (key) {
+              return LIST_UUIDS[key];
+            })
+            .filter(Boolean);
+
+          if (!email) {
+            statusEl.className = "error";
+            statusEl.textContent = "Enter an email address.";
+            return;
+          }
+          if (listUuids.length === 0) {
+            statusEl.className = "error";
+            statusEl.textContent = "Pick at least one list.";
+            return;
+          }
+
+          submitBtn.disabled = true;
+          statusEl.textContent = "Sending…";
+
+          fetch("/api/public/subscription", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              email: email,
+              name: name || email,
+              list_uuids: listUuids,
+            }),
+          })
+            .then(function (res) {
+              if (!res.ok) throw new Error("request failed");
+              statusEl.className = "success";
+              statusEl.textContent = "Thanks — you're on the list.";
+              form.reset();
+              sessionStorage.removeItem(DRAFT_KEY);
+            })
+            .catch(function () {
+              statusEl.className = "error";
+              statusEl.textContent =
+                "Something went wrong — try again in a moment.";
+            })
+            .finally(function () {
+              submitBtn.disabled = false;
+            });
+        });
+      })();
+    </script>
+  </body>
+</html>
