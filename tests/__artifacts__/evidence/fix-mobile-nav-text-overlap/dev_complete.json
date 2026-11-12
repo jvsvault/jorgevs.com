@@ -1,0 +1,27 @@
+{
+  "commits": [
+    "e6fe2ba",
+    "f193deb",
+    "d5d21b8"
+  ],
+  "files_modified": [
+    "tests/__artifacts__/evidence/fix-mobile-nav-text-overlap/probe/VERDICT.md",
+    "tests/__artifacts__/evidence/fix-mobile-nav-text-overlap/probe/chromium-sweep.txt",
+    "tests/__artifacts__/evidence/fix-mobile-nav-text-overlap/probe/ios-probe-390-real-safari.png",
+    "tests/__artifacts__/evidence/fix-mobile-nav-text-overlap/probe/before-390.png"
+  ],
+  "build_passed": true,
+  "build_command": "node dev-server.js && curl -s -o /dev/null -w '%{http_code}' http://localhost:8080/  -> 200 (no build step in this repo)",
+  "test_plan_created": false,
+  "features_status_updated": true,
+  "features_implemented": [],
+  "progress_updated": true,
+  "learnings_updated": false,
+  "notes": "VERDICT: no real horizontal overflow; the left-edge cutoff in screenshots/01-nav-scrolled-into-view.png is a capture artifact. No CSS change made, by instruction. Numbers: real iOS Mobile Safari 18.3.1 (iPhone 16 Pro sim WEB-IPHONE) at 390px with the real 7-item production nav -> documentElement.scrollWidth 390 = innerWidth 390, overflow 0, navSum 301 / navBox 369, item widths [38,48,48,59,32,32,43]. Chromium sweep 320/360/375/390/393/402/414/428/768 -> overflow 0 at every width; scrollTo(9999,0) leaves scrollX 0. Font bound: Andale Mono/Monaco/Courier New/Courier/monospace identical (nav uses 301 of 369px). A hypothetical 8-label row incl. the hidden 'Privacy Policy' still leaves document overflow at 0. Cause of the apparent shift: on iOS window.scrollX reports the visual-viewport offset, which is not clamped by the layout width (scrollTo(9999,0) inside the probe iframe returned scrollX 9999 while scrollWidth stayed 390); the :~:text= find-and-scroll moved only the visual viewport - line breaks unchanged, so no reflow. test_plan_created=false: no code changed and this repo has no automated suite (its root TEST_PLAN.md documents a different project). learnings_updated=false: the finding lives in probe/VERDICT.md; ai-ecosystem memory is outside this session's write scope. Merge to main NOT performed (protected branch; /merge lands it). Deploy is Homelab (jorgevs-nginx + Cloudflare Tunnel): a push does not publish.",
+  "branch": "fix/mobile-nav-text-overlap",
+  "completed_at": "2026-11-12T11:16:13+01:00",
+  "project": "jorgevs.com",
+  "project_path": "/Users/jorgevs/Documents/Dev/web_dev/jorgevs.com",
+  "session_id": "736e8053-e565-4c43-97f4-a853ceac3ed4",
+  "writer": "evidence_writer.py/1"
+}

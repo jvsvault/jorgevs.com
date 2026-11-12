@@ -1,0 +1,16 @@
+{
+  "branch": "fix/mobile-nav-text-overlap",
+  "skipped": [
+    "test",
+    "review",
+    "audit"
+  ],
+  "skipped_label": "skipped: dev-only (plan_complete.json)",
+  "acceptance": "dev_complete.json (build_passed + RULE 8 doc flags) is the acceptance bar",
+  "authority": "plan_complete.json pipeline_depth=dev-only via pipeline_depth (RULE 5, ADR-104/ADR-120)",
+  "pipeline_depth": "dev-only",
+  "depth_source": "pipeline_depth",
+  "risk": "behaviour",
+  "pipeline_depth_reason": "Verification-only task dispatched by Management: measure real scrollWidth vs innerWidth on the mobile nav at 390px, then either fix a confirmed overflow or record that none exists. No code change is expected in the second case, so there is nothing for TEST/REVIEW/AUDIT to exercise beyond the measurement already recorded.",
+  "feature": "mobile-nav-overflow-verification"
+}
