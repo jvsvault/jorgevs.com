@@ -1,0 +1,129 @@
+{
+  "test_type": "gui",
+  "build_verified": true,
+  "unit_tests": {
+    "passed": 0,
+    "failed": 0,
+    "skipped": 0,
+    "command": "no automated suite in this repo — root TEST_PLAN.md documents the Data Orchestrator Tauri app, not this site (CLAUDE.md and _Overview.md both say so); no package.json, no pytest/vitest/jest/playwright config"
+  },
+  "integration_tests": {
+    "passed": 0,
+    "failed": 0,
+    "skipped": 0,
+    "command": "same — none exist"
+  },
+  "feature_verification": {
+    "checkpoints_total": 4,
+    "checkpoints_passed": 4,
+    "checkpoints_failed": 0,
+    "details": [
+      {
+        "name": "overflow-390-real-mobile-safari",
+        "status": "PASS",
+        "screenshot": "tests/__artifacts__/evidence/fix-mobile-nav-text-overlap/runs/20261112_115555/screenshots/01-nav-no-overflow-ios-safari.png",
+        "result": "real MobileSafari 18.3 on simulator WEB-IPHONE (iPhone 16 Pro), real 7-item production nav (about/catalog/contact/subscribe/etc/img/listen, built by content-manager.js from a real /content-index/): innerWidth 390, scrollWidth 390, OVERFLOW 0, navBox 369/369, maxTextSpill 0, textOverlap 0 pairs, wrapLines 1,1,1,1,1,1,1 — one row, all 7 labels inside their boxes, COMPOSITION NOTES below it not cut off (the original capture's left cutoff does not reproduce)"
+      },
+      {
+        "name": "overflow-320-768-chromium-sweep",
+        "status": "PASS",
+        "screenshot": "tests/__artifacts__/evidence/fix-mobile-nav-text-overlap/runs/20261112_115555/screenshots/02-nav-390-desktop-chromium.png",
+        "result": "Chromium 156 headless, 11 widths 320/360/375/390/393/402/414/428/768/1024/1280 with the real 7-item nav: document scrollWidth == innerWidth and OVERFLOW 0 at EVERY width, window.scrollTo(9999,0) leaves scrollX 0, nav scrollWidth == clientWidth, 0 overlapping item boxes, 0 overlapping glyph rects; Firefox 157 agrees at 320/390/768"
+      },
+      {
+        "name": "platform-matrix-captures",
+        "status": "PASS",
+        "screenshot": "tests/__artifacts__/evidence/fix-mobile-nav-text-overlap/runs/20261112_115555/screenshots/01-nav-no-overflow-android-tablet-chrome.png",
+        "result": "all six RULE 16 tags in their own real renderer: ios-safari (WEB-IPHONE MobileSafari, 390 -> OVERFLOW 0, 0 text overlap), ipados-safari (WEB-IPAD MobileSafari, 834 -> innerWidth 834 = scrollWidth 834, OVERFLOW 0), android-chrome (AVD WEB-PHONE, real Chrome, 390 probe OVERFLOW 0 + real 412 px page with the 7 labels on one row after real swipes), android-tablet-chrome (AVD WEB-TABLET, real Chrome, 800 -> innerWidth 800 = scrollWidth 800, OVERFLOW 0, 0 text overlap; nav on 2 rows because >=768 px uses the untouched desktop rules), desktop-chromium (390/768/1280), desktop-firefox (320/390/768)"
+      },
+      {
+        "name": "label-wrap-fix-effect",
+        "status": "PASS",
+        "screenshot": "tests/__artifacts__/evidence/fix-mobile-nav-text-overlap/runs/20261112_115555/screenshots/04-latent-8items-branch-after.png",
+        "result": "same page, main's CSS vs the branch's, 390 px, with the production-hidden 'Privacy Policy' item shown: main spills 13 px (white-space nowrap, 1 line), branch wraps it inside its box (0 spill, 2 lines, nav 56.4 -> 70.5 px tall), document overflow 0 in both. With the current 7 single-word labels main and branch are pixel-identical (measured at 320/390/834), so the CSS change is harmless today and fixes the multi-word-label class it names"
+      }
+    ]
+  },
+  "existing_e2e": {
+    "status": "SKIPPED",
+    "note": "no playwright.config, no e2e suite in the repo"
+  },
+  "gui_interactions": {
+    "navigations": 25,
+    "assertions": 104,
+    "description": "Playwright headless Chromium (11 widths) + Firefox (3 widths) against a probe server that serves the repo plus a real /content-index/, so the nav is the real 7-item production one (dev-server.js has no such route); 2 MobileSafari captures via xcrun simctl after xcrun simctl openurl; real swipes (4) and a tap (1) on the phone emulator, force-stop + relaunch and 2 network-radio toggles on the tablet emulator to bring Chrome to a painted page. Assertions per run: 7 nav items, document overflow 0, scrollX 0 after scrollTo(9999,0), nav.scrollWidth <= nav.clientWidth, no item box outside the nav, no same-row box overlap, no overlapping glyph rects, no page errors."
+  },
+  "capture_source": "simulator",
+  "screenshots": [
+    {
+      "path": "tests/__artifacts__/evidence/fix-mobile-nav-text-overlap/runs/20261112_115555/screenshots/01-nav-no-overflow-ios-safari.png",
+      "capture_source": "simulator"
+    },
+    {
+      "path": "tests/__artifacts__/evidence/fix-mobile-nav-text-overlap/runs/20261112_115555/screenshots/05-probe-390-ios-safari.png",
+      "capture_source": "simulator"
+    },
+    {
+      "path": "tests/__artifacts__/evidence/fix-mobile-nav-text-overlap/runs/20261112_115555/screenshots/01-nav-no-overflow-ipados-safari.png",
+      "capture_source": "simulator"
+    },
+    {
+      "path": "tests/__artifacts__/evidence/fix-mobile-nav-text-overlap/runs/20261112_115555/screenshots/01-nav-no-overflow-android-chrome.png",
+      "capture_source": "terminal"
+    },
+    {
+      "path": "tests/__artifacts__/evidence/fix-mobile-nav-text-overlap/runs/20261112_115555/screenshots/05-probe-390-android-chrome.png",
+      "capture_source": "terminal"
+    },
+    {
+      "path": "tests/__artifacts__/evidence/fix-mobile-nav-text-overlap/runs/20261112_115555/screenshots/01-nav-no-overflow-android-tablet-chrome.png",
+      "capture_source": "terminal"
+    },
+    {
+      "path": "tests/__artifacts__/evidence/fix-mobile-nav-text-overlap/runs/20261112_115555/screenshots/02-nav-390-desktop-chromium.png",
+      "capture_source": "playwright"
+    },
+    {
+      "path": "tests/__artifacts__/evidence/fix-mobile-nav-text-overlap/runs/20261112_115555/screenshots/02-nav-320-desktop-chromium.png",
+      "capture_source": "playwright"
+    },
+    {
+      "path": "tests/__artifacts__/evidence/fix-mobile-nav-text-overlap/runs/20261112_115555/screenshots/02-nav-768-desktop-chromium.png",
+      "capture_source": "playwright"
+    },
+    {
+      "path": "tests/__artifacts__/evidence/fix-mobile-nav-text-overlap/runs/20261112_115555/screenshots/02-nav-390-desktop-firefox.png",
+      "capture_source": "playwright"
+    },
+    {
+      "path": "tests/__artifacts__/evidence/fix-mobile-nav-text-overlap/runs/20261112_115555/screenshots/04-latent-8items-main-before.png",
+      "capture_source": "playwright"
+    },
+    {
+      "path": "tests/__artifacts__/evidence/fix-mobile-nav-text-overlap/runs/20261112_115555/screenshots/04-latent-8items-branch-after.png",
+      "capture_source": "playwright"
+    },
+    {
+      "path": "tests/__artifacts__/evidence/fix-mobile-nav-text-overlap/runs/20261112_115555/screenshots/03-compare-390-main-before.png",
+      "capture_source": "playwright"
+    },
+    {
+      "path": "tests/__artifacts__/evidence/fix-mobile-nav-text-overlap/runs/20261112_115555/screenshots/03-compare-390-branch-after.png",
+      "capture_source": "playwright"
+    }
+  ],
+  "log_files": [
+    "tests/__artifacts__/evidence/fix-mobile-nav-text-overlap/runs/20261112_115555/sweep-desktop-chromium.log",
+    "tests/__artifacts__/evidence/fix-mobile-nav-text-overlap/runs/20261112_115555/sweep-desktop-firefox.log",
+    "tests/__artifacts__/evidence/fix-mobile-nav-text-overlap/runs/20261112_115555/layout-audit/nav-layout-audit.log"
+  ],
+  "artifacts_dir": "tests/__artifacts__/evidence/fix-mobile-nav-text-overlap/runs/20261112_115555",
+  "verdict": "PASS",
+  "notes": "Scope: the branch's only code change is the .param-nav a block inside @media (max-width: 767px) plus a new @media (max-width: 359px) block (commit d5d21b8, 2026-11-10, BEFORE plan_complete.json 2026-11-12). Measured main-vs-branch in the same browser at 320/390/834: identical geometry for the current 7 single-word labels; the change only matters for multi-word labels (checkpoint 4). PLAN SUCCESS CRITERIA: (1) scrollWidth vs innerWidth at 390 on real Mobile Safari -> 390/390, overflow 0; 320-768 in Chromium with the real 7-item nav -> overflow 0 at all 11 widths. (2) The verdict 'no real overflow / capture artifact' in probe/VERDICT.md matches these numbers. (3) The verification pass itself made no CSS change (e6fe2ba is evidence only; the CSS commit predates the plan). LAYOUT-AUDIT: claude/skills/layout-audit/scripts/audit.py over the nav geometry at 320/390/768 -> 0 HARD failures at every breakpoint (only SOFT 'margins differ' 17/24/24/17, an artifact of using the nav row itself as the board). Pre-existing and out of scope, verified identical on main: (a) below 360 px the stylesheet deliberately falls back to min-width:0, so labels spill their box by up to 7 px at 320 (0 glyph-to-glyph overlap, 0 document overflow); (b) at >=768 px the desktop .param-nav wraps 7 items onto 2 rows (6 + Listen), and on iPadOS a decorative image overlaps the nav row. platform_matrix.json carries an override for this repo (web: 'a real public site; its root carries an unused src-tauri/ that would classify it native-wrapped'), so all six tags are required — covered. Plan says pipeline_depth=dev-only (test/review/audit skipped by pipeline_skipped.json); this TEST pass ran because the caller explicitly dispatched it on a public site.",
+  "branch": "fix/mobile-nav-text-overlap",
+  "completed_at": "2026-11-12T12:18:11+01:00",
+  "project": "jorgevs.com",
+  "project_path": "/Users/jorgevs/Documents/Dev/web_dev/jorgevs.com",
+  "session_id": "3d9529bb-bb08-431e-86de-a3dbd2df4ff6",
+  "writer": "evidence_writer.py/1"
+}

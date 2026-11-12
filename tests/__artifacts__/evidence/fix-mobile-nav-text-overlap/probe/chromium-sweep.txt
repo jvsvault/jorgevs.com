@@ -1,0 +1,19 @@
+nav       w items  inner  scrollW  over  navSum maxScrollX  worst
+real    320     7    320      320     0     235          0  {'over': 4, 'tag': 'DIV', 'cls': 'profile-decoration', 'txt': ''}
+real    360     7    360      360     0     280          0  {'over': 31, 'tag': 'DIV', 'cls': 'profile-decoration', 'txt': ''}
+real    375     7    375      375     0     287          0  {'over': 12, 'tag': 'DIV', 'cls': 'profile-decoration', 'txt': ''}
+real    390     7    390      390     0     301          0  {'over': 8, 'tag': 'DIV', 'cls': 'profile-decoration', 'txt': ''}
+real    393     7    393      393     0     304          0  None
+real    402     7    402      402     0     313          0  {'over': 34, 'tag': 'DIV', 'cls': 'profile-decoration', 'txt': ''}
+real    414     7    414      414     0     324          0  {'over': 54, 'tag': 'DIV', 'cls': 'profile-decoration', 'txt': ''}
+real    428     7    428      428     0     337          0  {'over': 27, 'tag': 'DIV', 'cls': 'profile-decoration', 'txt': ''}
+real    768     7    768      768     0    1124          0  None
+local   320     4    320      320     0     244          0  {'over': 36, 'tag': 'DIV', 'cls': 'profile-decoration', 'txt': ''}
+local   360     4    360      360     0     282          0  {'over': 44, 'tag': 'DIV', 'cls': 'profile-decoration', 'txt': ''}
+local   375     4    375      375     0     297          0  None
+local   390     4    390      390     0     311          0  {'over': 35, 'tag': 'DIV', 'cls': 'profile-decoration', 'txt': ''}
+local   393     4    393      393     0     314          0  None
+local   402     4    402      402     0     322          0  {'over': 4, 'tag': 'DIV', 'cls': 'profile-decoration', 'txt': ''}
+local   414     4    414      414     0     334          0  {'over': 21, 'tag': 'DIV', 'cls': 'profile-decoration', 'txt': ''}
+local   428     4    428      428     0     347          0  {'over': 40, 'tag': 'DIV', 'cls': 'profile-decoration', 'txt': ''}
+local   768     4    768      768     0     560          0  None

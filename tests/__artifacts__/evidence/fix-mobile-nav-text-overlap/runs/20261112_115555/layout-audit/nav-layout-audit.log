@@ -1,0 +1,60 @@
+===== BREAKPOINT 320 =====
+[PASS] HARD presence     expected content is present
+[PASS] HARD outside      nothing outside the board
+[PASS] HARD overlap      no two shapes overlap
+[PASS] HARD separator    no divider cuts through content
+[PASS] HARD touching     nothing touches (min gap)
+[PASS] HARD offgrid      positions land on the grid
+[PASS] HARD heading      headings belong to the content below
+[PASS] HARD scale        values are members of the declared scale
+[PASS] HARD stackedge    vertical stacks share one left edge
+[PASS] HARD rowcenter    mixed-height rows share a vertical centre
+[PASS] SOFT fontcount    few font sizes, >=25% apart
+[PASS] SOFT sizes        a small vocabulary of sizes
+[PASS] SOFT rowgaps      consistent gaps within a row
+[PASS] SOFT raggedlabel  labels share a right edge
+[warn] SOFT margins      board margins are equal
+           - margins differ: {'top': 17, 'left': 24, 'right': 24, 'bottom': 17}
+
+0 HARD rule(s) failing over 7 shapes.
+exit=0
+===== BREAKPOINT 390 =====
+[PASS] HARD presence     expected content is present
+[PASS] HARD outside      nothing outside the board
+[PASS] HARD overlap      no two shapes overlap
+[PASS] HARD separator    no divider cuts through content
+[PASS] HARD touching     nothing touches (min gap)
+[PASS] HARD offgrid      positions land on the grid
+[PASS] HARD heading      headings belong to the content below
+[PASS] HARD scale        values are members of the declared scale
+[PASS] HARD stackedge    vertical stacks share one left edge
+[PASS] HARD rowcenter    mixed-height rows share a vertical centre
+[PASS] SOFT fontcount    few font sizes, >=25% apart
+[PASS] SOFT sizes        a small vocabulary of sizes
+[PASS] SOFT rowgaps      consistent gaps within a row
+[PASS] SOFT raggedlabel  labels share a right edge
+[warn] SOFT margins      board margins are equal
+           - margins differ: {'top': 17, 'left': 24, 'right': 24, 'bottom': 17}
+
+0 HARD rule(s) failing over 7 shapes.
+exit=0
+===== BREAKPOINT 768 =====
+[PASS] HARD presence     expected content is present
+[PASS] HARD outside      nothing outside the board
+[PASS] HARD overlap      no two shapes overlap
+[PASS] HARD separator    no divider cuts through content
+[PASS] HARD touching     nothing touches (min gap)
+[PASS] HARD offgrid      positions land on the grid
+[PASS] HARD heading      headings belong to the content below
+[PASS] HARD scale        values are members of the declared scale
+[PASS] HARD stackedge    vertical stacks share one left edge
+[PASS] HARD rowcenter    mixed-height rows share a vertical centre
+[PASS] SOFT fontcount    few font sizes, >=25% apart
+[PASS] SOFT sizes        a small vocabulary of sizes
+[PASS] SOFT rowgaps      consistent gaps within a row
+[PASS] SOFT raggedlabel  labels share a right edge
+[warn] SOFT margins      board margins are equal
+           - margins differ: {'top': 25, 'left': 24, 'right': 24, 'bottom': 25}
+
+0 HARD rule(s) failing over 7 shapes.
+exit=0

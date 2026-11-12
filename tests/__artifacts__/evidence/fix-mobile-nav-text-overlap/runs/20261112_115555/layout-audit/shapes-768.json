@@ -1,0 +1,72 @@
+[
+  {
+    "name": "About",
+    "type": "box",
+    "role": "button",
+    "x": 24,
+    "y": 25,
+    "w": 84.92,
+    "h": 40.39,
+    "fontSize": 14
+  },
+  {
+    "name": "Catalog",
+    "type": "box",
+    "role": "button",
+    "x": 113.72,
+    "y": 25,
+    "w": 92.81,
+    "h": 40.39,
+    "fontSize": 14
+  },
+  {
+    "name": "Contact",
+    "type": "box",
+    "role": "button",
+    "x": 211.33,
+    "y": 25,
+    "w": 92.81,
+    "h": 40.39,
+    "fontSize": 14
+  },
+  {
+    "name": "Subscribe",
+    "type": "box",
+    "role": "button",
+    "x": 308.94,
+    "y": 25,
+    "w": 109.63,
+    "h": 40.39,
+    "fontSize": 14
+  },
+  {
+    "name": "/etc",
+    "type": "box",
+    "role": "button",
+    "x": 423.36,
+    "y": 25,
+    "w": 84.92,
+    "h": 40.39,
+    "fontSize": 14
+  },
+  {
+    "name": "/img",
+    "type": "box",
+    "role": "button",
+    "x": 513.08,
+    "y": 25,
+    "w": 84.92,
+    "h": 40.39,
+    "fontSize": 14
+  },
+  {
+    "name": "Listen",
+    "type": "box",
+    "role": "button",
+    "x": 24,
+    "y": 70.19,
+    "w": 574,
+    "h": 40.39,
+    "fontSize": 14
+  }
+]

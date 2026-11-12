@@ -716,11 +716,20 @@ p {
     
     .param-nav a {
         flex: 1 1 auto; /* Equal width for all items */
-        min-width: 0; /* Allow items to shrink */
+        min-width: min-content; /* a word cannot wrap: never shrink a box below it */
         padding: calc(var(--mobile-section-gap) * 0.2) calc(var(--mobile-section-gap) * 0.2);
         font-size: 0.55rem;
         text-align: center;
-        white-space: nowrap;
+        white-space: normal; /* labels wrap inside their box instead of spilling into the neighbour */
+    }
+}
+
+/* Very narrow phones: below this width the row cannot hold every label's longest
+   word, so fall back to shrinking (the old behaviour) rather than pushing a label
+   off-screen. */
+@media (max-width: 359px) {
+    .param-nav a {
+        min-width: 0;
     }
 }
 

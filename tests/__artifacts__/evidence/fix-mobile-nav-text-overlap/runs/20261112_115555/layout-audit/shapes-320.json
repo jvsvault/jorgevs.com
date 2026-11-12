@@ -1,0 +1,72 @@
+[
+  {
+    "name": "About",
+    "type": "box",
+    "role": "button",
+    "x": 24,
+    "y": 17,
+    "w": 29.36,
+    "h": 22.44,
+    "fontSize": 8.8
+  },
+  {
+    "name": "Catalog",
+    "type": "box",
+    "role": "button",
+    "x": 56.55,
+    "y": 17,
+    "w": 37.77,
+    "h": 22.44,
+    "fontSize": 8.8
+  },
+  {
+    "name": "Contact",
+    "type": "box",
+    "role": "button",
+    "x": 97.5,
+    "y": 17,
+    "w": 37.75,
+    "h": 22.44,
+    "fontSize": 8.8
+  },
+  {
+    "name": "Subscribe",
+    "type": "box",
+    "role": "button",
+    "x": 138.44,
+    "y": 17,
+    "w": 46.14,
+    "h": 22.44,
+    "fontSize": 8.8
+  },
+  {
+    "name": "/etc",
+    "type": "box",
+    "role": "button",
+    "x": 187.77,
+    "y": 17,
+    "w": 25.16,
+    "h": 22.44,
+    "fontSize": 8.8
+  },
+  {
+    "name": "/img",
+    "type": "box",
+    "role": "button",
+    "x": 216.11,
+    "y": 17,
+    "w": 25.16,
+    "h": 22.44,
+    "fontSize": 8.8
+  },
+  {
+    "name": "Listen",
+    "type": "box",
+    "role": "button",
+    "x": 244.45,
+    "y": 17,
+    "w": 33.55,
+    "h": 22.44,
+    "fontSize": 8.8
+  }
+]

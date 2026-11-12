@@ -1,0 +1,30 @@
+{
+  "feature": "mobile-nav-overflow-verification",
+  "objective": "Settle whether the left-edge cutoff in screenshots/01-nav-scrolled-into-view.png is a real mobile horizontal overflow or a Safari find-and-scroll capture artifact, with measured numbers, then fix only if the overflow is real.",
+  "risk": "behaviour",
+  "pipeline_depth": "dev-only",
+  "pipeline_depth_reason": "Verification-only task dispatched by Management: measure real scrollWidth vs innerWidth on the mobile nav at 390px, then either fix a confirmed overflow or record that none exists. No code change is expected in the second case, so there is nothing for TEST/REVIEW/AUDIT to exercise beyond the measurement already recorded.",
+  "files": [
+    "tests/__artifacts__/evidence/fix-mobile-nav-text-overlap/probe/VERDICT.md"
+  ],
+  "steps": [
+    "Measure document.documentElement.scrollWidth vs innerWidth at 390px on the real rendered page with the real 7-item production nav (content-manager.js sources it from /content-index/, which dev-server.js does not serve, so it must be supplied)",
+    "Confirm or refute the documented root cause (.param-nav a min-width:min-content plus .param-nav flex-wrap:nowrap) against that real nav item set, across real phone widths",
+    "If the overflow is real: set min-width to 0 with overflow-wrap:anywhere and re-measure. If not: record the numbers and leave the CSS untouched",
+    "Record the raw outputs and the verdict under tests/__artifacts__/evidence/fix-mobile-nav-text-overlap/probe/"
+  ],
+  "success_criteria": [
+    "documentElement.scrollWidth vs innerWidth reported for 390px on real Mobile Safari and for 320-768px in Chromium, with the real 7-item nav",
+    "A stated verdict (real overflow / capture artifact) matching those numbers, with the raw command output saved",
+    "No CSS change if the overflow is not reproducible; the branch carries evidence only"
+  ],
+  "screenshot_checkpoints": [
+    "tests/__artifacts__/evidence/fix-mobile-nav-text-overlap/probe/ios-probe-390-real-safari.png"
+  ],
+  "branch": "fix/mobile-nav-text-overlap",
+  "created_at": "2026-11-12T11:16:01+01:00",
+  "project": "jorgevs.com",
+  "project_path": "/Users/jorgevs/Documents/Dev/web_dev/jorgevs.com",
+  "session_id": "736e8053-e565-4c43-97f4-a853ceac3ed4",
+  "writer": "evidence_writer.py/1"
+}
