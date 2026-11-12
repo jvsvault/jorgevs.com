@@ -1,0 +1,92 @@
+[
+  {
+    "variant": "main(before)",
+    "width": 834,
+    "spill": [
+      {
+        "t": "About",
+        "spill": 0,
+        "ws": "nowrap"
+      },
+      {
+        "t": "Catalog",
+        "spill": 0,
+        "ws": "nowrap"
+      },
+      {
+        "t": "Contact",
+        "spill": 0,
+        "ws": "nowrap"
+      },
+      {
+        "t": "Subscribe",
+        "spill": 0,
+        "ws": "nowrap"
+      },
+      {
+        "t": "/etc",
+        "spill": 0,
+        "ws": "nowrap"
+      },
+      {
+        "t": "/img",
+        "spill": 0,
+        "ws": "nowrap"
+      },
+      {
+        "t": "Listen",
+        "spill": 0,
+        "ws": "nowrap"
+      }
+    ],
+    "docOverflow": 0,
+    "textOverlapPairs": 0,
+    "maxTextOverlapPx": 0,
+    "screenshot": "03-compare-834-main-before.png"
+  },
+  {
+    "variant": "branch(after)",
+    "width": 834,
+    "spill": [
+      {
+        "t": "About",
+        "spill": 0,
+        "ws": "nowrap"
+      },
+      {
+        "t": "Catalog",
+        "spill": 0,
+        "ws": "nowrap"
+      },
+      {
+        "t": "Contact",
+        "spill": 0,
+        "ws": "nowrap"
+      },
+      {
+        "t": "Subscribe",
+        "spill": 0,
+        "ws": "nowrap"
+      },
+      {
+        "t": "/etc",
+        "spill": 0,
+        "ws": "nowrap"
+      },
+      {
+        "t": "/img",
+        "spill": 0,
+        "ws": "nowrap"
+      },
+      {
+        "t": "Listen",
+        "spill": 0,
+        "ws": "nowrap"
+      }
+    ],
+    "docOverflow": 0,
+    "textOverlapPairs": 0,
+    "maxTextOverlapPx": 0,
+    "screenshot": "03-compare-834-branch-after.png"
+  }
+]

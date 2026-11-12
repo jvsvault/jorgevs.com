@@ -1,0 +1,29 @@
+{
+  "board": {
+    "w": 369,
+    "h": 56
+  },
+  "grid_exempt": [
+    "About",
+    "Catalog",
+    "Contact",
+    "Subscribe",
+    "/etc",
+    "/img",
+    "Listen"
+  ],
+  "expect": [
+    "About",
+    "Catalog",
+    "Contact",
+    "Subscribe",
+    "/etc",
+    "/img",
+    "Listen"
+  ],
+  "min_gap": 3,
+  "stack_tol": 6,
+  "vcenter_tol": 1,
+  "max_widths": 8,
+  "max_heights": 2
+}
